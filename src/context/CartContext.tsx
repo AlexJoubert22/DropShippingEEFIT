@@ -14,6 +14,8 @@ type CartContextType = {
   totalPrice: number;
   isDrawerOpen: boolean;
   setIsDrawerOpen: (open: boolean) => void;
+  isQuizOpen: boolean;
+  setIsQuizOpen: (open: boolean) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -21,6 +23,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [items, setItems] = useState<CartItem[]>([]);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
 
   const addItem = (product: Product) => {
     setItems((prev) => {
@@ -55,7 +58,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <CartContext.Provider
-      value={{ items, addItem, removeItem, updateQuantity, totalPrice, isDrawerOpen, setIsDrawerOpen }}
+      value={{ items, addItem, removeItem, updateQuantity, totalPrice, isDrawerOpen, setIsDrawerOpen, isQuizOpen, setIsQuizOpen }}
     >
       {children}
     </CartContext.Provider>

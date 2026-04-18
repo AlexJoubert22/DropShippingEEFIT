@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom';
 import { products } from '../data/products';
 import { faqs } from '../data/faqs';
 import { Orb, MagneticButton, SplitText, NumberTicker, Accordion } from '../components/Shared';
+import { useCart } from '../context/CartContext';
 
 export const HomePage = () => {
+  const { setIsQuizOpen } = useCart();
+
   return (
     <div className="bg-[var(--theme-color-base)]">
       {/* 2. HERO */}
@@ -27,14 +30,19 @@ export const HomePage = () => {
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-[16px]"
+            className="flex flex-col gap-[16px] items-center pointer-events-auto"
           >
-            <MagneticButton variant="solid" onClick={() => { document.getElementById('dispositivos')?.scrollIntoView({ behavior: 'smooth' }) }}>
-              Ver dispositivos
-            </MagneticButton>
-            <MagneticButton variant="ghost" onClick={() => { document.getElementById('tecnologia')?.scrollIntoView({ behavior: 'smooth' }) }}>
-              Cómo funciona
-            </MagneticButton>
+            <div className="flex flex-col sm:flex-row gap-[16px]">
+              <MagneticButton variant="solid" onClick={() => { document.getElementById('dispositivos')?.scrollIntoView({ behavior: 'smooth' }) }}>
+                Ver dispositivos
+              </MagneticButton>
+              <MagneticButton variant="ghost" onClick={() => { document.getElementById('tecnologia')?.scrollIntoView({ behavior: 'smooth' }) }}>
+                Cómo funciona
+              </MagneticButton>
+            </div>
+            <button onClick={() => setIsQuizOpen(true)} className="text-[13px] text-secondary hover:text-primary transition-colors hover:border-b hover:border-primary border-b border-transparent pb-0.5 mt-2">
+              ¿No sabes cuál? Hacer el test (2 min) →
+            </button>
           </motion.div>
         </div>
         <div className="absolute bottom-[85px] flex flex-col items-center gap-2">
@@ -124,9 +132,12 @@ export const HomePage = () => {
           <div className="eyebrow mb-6">NO SABES CUÁL ELEGIR</div>
           <h2 className="text-[40px] md:text-[56px] font-medium tracking-tight mb-4">Compara los ocho.</h2>
           <p className="text-[17px] text-[var(--theme-color-secondary)] mb-10 max-w-[400px]">Todas las specs, un solo vistazo.</p>
-          <Link to="/comparador">
-            <MagneticButton variant="solid">Abrir comparador →</MagneticButton>
-          </Link>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link to="/comparador">
+              <MagneticButton variant="solid">Abrir comparador →</MagneticButton>
+            </Link>
+            <MagneticButton variant="ghost" onClick={() => setIsQuizOpen(true)}>Hacer el test →</MagneticButton>
+          </div>
         </div>
         <div className="w-full md:w-1/2 hidden md:flex items-center justify-end pr-0 md:pr-12 relative opacity-70 pointer-events-none mt-20 md:mt-0">
           <div className="bg-white border border-[rgba(10,9,6,0.08)] rounded-xl shadow-lg w-full max-w-[600px] overflow-hidden flex flex-col">

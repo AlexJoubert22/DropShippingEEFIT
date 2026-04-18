@@ -26,6 +26,11 @@ export type Product = {
   recommendedFrequency: string;
   faq: { q: string; a: string }[];
   relatedProductIds: string[];
+  quizTags: {
+    area: string[];
+    time: string;
+    mobility: string;
+  };
 };
 
 export const products: Product[] = [
@@ -64,7 +69,8 @@ export const products: Product[] = [
       { q: '¿Cuándo empezaré a notar resultados?', a: 'El aumento de ATP (energía celular) ocurre en la primera sesión, notando la piel más descansada. A partir de las 4-6 semanas de uso constante notarás mejoras en la textura y jugosidad.' },
       { q: '¿Puedo usar mi rutina de skincare antes de la máscara?', a: 'Recomendamos usarla sobre la piel limpia y seca para máxima penetración de luz. Los serums (idealmente ácido hialurónico) se aplican justo después para potenciar su absorción.' }
     ],
-    relatedProductIds: ['vitaly-core', 'vitaly-lite', 'vitaly-cap']
+    relatedProductIds: ['vitaly-core', 'vitaly-lite', 'vitaly-cap'],
+    quizTags: { area: ['face'], time: 'medium', mobility: 'static' }
   },
   {
     id: 'vitaly-cap',
@@ -101,7 +107,8 @@ export const products: Product[] = [
       { q: '¿Funciona para alopecia genética?', a: 'Está diseñado para potenciar folículos vivos y debilitaos. Para alopecia androgénica avanzada recomendamos nuestro modelo clínico Vitaly Halo.' },
       { q: '¿Es pesado o incómodo?', a: 'No, pesa solo 210 gramos, puede llevarse debajo de tu gorra favorita y la batería integrada permite moverte por casa sin cables.' }
     ],
-    relatedProductIds: ['vitaly-halo', 'vitaly-brush', 'vitaly-face']
+    relatedProductIds: ['vitaly-halo', 'vitaly-brush', 'vitaly-face'],
+    quizTags: { area: ['hair'], time: 'medium', mobility: 'static' }
   },
   {
     id: 'vitaly-halo',
@@ -137,7 +144,8 @@ export const products: Product[] = [
       { q: '¿Requiere estar enchufado?', a: 'No, cuenta con un battery pack externo potente que conectas mediante un cable trenzado, permitiendo autonomía de hasta 8 tratamientos sin recargar.' },
       { q: '¿Puedo combinarlo con finasteride o minoxidil?', a: 'Sí, la terapia LLLT es un excelente complemento potenciador para los tratamientos tópicos u orales pautados por tu dermatólogo.' }
     ],
-    relatedProductIds: ['vitaly-cap', 'vitaly-brush', 'vitaly-core']
+    relatedProductIds: ['vitaly-cap', 'vitaly-brush', 'vitaly-core'],
+    quizTags: { area: ['hair'], time: 'short', mobility: 'static' }
   },
   {
     id: 'vitaly-step',
@@ -174,7 +182,8 @@ export const products: Product[] = [
       { q: '¿El infrarrojo da mucho calor?', a: 'Es un calor sutil y muy confortable. No quema en absoluto, simplemente notas una vasodilatación relajante y envolvente.' },
       { q: '¿Qué tallas cubren?', a: 'El modelo es "one size fits most", cubriendo desde una talla 38 a una 45 cómodamente, ajustables con su cierre elástico adaptativo.' }
     ],
-    relatedProductIds: ['vitaly-neck', 'vitaly-core', 'vitaly-lite']
+    relatedProductIds: ['vitaly-neck', 'vitaly-core', 'vitaly-lite'],
+    quizTags: { area: ['muscle'], time: 'long', mobility: 'static' }
   },
   {
     id: 'vitaly-core',
@@ -210,7 +219,8 @@ export const products: Product[] = [
       { q: '¿Daña la vista la potencia de los LEDs?', a: 'No, pero para exposiciones frontales directas recomendamos usar las gafas de protección incluidas, especialmente si activas el infrarrojo 850nm invisible.' },
       { q: '¿Ocupa mucho espacio?', a: 'Mide solo 30cm de alto por 20cm de ancho con un soporte trasero estable de acero. Entra perfectamente en un rincón del escritorio, tocador o mesilla.' }
     ],
-    relatedProductIds: ['vitaly-face', 'vitaly-step', 'vitaly-neck', 'vitaly-halo']
+    relatedProductIds: ['vitaly-face', 'vitaly-step', 'vitaly-neck', 'vitaly-halo'],
+    quizTags: { area: ['core', 'muscle'], time: 'short', mobility: 'static' }
   },
   {
     id: 'vitaly-lite',
@@ -247,7 +257,8 @@ export const products: Product[] = [
       { q: '¿Cómo se carga?', a: 'Se recarga con cualquier cable USB-C estándar, e incluye una batería de alto rendimiento (18650) fácilmente reemplazable y un puerto tapado elegante.' },
       { q: '¿Sirve para el acné?', a: 'Ayuda significativamente acelerando el proceso autocurativo de una mancha roja y calmando la inflamación profunda de forma puntual e indolora.' }
     ],
-    relatedProductIds: ['vitaly-face', 'vitaly-neck', 'vitaly-core']
+    relatedProductIds: ['vitaly-face', 'vitaly-neck', 'vitaly-core'],
+    quizTags: { area: ['face', 'muscle'], time: 'short', mobility: 'portable' }
   },
   {
     id: 'vitaly-brush',
@@ -284,7 +295,8 @@ export const products: Product[] = [
       { q: '¿Es lavable?', a: 'El cabezal base donde van insertados los LEDs se puede limpiar con un paño húmedo. No debe sumergirse totalmente bajo el agua.' },
       { q: '¿Sirve si tengo alopecia severa?', a: 'Para ese caso médico, recomendamos Vitaly Halo o Cap como terapias estáticas. Vitaly Brush es un estimulador y mantenedor vitamínico estupendo.' }
     ],
-    relatedProductIds: ['vitaly-cap', 'vitaly-halo', 'vitaly-face']
+    relatedProductIds: ['vitaly-cap', 'vitaly-halo', 'vitaly-face'],
+    quizTags: { area: ['hair'], time: 'short', mobility: 'portable' }
   },
   {
     id: 'vitaly-neck',
@@ -321,6 +333,7 @@ export const products: Product[] = [
       { q: '¿Se adapta a mi cuello?', a: 'Sí. El núcleo interno moldeable permite abrir o cerrar el diámetro para que descanse sobre la curvatura de tus hombros envolviendo perfectamente la nuca.' },
       { q: '¿Se puede usar tumbado?', a: 'Sí. Es ideal ponérselo en la cama justo antes de dormir. Hemos eliminado botones duros en la zona occipital por esta razón.' }
     ],
-    relatedProductIds: ['vitaly-step', 'vitaly-core', 'vitaly-lite']
+    relatedProductIds: ['vitaly-step', 'vitaly-core', 'vitaly-lite'],
+    quizTags: { area: ['neck', 'muscle'], time: 'medium', mobility: 'static' }
   }
 ];

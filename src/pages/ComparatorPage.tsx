@@ -6,7 +6,7 @@ import { SplitText, Orb, MagneticButton } from '../components/Shared';
 
 export const ComparatorPage = () => {
   const tableRows = [
-    { label: 'Precio', getValue: (p: any) => `€${p.price}` },
+    { label: 'PRECIO', getValue: (p: any) => `€${p.price}` },
     { label: 'Categoría', getValue: (p: any) => p.category },
     { label: 'Longitudes de onda', getValue: (p: any) => p.specs.wavelengths.join(' + ') },
     { label: 'Nº de diodos', getValue: (p: any) => p.specs.diodes },
@@ -85,7 +85,7 @@ export const ComparatorPage = () => {
                     </th>
                     {products.map((p) => (
                       <td key={p.id} className="p-4 border-t border-[rgba(10,9,6,0.08)] text-[13px] text-[#6B6A66] text-center w-[130px]">
-                        <span className={row.label === 'Precio' ? 'text-[var(--theme-color-accent)] font-medium text-[18px]' : ''}>
+                        <span className={row.label === 'PRECIO' ? 'text-[var(--theme-color-accent)] font-medium text-[18px]' : ''}>
                           {row.getValue(p)}
                         </span>
                       </td>

@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Lenis from '@studio-freight/lenis';
 
-import { CartProvider } from './context/CartContext';
+import { CartProvider, useCart } from './context/CartContext';
 import { CustomCursor } from './components/Shared';
 import { Nav } from './components/Nav';
 import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
+import { Quiz } from './components/Quiz';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
 import { ComparatorPage } from './pages/ComparatorPage';
@@ -23,6 +24,11 @@ const ScrollToTop = () => {
   }, [pathname, hash]);
 
   return null;
+};
+
+const QuizMount = () => {
+  const { isQuizOpen, setIsQuizOpen } = useCart();
+  return <Quiz isOpen={isQuizOpen} onClose={() => setIsQuizOpen(false)} />;
 };
 
 export default function App() {
@@ -51,6 +57,7 @@ export default function App() {
       <Router>
         <ScrollToTop />
         <CustomCursor />
+        <QuizMount />
         <Nav />
         <CartDrawer />
         <Routes>

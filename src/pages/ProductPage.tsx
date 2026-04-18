@@ -44,7 +44,7 @@ const Accordion: React.FC<{ title: string, children: React.ReactNode, defaultOpe
 export const ProductPage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
-  const { addItem, updateQuantity, items, setIsDrawerOpen } = useCart();
+  const { addItem, updateQuantity, items, setIsDrawerOpen, setIsQuizOpen } = useCart();
   const [quantity, setQuantity] = useState(1);
 
   const product = products.find(p => p.slug === slug);
@@ -117,9 +117,9 @@ export const ProductPage = () => {
               <span className="text-[13px] text-[var(--theme-color-secondary)]">Envío gratis</span>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 mb-4">
               {/* Quantity Selector Minimalist */}
-              <div className="flex items-center justify-between border border-[var(--theme-color-border)] rounded-full px-6 py-4 h-[56px] sm:w-[140px] flex-shrink-0">
+              <div className="flex items-center justify-between border border-[var(--theme-color-border)] rounded-full px-6 py-4 h-[56px] sm:w-[140px] flex-shrink-0 bg-transparent">
                 <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="text-[20px] text-secondary hover:text-primary leading-none cursor-pointer p-2">−</button>
                 <span className="text-[15px] font-medium w-[30px] text-center">{quantity}</span>
                 <button onClick={() => setQuantity(quantity + 1)} className="text-[20px] text-secondary hover:text-primary leading-none cursor-pointer p-2">+</button>
@@ -132,8 +132,15 @@ export const ProductPage = () => {
                 Añadir al carrito · €{product.price * quantity}
               </button>
             </div>
+            
+            <button 
+              onClick={() => setIsQuizOpen(true)} 
+              className="w-full sm:w-auto text-[13px] text-secondary hover:text-primary transition-colors flex items-center justify-center sm:justify-start gap-1 mb-8 font-medium mx-auto sm:mx-0 border-b border-transparent hover:border-primary pb-0.5"
+            >
+              ¿Cuál VITALY es para ti? Haz el test <span className="opacity-70 ml-1">→</span>
+            </button>
 
-            <div className="flex flex-wrap gap-4 text-[11px] text-[var(--theme-color-secondary)] font-medium tracking-wide uppercase mb-12">
+            <div className="flex flex-wrap gap-4 text-[11px] text-[var(--theme-color-secondary)] font-medium tracking-wide justify-center sm:justify-start uppercase mb-12">
               <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full border border-current opacity-50" /> Prueba 60 días</span>
               <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full border border-current opacity-50" /> Envío 24h</span>
               <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full border border-current opacity-50" /> Garantía {product.specs.warranty}</span>

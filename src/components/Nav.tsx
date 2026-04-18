@@ -9,7 +9,7 @@ export const Nav = () => {
   const navBg = useTransform(scrollYProgress, [0, 0.05], ["rgba(245, 243, 237, 0)", "rgba(245, 243, 237, 0.8)"]);
   const navBlur = useTransform(scrollYProgress, [0, 0.05], ["blur(0px)", "blur(12px)"]);
 
-  const { items, setIsDrawerOpen } = useCart();
+  const { items, setIsDrawerOpen, setIsQuizOpen } = useCart();
   const [bounce, setBounce] = useState(false);
   const location = useLocation();
 
@@ -34,6 +34,7 @@ export const Nav = () => {
         <Link to="/#dispositivos" className="hover:text-primary transition-colors">Dispositivos</Link>
         <Link to="/comparador" className="hover:text-primary transition-colors">Comparar</Link>
         <Link to="/#tecnologia" className="hover:text-primary transition-colors">Tecnología</Link>
+        <button onClick={() => setIsQuizOpen(true)} className="hover:text-primary transition-colors cursor-pointer">Test</button>
         <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
         <Link to="/#ciencia" className="hover:text-primary transition-colors">Ciencia</Link>
       </div>
