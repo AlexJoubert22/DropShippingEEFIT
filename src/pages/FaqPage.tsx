@@ -60,9 +60,18 @@ export const FaqPage = () => {
   };
 
   return (
-    <div className="bg-[var(--theme-color-base)] min-h-screen pt-[72px]">
+    <div className="bg-[var(--theme-color-base)] min-h-screen pt-[72px] relative z-10">
+      {/* BREADCRUMB */}
+      <div className="absolute top-[100px] left-6 md:left-12 z-20">
+        <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide border-b border-transparent">
+          <Link to="/" className="text-[var(--theme-color-secondary)] hover:text-primary transition-colors hover:border-b hover:border-[var(--theme-color-secondary)]">Inicio</Link>
+          <span className="text-[var(--theme-color-secondary)] opacity-50">/</span>
+          <span className="text-primary">Preguntas frecuentes</span>
+        </div>
+      </div>
+
       {/* HERO */}
-      <section className="h-[30vh] min-h-[300px] flex flex-col items-center justify-center text-center px-4 relative z-10">
+      <section className="h-[30vh] min-h-[300px] flex flex-col items-center justify-center text-center px-4 relative mt-8 z-10">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="eyebrow mb-6">PREGUNTAS FRECUENTES</motion.div>
         <SplitText text="Lo que nos preguntáis." as="h1" className="text-[clamp(40px,5vw,64px)] font-medium tracking-tight mb-4 justify-center" />
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }} className="text-[17px] text-[var(--theme-color-secondary)]">
@@ -72,14 +81,19 @@ export const FaqPage = () => {
 
       <section className="px-6 md:px-12 max-w-[800px] mx-auto pb-24 relative z-10">
         {/* BUSCADOR */}
-        <div className="flex justify-center mb-16">
-          <input 
-            type="text" 
-            placeholder="Buscar en las preguntas..." 
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full max-w-[560px] bg-transparent border-b border-[rgba(10,9,6,0.15)] py-4 text-[16px] md:text-[18px] text-[var(--theme-color-primary)] placeholder-[var(--theme-color-secondary)] focus:outline-none focus:border-[var(--theme-color-accent)] transition-colors text-center"
-          />
+        <div className="flex justify-center mb-16 px-4">
+          <div className="relative w-full max-w-[560px]">
+            <div className="absolute left-[18px] top-1/2 -translate-y-1/2 text-[rgba(10,9,6,0.4)] pointer-events-none">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <input 
+              type="text" 
+              placeholder="Buscar en las preguntas..." 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full bg-white border border-[rgba(10,9,6,0.15)] rounded-md py-[14px] pl-[44px] pr-[20px] text-[16px] text-[#0A0906] placeholder-[rgba(10,9,6,0.4)] focus:outline-none focus:border-[var(--theme-color-accent)] focus:ring-2 focus:ring-[var(--theme-color-accent)]/10 transition-all text-left"
+            />
+          </div>
         </div>
 
         {/* CATEGORÍAS TABS */}

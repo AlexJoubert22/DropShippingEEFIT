@@ -64,7 +64,7 @@ export const products: Product[] = [
       { q: '¿Cuándo empezaré a notar resultados?', a: 'El aumento de ATP (energía celular) ocurre en la primera sesión, notando la piel más descansada. A partir de las 4-6 semanas de uso constante notarás mejoras en la textura y jugosidad.' },
       { q: '¿Puedo usar mi rutina de skincare antes de la máscara?', a: 'Recomendamos usarla sobre la piel limpia y seca para máxima penetración de luz. Los serums (idealmente ácido hialurónico) se aplican justo después para potenciar su absorción.' }
     ],
-    relatedProductIds: ['vitaly-neck', 'vitaly-lite']
+    relatedProductIds: ['vitaly-core', 'vitaly-lite', 'vitaly-cap']
   },
   {
     id: 'vitaly-cap',
@@ -79,7 +79,7 @@ export const products: Product[] = [
     orbColors: ['#8B7FFF', '#D4CFFF', '#F2EEFF'],
     image: null,
     specs: {
-      wavelengths: ['650nm'],
+      wavelengths: ['660nm', '850nm'],
       diodes: 120,
       sessionMinutes: 15,
       weightGrams: 210,
@@ -101,7 +101,7 @@ export const products: Product[] = [
       { q: '¿Funciona para alopecia genética?', a: 'Está diseñado para potenciar folículos vivos y debilitaos. Para alopecia androgénica avanzada recomendamos nuestro modelo clínico Vitaly Halo.' },
       { q: '¿Es pesado o incómodo?', a: 'No, pesa solo 210 gramos, puede llevarse debajo de tu gorra favorita y la batería integrada permite moverte por casa sin cables.' }
     ],
-    relatedProductIds: ['vitaly-halo', 'vitaly-brush']
+    relatedProductIds: ['vitaly-halo', 'vitaly-brush', 'vitaly-face']
   },
   {
     id: 'vitaly-halo',
@@ -116,7 +116,7 @@ export const products: Product[] = [
     orbColors: ['#FFB347', '#FF8C42', '#FFE0B2'],
     image: null,
     specs: {
-      wavelengths: ['650nm láser', '650nm LED'],
+      wavelengths: ['660nm', '850nm'],
       diodes: 272,
       sessionMinutes: 8,
       weightGrams: 450,
@@ -137,7 +137,7 @@ export const products: Product[] = [
       { q: '¿Requiere estar enchufado?', a: 'No, cuenta con un battery pack externo potente que conectas mediante un cable trenzado, permitiendo autonomía de hasta 8 tratamientos sin recargar.' },
       { q: '¿Puedo combinarlo con finasteride o minoxidil?', a: 'Sí, la terapia LLLT es un excelente complemento potenciador para los tratamientos tópicos u orales pautados por tu dermatólogo.' }
     ],
-    relatedProductIds: ['vitaly-cap', 'vitaly-brush']
+    relatedProductIds: ['vitaly-cap', 'vitaly-brush', 'vitaly-core']
   },
   {
     id: 'vitaly-step',
@@ -152,7 +152,7 @@ export const products: Product[] = [
     orbColors: ['#5EEAD4', '#A7F3D0', '#ECFDF5'],
     image: null,
     specs: {
-      wavelengths: ['660nm'],
+      wavelengths: ['850nm'],
       diodes: 80,
       sessionMinutes: 20,
       weightGrams: 300,
@@ -174,7 +174,7 @@ export const products: Product[] = [
       { q: '¿El infrarrojo da mucho calor?', a: 'Es un calor sutil y muy confortable. No quema en absoluto, simplemente notas una vasodilatación relajante y envolvente.' },
       { q: '¿Qué tallas cubren?', a: 'El modelo es "one size fits most", cubriendo desde una talla 38 a una 45 cómodamente, ajustables con su cierre elástico adaptativo.' }
     ],
-    relatedProductIds: ['vitaly-core', 'vitaly-lite']
+    relatedProductIds: ['vitaly-neck', 'vitaly-core', 'vitaly-lite']
   },
   {
     id: 'vitaly-core',
@@ -189,7 +189,7 @@ export const products: Product[] = [
     orbColors: ['#FF6FD8', '#FFB8E6', '#FFE4F4'],
     image: null,
     specs: {
-      wavelengths: ['660nm', '850nm'],
+      wavelengths: ['630nm', '660nm', '830nm', '850nm'],
       diodes: 200,
       sessionMinutes: 9,
       weightGrams: 2800,
@@ -210,7 +210,7 @@ export const products: Product[] = [
       { q: '¿Daña la vista la potencia de los LEDs?', a: 'No, pero para exposiciones frontales directas recomendamos usar las gafas de protección incluidas, especialmente si activas el infrarrojo 850nm invisible.' },
       { q: '¿Ocupa mucho espacio?', a: 'Mide solo 30cm de alto por 20cm de ancho con un soporte trasero estable de acero. Entra perfectamente en un rincón del escritorio, tocador o mesilla.' }
     ],
-    relatedProductIds: ['vitaly-lite', 'vitaly-face']
+    relatedProductIds: ['vitaly-face', 'vitaly-step', 'vitaly-neck', 'vitaly-halo']
   },
   {
     id: 'vitaly-lite',
@@ -225,7 +225,7 @@ export const products: Product[] = [
     orbColors: ['#4A9FFF', '#7DD3FC', '#DBEAFE'],
     image: null,
     specs: {
-      wavelengths: ['630nm', '660nm', '850nm'],
+      wavelengths: ['660nm', '850nm'],
       diodes: 3,
       sessionMinutes: 3,
       weightGrams: 150,
@@ -247,7 +247,7 @@ export const products: Product[] = [
       { q: '¿Cómo se carga?', a: 'Se recarga con cualquier cable USB-C estándar, e incluye una batería de alto rendimiento (18650) fácilmente reemplazable y un puerto tapado elegante.' },
       { q: '¿Sirve para el acné?', a: 'Ayuda significativamente acelerando el proceso autocurativo de una mancha roja y calmando la inflamación profunda de forma puntual e indolora.' }
     ],
-    relatedProductIds: ['vitaly-face', 'vitaly-core']
+    relatedProductIds: ['vitaly-face', 'vitaly-neck', 'vitaly-core']
   },
   {
     id: 'vitaly-brush',
@@ -262,7 +262,7 @@ export const products: Product[] = [
     orbColors: ['#FDB022', '#FEF3C7', '#FFFBEB'],
     image: null,
     specs: {
-      wavelengths: ['650nm'],
+      wavelengths: ['660nm'],
       diodes: 18,
       sessionMinutes: 5,
       weightGrams: 195,
@@ -284,7 +284,7 @@ export const products: Product[] = [
       { q: '¿Es lavable?', a: 'El cabezal base donde van insertados los LEDs se puede limpiar con un paño húmedo. No debe sumergirse totalmente bajo el agua.' },
       { q: '¿Sirve si tengo alopecia severa?', a: 'Para ese caso médico, recomendamos Vitaly Halo o Cap como terapias estáticas. Vitaly Brush es un estimulador y mantenedor vitamínico estupendo.' }
     ],
-    relatedProductIds: ['vitaly-cap', 'vitaly-halo']
+    relatedProductIds: ['vitaly-cap', 'vitaly-halo', 'vitaly-face']
   },
   {
     id: 'vitaly-neck',
@@ -299,7 +299,7 @@ export const products: Product[] = [
     orbColors: ['#A78BFA', '#E9D5FF', '#F3EBFF'],
     image: null,
     specs: {
-      wavelengths: ['660nm', '850nm'],
+      wavelengths: ['850nm'],
       diodes: 60,
       sessionMinutes: 15,
       weightGrams: 180,
@@ -321,6 +321,6 @@ export const products: Product[] = [
       { q: '¿Se adapta a mi cuello?', a: 'Sí. El núcleo interno moldeable permite abrir o cerrar el diámetro para que descanse sobre la curvatura de tus hombros envolviendo perfectamente la nuca.' },
       { q: '¿Se puede usar tumbado?', a: 'Sí. Es ideal ponérselo en la cama justo antes de dormir. Hemos eliminado botones duros en la zona occipital por esta razón.' }
     ],
-    relatedProductIds: ['vitaly-face', 'vitaly-lite']
+    relatedProductIds: ['vitaly-step', 'vitaly-core', 'vitaly-lite']
   }
 ];

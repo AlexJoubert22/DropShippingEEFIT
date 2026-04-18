@@ -58,11 +58,13 @@ export const Footer = () => {
         </div>
       </div>
       
-      <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-full text-center select-none pointer-events-none opacity-[0.04] z-0">
-        <div className="text-[clamp(120px,18vw,220px)] font-bold tracking-tight leading-none text-[var(--theme-color-primary)]">VITALY</div>
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-full text-center select-none opacity-[0.04]">
+          <div className="text-[clamp(120px,18vw,220px)] font-bold tracking-tight leading-none text-[var(--theme-color-primary)]">VITALY</div>
+        </div>
       </div>
       
-      <div className="border-t border-[rgba(10,9,6,0.08)] py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-[var(--theme-color-secondary)] z-10 relative">
+      <div className="border-t border-[rgba(10,9,6,0.08)] py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-[var(--theme-color-secondary)] z-10 relative bg-base">
         <div>© 2026 Vitaly S.L. · Alboraia, València</div>
         <div className="text-center md:text-right">Vitaly no sustituye consejo médico. Dispositivos registrados en AEMPS.</div>
       </div>

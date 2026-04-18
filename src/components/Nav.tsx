@@ -18,7 +18,7 @@ export const Nav = () => {
   useEffect(() => {
     if (totalItems > 0) {
       setBounce(true);
-      const timer = setTimeout(() => setBounce(false), 400);
+      const timer = setTimeout(() => setBounce(false), 600);
       return () => clearTimeout(timer);
     }
   }, [totalItems]);
@@ -43,15 +43,15 @@ export const Nav = () => {
           onClick={() => setIsDrawerOpen(true)}
           className="text-secondary hover:text-primary transition-colors cursor-pointer tracking-wider flex items-center"
         >
-          Carrito (
+          <span className="mr-1">Carrito (</span>
           <motion.span
-            animate={bounce ? { scale: [1, 1.2, 1] } : { scale: 1 }}
-            transition={{ duration: 0.4 }}
-            className="inline-block"
+            animate={bounce ? { scale: [1, 1.3, 1], color: ['var(--theme-color-accent)', 'var(--theme-color-accent)', 'currentColor'] } : { scale: 1, color: 'currentColor' }}
+            transition={{ duration: 0.6, ease: [0.68, -0.55, 0.27, 1.55] }}
+            className="inline-block font-medium"
           >
             {totalItems}
           </motion.span>
-          )
+          <span>)</span>
         </button>
         <button className="rounded-full bg-[#FF4D2E] text-[#FFFFFF] px-[18px] py-[8px] text-[12px] font-medium transition-colors hover:bg-[#E63D20] tracking-wide hidden sm:block">
           Acceder

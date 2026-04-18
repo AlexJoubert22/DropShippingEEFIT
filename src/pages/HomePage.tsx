@@ -128,19 +128,32 @@ export const HomePage = () => {
             <MagneticButton variant="solid">Abrir comparador →</MagneticButton>
           </Link>
         </div>
-        <div className="w-full md:w-1/2 absolute md:relative right-[-20%] md:right-0 top-1/2 md:top-auto -translate-y-1/2 md:translate-y-0 opacity-10 md:opacity-30 pointer-events-none mt-20 md:mt-0">
-          <svg viewBox="0 0 400 300" width="100%" height="auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Header row */}
-            <rect x="0" y="20" width="100" height="40" rx="8" fill="#FF4D2E" />
-            <rect x="120" y="20" width="100" height="40" rx="8" fill="var(--theme-color-primary)" />
-            <rect x="240" y="20" width="100" height="40" rx="8" fill="var(--theme-color-primary)" />
-            {/* Lines */}
-            <line x1="0" y1="80" x2="340" y2="80" stroke="var(--theme-color-primary)" strokeWidth="2" strokeDasharray="4 4" />
-            <line x1="0" y1="120" x2="340" y2="120" stroke="var(--theme-color-primary)" strokeWidth="2" strokeDasharray="4 4" />
-            <line x1="0" y1="160" x2="340" y2="160" stroke="var(--theme-color-primary)" strokeWidth="2" strokeDasharray="4 4" />
-            <line x1="0" y1="200" x2="340" y2="200" stroke="var(--theme-color-primary)" strokeWidth="2" strokeDasharray="4 4" />
-            <line x1="0" y1="240" x2="340" y2="240" stroke="var(--theme-color-primary)" strokeWidth="2" strokeDasharray="4 4" />
-          </svg>
+        <div className="w-full md:w-1/2 hidden md:flex items-center justify-end pr-0 md:pr-12 relative opacity-70 pointer-events-none mt-20 md:mt-0">
+          <div className="bg-white border border-[rgba(10,9,6,0.08)] rounded-xl shadow-lg w-full max-w-[600px] overflow-hidden flex flex-col">
+            <div className="flex border-b border-[rgba(10,9,6,0.08)]">
+              <div className="w-[120px] p-4 bg-[#FAF8F2]"></div>
+              {[products[0], products[1], products[2]].map(p => (
+                <div key={p.id} className="flex-1 p-4 flex flex-col items-center justify-center border-l border-[rgba(10,9,6,0.08)]">
+                  <div className="w-10 h-10 rounded-full bg-[#FAF8F2] mb-3 flex items-center justify-center overflow-hidden relative">
+                    <div className="scale-[0.4] absolute"><Orb colors={p.orbColors} size="100px" /></div>
+                  </div>
+                  <div className="text-[11px] font-medium text-primary tracking-tight whitespace-nowrap overflow-hidden text-ellipsis w-full text-center">{p.name}</div>
+                </div>
+              ))}
+            </div>
+            {[1, 2, 3, 4].map((idx) => (
+              <div key={idx} className="flex border-b border-[rgba(10,9,6,0.08)] last:border-0 hover:bg-[#FAF8F2] transition-colors">
+                <div className="w-[120px] p-3 border-r border-[rgba(10,9,6,0.08)] flex items-center justify-start pl-4">
+                  <div className="h-1.5 w-16 bg-[rgba(10,9,6,0.05)] rounded-full"></div>
+                </div>
+                {[1, 2, 3].map(col => (
+                  <div key={col} className="flex-1 p-3 flex justify-center items-center">
+                    <div className={`h-1.5 rounded-full bg-[rgba(10,9,6,0.03)] ${col === 1 ? 'w-10' : col === 2 ? 'w-14' : 'w-8'}`}></div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
