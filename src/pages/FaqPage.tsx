@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { faqs } from '../data/faqs';
 import { SplitText, cn, MagneticButton } from '../components/Shared';

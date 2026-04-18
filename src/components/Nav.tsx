@@ -43,11 +43,11 @@ export const Nav = () => {
           onClick={() => setIsDrawerOpen(true)}
           className="text-secondary hover:text-primary transition-colors cursor-pointer tracking-wider flex items-center"
         >
-          <span className="mr-1">Carrito (</span>
+          <span>Carrito (</span>
           <motion.span
             animate={bounce ? { scale: [1, 1.3, 1], color: ['var(--theme-color-accent)', 'var(--theme-color-accent)', 'currentColor'] } : { scale: 1, color: 'currentColor' }}
             transition={{ duration: 0.6, ease: [0.68, -0.55, 0.27, 1.55] }}
-            className="inline-block font-medium"
+            className="inline-block font-medium px-0 mx-0"
           >
             {totalItems}
           </motion.span>

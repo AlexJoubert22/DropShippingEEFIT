@@ -33,7 +33,7 @@ export const ComparatorPage = () => {
       {/* HERO */}
       <section className="h-[40vh] min-h-[350px] flex flex-col items-center justify-center text-center px-4 relative mt-8">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="eyebrow mb-6">COMPARAR</motion.div>
-        <SplitText text="Ocho dispositivos. Elige el tuyo." as="h1" className="text-[clamp(44px,5vw,72px)] font-medium tracking-tight mb-4 justify-center max-w-[900px] [text-wrap:balance]" />
+        <SplitText text="Ocho dispositivos. Elige el tuyo." as="h1" className="text-[clamp(44px,5vw,72px)] font-medium tracking-tight leading-none mx-auto mb-4 justify-center max-w-[900px] [text-wrap:balance]" />
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }} className="text-[17px] text-[var(--theme-color-secondary)] max-w-[520px]">
           Todas las especificaciones, lado a lado. Sin marketing, solo números.
         </motion.p>
