@@ -32,9 +32,10 @@ export const Nav = () => {
       
       <div className="hidden md:flex items-center gap-[32px] text-[13px] text-secondary">
         <Link to="/#dispositivos" className="hover:text-primary transition-colors">Dispositivos</Link>
+        <Link to="/comparador" className="hover:text-primary transition-colors">Comparar</Link>
         <Link to="/#tecnologia" className="hover:text-primary transition-colors">Tecnología</Link>
+        <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
         <Link to="/#ciencia" className="hover:text-primary transition-colors">Ciencia</Link>
-        <Link to="/#diario" className="hover:text-primary transition-colors">Diario</Link>
       </div>
 
       <div className="flex items-center gap-[24px] text-[13px]">

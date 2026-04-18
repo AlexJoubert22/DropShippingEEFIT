@@ -19,7 +19,7 @@ export type Product = {
     certifications: string[];
     warranty: string;
   };
-  benefits: string[];
+  benefits: { title: string; description: string }[];
   useCases: string[];
   targetArea: string;
   bestFor: string[];
@@ -51,9 +51,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      'Estimula producción de colágeno',
-      'Reduce inflamación y enrojecimiento',
-      'Mejora textura y tono de la piel'
+      { title: 'Estimula producción de colágeno', description: 'La luz penetra hasta la dermis para activar los fibroblastos, reduciendo visiblemente las arrugas finas y restaurando el volumen facial.' },
+      { title: 'Reduce inflamación y enrojecimiento', description: 'Calma la piel reactiva desde la primera sesión con frecuencias clínicamente probadas contra la rosácea.' },
+      { title: 'Mejora textura y tono', description: 'Cierra poros dilatados e ilumina la tez general, logrando ese efecto "glow" orgánico sin cosméticos agresivos.' }
     ],
     useCases: ['antiedad', 'marcas', 'post-tratamiento'],
     targetArea: 'facial',
@@ -88,9 +88,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      'Aumenta el grosor del tallo',
-      'Minimiza la caída temporal',
-      'Mejora la salud del cuero cabelludo'
+      { title: 'Aumenta el grosor del tallo', description: 'Revitaliza los folículos debilitados aportando energía directa (ATP), lo que produce un cabello notablemente más grueso y resistente.' },
+      { title: 'Minimiza la caída temporal', description: 'Ayuda a regular ciclos de muda excesiva (efluvio telógeno) tras periodos de estrés, enfermedades o post-parto.' },
+      { title: 'Mejora la salud del cuero cabelludo', description: 'Disminuye la inflamación peri-folicular y reequilibra el microbioma del cuero cabelludo creando un entorno ideal para el crecimiento capilar.' }
     ],
     useCases: ['caída estacional', 'pérdida de volumen', 'post-parto'],
     targetArea: 'cuero cabelludo',
@@ -124,9 +124,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      'Prolonga la fase anágena folicular',
-      'Incrementa flujo sanguíneo local un 25%',
-      'Tratamiento profundo sin fármacos'
+      { title: 'Prolonga la fase anágena', description: 'Mantiene a los folículos pilosos en su fase productiva durante más tiempo, evitando la miniaturización progresiva.' },
+      { title: 'Flujo sanguíneo +25%', description: 'Los diodos láser de 650nm penetran con alta irradiancia, estimulando masivamente la oxigenación en áreas con mala vascularización.' },
+      { title: 'Alternativa libre de fármacos', description: 'Tratamiento clínico no invasivo, sin los efectos secundarios hormonales habituales en medicaciones tradicionales.' }
     ],
     useCases: ['alopecia androgénica', 'retroceso capilar', 'pérdida severa'],
     targetArea: 'cuero cabelludo',
@@ -161,9 +161,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      'Alivio de la tensión miofascial plantar',
-      'Sensación de ligereza muscular',
-      'Favorece la sensación de recuperación celular'
+      { title: 'Alivio miofascial plantar', description: 'Ayuda a descomprimir la fascia aportando una suave vasodilatación que limpia metabolitos acumulados durante el día.' },
+      { title: 'Sensación de ligereza', description: 'Disminuye la retención de líquidos superficial y esa sensación de "piernas pesadas" gracias al riego mejorado.' },
+      { title: 'Termoterapia envolvente', description: 'Su suave calor térmico genera una respuesta del sistema nervioso parasimpático perfecta para desconectar.' }
     ],
     useCases: ['post-entreno', 'pie cansado', 'sedentarismo'],
     targetArea: 'plantar',
@@ -197,9 +197,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      'Regulación circadiana (ritmos de sueño)',
-      'Aporte energético sistémico (ATP)',
-      'Alivio amplio en zonas musculares grandes'
+      { title: 'Regulación circadiana', description: 'Emula el espectro de luz natural matutina, bloqueando la melatonina inerte para activarte naturalmente sin cafeína.' },
+      { title: 'Aporte sistémico celular', description: 'Satura grandes grupos musculares con fotones que las mitocondrias convierten en energía pura y utilizable de inmediato.' },
+      { title: 'Alivio de dolor profundo', description: 'El infrarrojo de 850nm penetra hasta los cartílagos, reduciendo inflamaciones persistentes en lumbares o rodillas.' }
     ],
     useCases: ['biohacking matutino', 'recuperación deportiva', 'sueño'],
     targetArea: 'cuerpo completo',
@@ -234,9 +234,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      'Irradiancia ultra concentrada',
-      'Portabilidad total para viajes',
-      'Recuperación puntual de micro-dolencias'
+      { title: 'Irradiancia concentrada', description: 'Al aplicarse en contacto directo cutáneo, su poder lumínico erradica inflamaciones puntuales más rápido que superficies lejanas.' },
+      { title: 'Portabilidad absoluta', description: 'Llévalo en tu neceser y mantén tu rutina de wellness tecnológico aunque estés durmiendo fuera de casa en viajes de trabajo.' },
+      { title: 'Recuperación SOS', description: 'Ideal para ese asomo de grano ocasional, picadura molesta o ligera sobrecarga de túnel carpiano tras usar el portátil.' }
     ],
     useCases: ['labios', 'frente', 'codo y muñeca', 'viajes'],
     targetArea: 'zonas focales',
@@ -271,9 +271,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      'Mejora la textura y brillo del cabello',
-      'Estimulación capilar sin añadir minutos a tu rutina',
-      'Las microvibraciones limpian tensión epicraneal'
+      { title: 'Optimiza la textura capilar', description: 'El paso regular oxigena el cuero cabelludo, ayudando a que el sebo natural recubra el pelo y dejándolo brillante sin productos químicos.' },
+      { title: 'Cero minutos extra a tu rutina', description: 'Conviértelo en tu peine habitual y estarás recibiendo fotobiomodulación todos los días sin perder un segundo extra.' },
+      { title: 'Microvibraciones relajantes', description: 'Opcionalmente activa su oscilación de alta frecuencia para desatar nudos tensionales en la aponeurosis craneal (estrés acumulado).' }
     ],
     useCases: ['rutina de belleza diaria', 'estrés capilar'],
     targetArea: 'cuero cabelludo',
@@ -308,9 +308,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      'Relajación muscular sostenida',
-      'Aporte térmico calmante (infrarrojo invisible)',
-      'Mejora de recuperación en postura cifótica'
+      { title: 'Relajación trapecial sostenida', description: 'Sus diodos infrarrojos se focalizan en el vientre muscular del trapecio, disolviendo nudos por exceso de uso del ratón y teclado.' },
+      { title: 'Aporte térmico calmante', description: 'Los fotones aceleran el riego local e imitan el efecto reconfortante de un paño caliente, de forma ininterrumpida.' },
+      { title: 'Compensa la postura cifótica', description: 'Ayuda a oxigenar la zona posterior del cuello que se acorta e inflama diariamente por mirar pantallas pequeñas (cuello de texto).' }
     ],
     useCases: ['cuello de texto', 'estrés de oficina', 'tensión trapecios'],
     targetArea: 'cervicales y trapecio alto',

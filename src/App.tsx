@@ -9,6 +9,8 @@ import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
+import { ComparatorPage } from './pages/ComparatorPage';
+import { FaqPage } from './pages/FaqPage';
 
 // Scroll restoration for nested routes or link clicks
 const ScrollToTop = () => {
@@ -54,7 +56,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/producto/:slug" element={<ProductPage />} />
-          <Route path="/tecnologia" element={<HomePage />} /> {/* Placeholder to loop back to home tech section basically */}
+          <Route path="/comparador" element={<ComparatorPage />} />
+          <Route path="/faq" element={<FaqPage />} />
           <Route path="*" element={<div className="min-h-screen flex items-center justify-center pt-20"><h1 className="text-2xl">404 - Página no encontrada</h1></div>} />
         </Routes>
         <Footer />

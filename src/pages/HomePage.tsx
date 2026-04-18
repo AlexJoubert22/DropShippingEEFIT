@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { products } from '../data/products';
-import { Orb, MagneticButton, SplitText, NumberTicker } from '../components/Shared';
+import { faqs } from '../data/faqs';
+import { Orb, MagneticButton, SplitText, NumberTicker, Accordion } from '../components/Shared';
 
 export const HomePage = () => {
   return (
@@ -95,7 +96,7 @@ export const HomePage = () => {
             >
               <motion.div
                 initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.1 }} transition={{ duration: 0.7, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-                className="product-card group relative h-[440px] rounded-[20px] border border-[var(--theme-color-border)] bg-[#FAF8F2] overflow-hidden p-[24px] flex flex-col justify-end h-full hover:shadow-[0_20px_40px_rgba(10,9,6,0.06)] transition-shadow duration-500"
+                className="product-card group relative h-[440px] rounded-[20px] border border-[var(--theme-color-border)] bg-[#FAF8F2] overflow-hidden p-[24px] flex flex-col justify-end hover:shadow-[0_20px_40px_rgba(10,9,6,0.06)] transition-shadow duration-500"
               >
                 <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 flex items-start justify-center pointer-events-none scale-[1.4]">
                   <Orb colors={prod.orbColors} size="240px" className="transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.15] [&>div]:group-hover:blur-[15px]" />
@@ -114,6 +115,32 @@ export const HomePage = () => {
               </motion.div>
             </Link>
           ))}
+        </div>
+      </section>
+
+      {/* 5.5 TEASER COMPARADOR */}
+      <section className="py-[120px] bg-[#FAF8F2] border-y border-[var(--theme-color-border)] relative z-10 overflow-hidden px-4 md:px-12 flex flex-col md:flex-row items-center">
+        <div className="w-full md:w-1/2 flex flex-col items-start z-10">
+          <div className="eyebrow mb-6">NO SABES CUÁL ELEGIR</div>
+          <h2 className="text-[40px] md:text-[56px] font-medium tracking-tight mb-4">Compara los ocho.</h2>
+          <p className="text-[17px] text-[var(--theme-color-secondary)] mb-10 max-w-[400px]">Todas las specs, un solo vistazo.</p>
+          <Link to="/comparador">
+            <MagneticButton variant="solid">Abrir comparador →</MagneticButton>
+          </Link>
+        </div>
+        <div className="w-full md:w-1/2 absolute md:relative right-[-20%] md:right-0 top-1/2 md:top-auto -translate-y-1/2 md:translate-y-0 opacity-10 md:opacity-30 pointer-events-none mt-20 md:mt-0">
+          <svg viewBox="0 0 400 300" width="100%" height="auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Header row */}
+            <rect x="0" y="20" width="100" height="40" rx="8" fill="#FF4D2E" />
+            <rect x="120" y="20" width="100" height="40" rx="8" fill="var(--theme-color-primary)" />
+            <rect x="240" y="20" width="100" height="40" rx="8" fill="var(--theme-color-primary)" />
+            {/* Lines */}
+            <line x1="0" y1="80" x2="340" y2="80" stroke="var(--theme-color-primary)" strokeWidth="2" strokeDasharray="4 4" />
+            <line x1="0" y1="120" x2="340" y2="120" stroke="var(--theme-color-primary)" strokeWidth="2" strokeDasharray="4 4" />
+            <line x1="0" y1="160" x2="340" y2="160" stroke="var(--theme-color-primary)" strokeWidth="2" strokeDasharray="4 4" />
+            <line x1="0" y1="200" x2="340" y2="200" stroke="var(--theme-color-primary)" strokeWidth="2" strokeDasharray="4 4" />
+            <line x1="0" y1="240" x2="340" y2="240" stroke="var(--theme-color-primary)" strokeWidth="2" strokeDasharray="4 4" />
+          </svg>
         </div>
       </section>
 
@@ -186,6 +213,34 @@ export const HomePage = () => {
               <p className="text-[15px] leading-relaxed max-w-[240px] text-[var(--theme-color-primary)]">{text}</p>
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* 8.5 TEASER FAQ */}
+      <section className="py-[100px] px-4 md:px-12 bg-[#FAF8F2] border-y border-[var(--theme-color-border)] z-10 relative">
+        <div className="max-w-[800px] mx-auto">
+          <div className="text-center mb-16">
+            <div className="eyebrow mb-6">DUDAS FRECUENTES</div>
+            <h2 className="text-[40px] md:text-[48px] font-medium tracking-tight">Respuestas claras.</h2>
+          </div>
+          
+          <div className="flex flex-col mb-12">
+            {[7, 8, 4, 16].map((id) => {
+              const faq = faqs.find(f => f.id === id);
+              if (!faq) return null;
+              return (
+                <Accordion key={id} title={faq.q}>
+                  {faq.a}
+                </Accordion>
+              );
+            })}
+          </div>
+
+          <div className="text-center">
+            <Link to="/faq" className="text-[14px] font-medium text-[var(--theme-color-primary)] border-b border-[#0A0906] pb-1 hover:opacity-70 transition-opacity">
+              Ver todas las preguntas →
+            </Link>
+          </div>
         </div>
       </section>
 

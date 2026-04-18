@@ -7,6 +7,52 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+export const Accordion: React.FC<{ 
+  title: string, 
+  children: React.ReactNode, 
+  defaultOpen?: boolean, 
+  isOpen?: boolean, 
+  onToggle?: () => void 
+}> = ({ title, children, defaultOpen = false, isOpen: controlledIsOpen, onToggle }) => {
+  const [internalIsOpen, setInternalIsOpen] = useState(defaultOpen);
+  
+  const isControlled = controlledIsOpen !== undefined;
+  const isOpen = isControlled ? controlledIsOpen : internalIsOpen;
+
+  const handleClick = () => {
+    if (onToggle) onToggle();
+    if (!isControlled) setInternalIsOpen(!internalIsOpen);
+  };
+
+  return (
+    <div className="border-b border-[var(--theme-color-border)] last:border-b-0">
+      <button 
+        onClick={handleClick}
+        className="w-full py-6 flex items-center justify-between text-left focus:outline-none"
+      >
+        <span className="text-[15px] font-medium tracking-tight pr-8">{title}</span>
+        <motion.div 
+          animate={{ rotate: isOpen ? 45 : 0 }} 
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="w-6 h-6 rounded-full border border-[var(--theme-color-border)] flex items-center justify-center flex-shrink-0"
+        >
+          <span className="text-[10px] leading-none text-[var(--theme-color-primary)]">+</span>
+        </motion.div>
+      </button>
+      <motion.div 
+        initial={false}
+        animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+        className="overflow-hidden"
+      >
+        <div className="pb-8 text-[14px] text-[var(--theme-color-secondary)] leading-relaxed pr-8">
+          {children}
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
 export const Orb = ({ colors, size, className = '' }: { colors: string[], size: string, className?: string }) => {
   return (
     <div className={cn("orb-container relative rounded-full", className)} style={{ width: size, height: size, flexShrink: 0 }}>

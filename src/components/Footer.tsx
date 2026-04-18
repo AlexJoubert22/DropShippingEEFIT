@@ -51,10 +51,10 @@ export const Footer = () => {
         
         <div className="flex flex-col gap-4 text-[13px]">
           <span className="font-medium mb-2">Soporte</span>
-          <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">FAQ</a>
-          <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Envíos</a>
-          <a href="#" className="text-secondary hover:text-primary transition-colors">Garantía</a>
-          <a href="#" className="text-secondary hover:text-primary transition-colors">Contacto</a>
+          <Link to="/faq" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">FAQ</Link>
+          <Link to="/faq" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Envíos</Link>
+          <Link to="/faq" className="text-secondary hover:text-primary transition-colors">Garantía</Link>
+          <a href="mailto:soporte@vitalylab.com" className="text-secondary hover:text-primary transition-colors">Contacto</a>
         </div>
       </div>
       

@@ -206,8 +206,8 @@ export const ProductPage = () => {
               className="flex flex-col"
             >
               <div className="text-[48px] font-medium text-[#FF4D2E] leading-none mb-6">0{i+1}</div>
-              <h3 className="text-[20px] font-medium tracking-tight mb-3">{benefit}</h3>
-              <p className="text-[14px] text-[#6B6A66] leading-relaxed line-clamp-2">Nuestra dosimetría controlada permite optimizar los resultados específicamente para {product.targetArea}.</p>
+              <h3 className="text-[20px] font-medium tracking-tight mb-3">{benefit.title}</h3>
+              <p className="text-[14px] text-[#6B6A66] leading-relaxed line-clamp-4">{benefit.description}</p>
             </motion.div>
           ))}
         </div>
@@ -247,7 +247,7 @@ export const ProductPage = () => {
                   <div className="eyebrow text-[11px] uppercase tracking-[0.14em] mb-2">{prod.id} · {prod.category}</div>
                   <h3 className="text-[24px] font-medium tracking-tight mb-2 text-primary">{prod.name}</h3>
                   <p className="text-[14px] text-[var(--theme-color-secondary)] mb-4 line-clamp-2">{prod.description}</p>
-                  <div className="text-[18px] font-medium text-[var(--theme-color-accent)]">{prod.price}</div>
+                  <div className="text-[18px] font-medium text-[var(--theme-color-accent)]">€{prod.price}</div>
                 </div>
                 <div className="absolute top-6 right-6 w-[32px] h-[32px] rounded-full border border-[var(--theme-color-border)] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[var(--theme-color-primary)] text-[14px]">
                   →
