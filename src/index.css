@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Inter:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-base: #F5F3ED;
+  --color-primary: #0A0906;
+  --color-secondary: #6B6A66;
+  --color-border: rgba(10, 9, 6, 0.08);
+  --color-accent: #FF4D2E;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+body {
+  background-color: var(--theme-color-base);
+  color: var(--theme-color-primary);
+  font-family: var(--theme-font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--theme-color-secondary);
+  font-weight: 400;
+}
+
+.text-display {
+  font-size: clamp(56px, 8vw, 120px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.text-h2 {
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  text-wrap: balance;
+}
+
+.text-body {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.gradient-mesh {
+  background: conic-gradient(from var(--angle), #FF4D2E, #8B7FFF, #5EEAD4, #FFB347, #FF4D2E);
+  filter: blur(80px) saturate(1.2);
+  animation: rotate-gradient 30s linear infinite;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+@keyframes rotate-gradient {
+  0% { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+@keyframes rotate-orb {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse-orb {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.orb-container {
+  animation: rotate-orb 40s linear infinite;
+  will-change: transform;
+}
+
+.orb-pulse {
+  animation: pulse-orb 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
