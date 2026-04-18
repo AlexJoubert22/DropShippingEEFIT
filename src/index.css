@@ -59,9 +59,9 @@ body {
 
 .gradient-mesh {
   background: conic-gradient(from var(--angle), #FF4D2E, #8B7FFF, #5EEAD4, #FFB347, #FF4D2E);
-  filter: blur(80px) saturate(1.2);
+  filter: blur(100px) saturate(1.2);
   animation: rotate-gradient 30s linear infinite;
-  opacity: 0.35;
+  opacity: 0.55;
   pointer-events: none;
 }
 

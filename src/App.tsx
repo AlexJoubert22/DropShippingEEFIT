@@ -51,7 +51,7 @@ const MagneticButton = ({ children, className = '', variant = 'solid' }: { child
       transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
       className={cn(
         "relative rounded-full px-[28px] py-[14px] text-[14px] font-medium tracking-wide transition-colors duration-300 pointer-events-auto",
-        variant === 'solid' ? "bg-[var(--theme-color-accent)] text-white hover:bg-[#E63D20]" : "border border-[var(--theme-color-border)] text-[var(--theme-color-primary)] hover:border-[var(--theme-color-primary)]",
+        variant === 'solid' ? "bg-[#FF4D2E] text-[#FFFFFF] hover:bg-[#E63D20]" : "border border-[var(--theme-color-border)] text-[var(--theme-color-primary)] hover:border-[var(--theme-color-primary)]",
         className
       )}
     >
@@ -95,9 +95,12 @@ const NumberTicker = ({ value, suffix = '', className = '' }: { value: number | 
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const easeOut = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.floor(easeOut * target));
-      if (progress < 1) requestAnimationFrame(animate);
-      else setCount(target);
+      if (progress < 1) {
+        setCount(Math.floor(easeOut * target));
+        requestAnimationFrame(animate);
+      } else {
+        setCount(target);
+      }
     };
     requestAnimationFrame(animate);
   }, [isInView, target]);
@@ -186,14 +189,14 @@ export default function App() {
   }, []);
 
   const products = [
-    { id: '01', category: 'ROSTRO', name: 'Vitaly Face', desc: 'Máscara LED de grado clínico. Colágeno en 10 min/día.', price: '€349', colors: ['#FF6B4A', '#FFB4A8', '#FFE8D6'] },
-    { id: '02', category: 'CABELLO', name: 'Vitaly Cap', desc: 'Gorra con 120 diodos. Densidad visible en 12 semanas.', price: '€289', colors: ['#8B7FFF', '#D4CFFF', '#F2EEFF'] },
-    { id: '03', category: 'CUERO CABELLUDO', name: 'Vitaly Halo', desc: 'Casco médico de fotobiomodulación. Alopecia androgénica.', price: '€599', colors: ['#FFB347', '#FF8C42', '#FFE0B2'] },
-    { id: '04', category: 'PIES', name: 'Vitaly Step', desc: 'Zapatillas FIR. Circulación periférica en reposo.', price: '€149', colors: ['#5EEAD4', '#A7F3D0', '#ECFDF5'] },
-    { id: '05', category: 'NÚCLEO', name: 'Vitaly Core', desc: 'Vitalización celular. Energía mitocondrial en 9 min.', price: '€459', colors: ['#FF6FD8', '#FFB8E6', '#FFE4F4'] },
-    { id: '06', category: 'PORTÁTIL', name: 'Vitaly Lite', desc: 'LED de mano. Terapia puntual donde la necesitas.', price: '€189', colors: ['#4A9FFF', '#7DD3FC', '#DBEAFE'] },
-    { id: '07', category: 'CABELLO', name: 'Vitaly Brush', desc: 'Cepillo con fotobiomodulación. Cada pasada, un tratamiento.', price: '€129', colors: ['#FDB022', '#FEF3C7', '#FFFBEB'] },
-    { id: '08', category: 'CERVICAL', name: 'Vitaly Neck', desc: 'Collar infrarrojo contorneado. Libera tensión de escritorio.', price: '€179', colors: ['#A78BFA', '#E9D5FF', '#F3EBFF'] },
+    { id: '01', category: 'ROSTRO', name: 'Vitaly Face', desc: 'Máscara LED clínica. Colágeno diario.', price: '€349', colors: ['#FF6B4A', '#FFB4A8', '#FFE8D6'] },
+    { id: '02', category: 'CABELLO', name: 'Vitaly Cap', desc: '120 diodos. Densidad visible en 12 semanas.', price: '€289', colors: ['#8B7FFF', '#D4CFFF', '#F2EEFF'] },
+    { id: '03', category: 'CUERO CABELLUDO', name: 'Vitaly Halo', desc: 'Casco médico. Alopecia androgénica.', price: '€599', colors: ['#FFB347', '#FF8C42', '#FFE0B2'] },
+    { id: '04', category: 'PIES', name: 'Vitaly Step', desc: 'Zapatillas FIR. Circulación en reposo.', price: '€149', colors: ['#5EEAD4', '#A7F3D0', '#ECFDF5'] },
+    { id: '05', category: 'NÚCLEO', name: 'Vitaly Core', desc: 'Vitalización celular. 9 min al día.', price: '€459', colors: ['#FF6FD8', '#FFB8E6', '#FFE4F4'] },
+    { id: '06', category: 'PORTÁTIL', name: 'Vitaly Lite', desc: 'LED de mano. Terapia puntual.', price: '€189', colors: ['#4A9FFF', '#7DD3FC', '#DBEAFE'] },
+    { id: '07', category: 'CABELLO', name: 'Vitaly Brush', desc: 'Cepillo fotobiomodulación. Cada pasada trata.', price: '€129', colors: ['#FDB022', '#FEF3C7', '#FFFBEB'] },
+    { id: '08', category: 'CERVICAL', name: 'Vitaly Neck', desc: 'Collar infrarrojo. Tensión cervical.', price: '€179', colors: ['#A78BFA', '#E9D5FF', '#F3EBFF'] },
   ];
 
   return (
@@ -214,7 +217,7 @@ export default function App() {
         </div>
         <div className="flex items-center gap-[24px] text-[13px]">
           <span className="text-secondary hover:text-primary transition-colors cursor-pointer tracking-wider">Carrito (0)</span>
-          <button className="rounded-full bg-[var(--theme-color-accent)] text-white px-[18px] py-[8px] text-[12px] font-medium hover:opacity-90 transition-opacity tracking-wide">Acceder</button>
+          <button className="rounded-full bg-[#FF4D2E] text-[#FFFFFF] px-[18px] py-[8px] text-[12px] font-medium transition-colors hover:bg-[#E63D20] tracking-wide">Acceder</button>
         </div>
       </motion.nav>
 
@@ -294,8 +297,19 @@ export default function App() {
             </motion.p>
           </motion.div>
         </div>
-        <div className="w-full md:w-1/2 flex items-center justify-center relative overflow-hidden min-h-[50vh] md:min-h-0">
-          <Orb colors={['#FFB347', '#FF8C42', '#FFE0B2']} size="70vh" className="absolute" />
+        <div className="w-full md:w-1/2 p-8 md:p-20 flex flex-col justify-center gap-12 border-t md:border-t-0 md:border-l border-[var(--theme-color-border)]">
+          <div className="border-t border-[var(--theme-color-border)] pt-4">
+            <div className="text-[56px] font-medium text-[#0A0906] leading-none mb-2"><NumberTicker value={660} suffix="nm" /></div>
+            <div className="text-[13px] text-[var(--theme-color-secondary)]">longitud de onda roja certificada</div>
+          </div>
+          <div className="border-t border-[var(--theme-color-border)] pt-4">
+            <div className="text-[56px] font-medium text-[#0A0906] leading-none mb-2"><NumberTicker value={9} suffix=" min" /></div>
+            <div className="text-[13px] text-[var(--theme-color-secondary)]">duración óptima por sesión</div>
+          </div>
+          <div className="border-t border-[var(--theme-color-border)] pt-4">
+            <div className="text-[56px] font-medium text-[#0A0906] leading-none mb-2"><NumberTicker value={98} suffix="%" /></div>
+            <div className="text-[13px] text-[var(--theme-color-secondary)]">absorción mitocondrial medida</div>
+          </div>
         </div>
       </section>
 
@@ -314,24 +328,24 @@ export default function App() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.1 }}
               transition={{ duration: 0.7, delay: i * 0.05, ease: [0.16, 1, 0.3, 1] }}
-              className="product-card group relative h-[210px] rounded-[20px] border border-[var(--theme-color-border)] bg-[#FAF8F2] overflow-hidden p-[20px] flex flex-col justify-end"
+              className="product-card group relative h-[440px] rounded-[20px] border border-[var(--theme-color-border)] bg-[#FAF8F2] overflow-hidden p-[24px] flex flex-col justify-end"
             >
-              <div className="absolute top-[-30%] left-1/2 -translate-x-1/2 flex items-start justify-center pointer-events-none">
+              <div className="absolute top-[-20%] left-1/2 -translate-x-1/2 flex items-start justify-center pointer-events-none scale-[1.4]">
                 <Orb 
                   colors={prod.colors} 
-                  size="140px" 
+                  size="240px" 
                   className="transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.15] [&>div]:group-hover:blur-[15px]" 
                 />
               </div>
               
-              <div className="relative z-10 transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2">
-                <div className="eyebrow mb-0 text-[9px]">{prod.id} · {prod.category}</div>
-                <h3 className="text-[18px] font-medium tracking-tight mt-[4px]">{prod.name}</h3>
-                <p className="text-[11px] text-[var(--theme-color-secondary)] mt-[2px] mb-1 line-clamp-1">{prod.desc}</p>
-                <div className="text-[14px] font-medium text-[var(--theme-color-accent)] mt-[4px]">{prod.price}</div>
+              <div className="relative z-10 flex flex-col transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2">
+                <div className="eyebrow text-[11px] uppercase tracking-[0.14em] mb-2">{prod.id} · {prod.category}</div>
+                <h3 className="text-[24px] font-medium tracking-tight mb-2">{prod.name}</h3>
+                <p className="text-[14px] text-[var(--theme-color-secondary)] mb-4 line-clamp-2">{prod.desc}</p>
+                <div className="text-[18px] font-medium text-[var(--theme-color-accent)]">{prod.price}</div>
               </div>
               
-              <div className="absolute top-6 right-6 opacity-0 translate-x-[-10px] group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 text-[var(--theme-color-primary)]">
+              <div className="absolute top-6 right-6 w-[32px] h-[32px] rounded-full border border-[var(--theme-color-border)] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-[var(--theme-color-primary)] text-[14px]">
                 →
               </div>
             </motion.div>
@@ -483,7 +497,7 @@ export default function App() {
       </section>
 
       {/* 10. CTA FINAL */}
-      <section className="min-h-[90vh] relative flex flex-col items-center justify-center text-center px-4 overflow-hidden border-t border-[rgba(10,9,6,0.08)] bg-[var(--theme-color-base)]">
+      <section className="min-h-[90vh] pt-[120px] relative flex flex-col items-center justify-center text-center px-4 overflow-hidden border-t border-[rgba(10,9,6,0.08)] bg-[var(--theme-color-base)] z-20">
         <div className="absolute inset-0 gradient-mesh" style={{ opacity: 0.7 }} />
         <div className="absolute inset-0 bg-[#F5F3ED]/30 backdrop-blur-[2px]" />
         
@@ -506,7 +520,7 @@ export default function App() {
 
       {/* 11. FOOTER */}
       <footer className="pt-[120px] px-6 md:px-12 bg-base relative overflow-hidden z-10 flex flex-col border-t border-[var(--theme-color-border)]">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-12 mb-32 z-10 relative">
+        <div className="grid grid-cols-2 md:grid-cols-7 gap-12 mb-32 z-10 relative">
           <div className="col-span-2 md:col-span-2 flex flex-col">
             <div className="text-[14px] font-medium tracking-widest mb-12">VITALY</div>
             <div className="relative w-full max-w-[300px]">
@@ -539,9 +553,16 @@ export default function App() {
           <div className="flex flex-col gap-4 text-[13px]">
             <span className="font-medium mb-2">Empresa</span>
             <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Nosotros</a>
-            <a href="#" className="text-secondary hover:text-primary transition-colors">Manifiesto</a>
             <a href="#" className="text-secondary hover:text-primary transition-colors">Prensa</a>
             <a href="#" className="text-secondary hover:text-primary transition-colors">Carreras</a>
+          </div>
+
+          <div className="flex flex-col gap-4 text-[13px]">
+            <span className="font-medium mb-2">Marca</span>
+            <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Manifiesto</a>
+            <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Historia</a>
+            <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Diseño</a>
+            <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Sostenibilidad</a>
           </div>
           
           <div className="flex flex-col gap-4 text-[13px]">
@@ -553,8 +574,8 @@ export default function App() {
           </div>
         </div>
         
-        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-full text-center select-none pointer-events-none opacity-[0.03]">
-          <div className="text-[clamp(120px,18vw,220px)] font-bold tracking-tight leading-none">VITALY</div>
+        <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-full text-center select-none pointer-events-none opacity-[0.04] z-0">
+          <div className="text-[clamp(120px,18vw,220px)] font-bold tracking-tight leading-none text-[var(--theme-color-primary)]">VITALY</div>
         </div>
         
         <div className="border-t border-[rgba(10,9,6,0.08)] py-8 flex flex-col md:flex-row justify-between items-center gap-4 text-[12px] text-[var(--theme-color-secondary)] z-10 relative">
