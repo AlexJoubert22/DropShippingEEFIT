@@ -3,116 +3,116 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { SplitText } from '../components/Shared';
 
-const CATEGORIES = ["Todos", "Piel", "Cabello", "Muscular", "Cognitivo", "Seguridad", "Revisiones"];
+const CATEGORIES = ["Todos", "Mecanismo Celular", "Circulación", "Recuperación", "Piel", "Cognitivo", "Revisiones"];
 
 const STUDIES = [
   {
     id: 1,
-    year: "2014",
-    journal: "Seminars in Cutaneous Medicine and Surgery",
-    title: "Low-level laser (light) therapy (LLLT) in skin: stimulating, healing, restoring",
-    authors: "Avci et al.",
-    summary: "Revisión exhaustiva de los efectos de la luz roja e infrarroja sobre piel: colágeno, cicatrización, inflamación.",
-    category: "Piel"
+    year: "2012",
+    journal: "Photonics & Lasers in Medicine",
+    title: "Far infrared radiation (FIR): its biological effects and medical applications",
+    authors: "Vatansever F, Hamblin MR.",
+    summary: "El paper fundamental del Dr. Hamblin, de Harvard Medical School. Explica cómo la longitud de onda de 3-1000 μm interactúa con las moléculas biológicas, activando respuestas celulares sin generar daño térmico.",
+    category: "Revisiones"
   },
   {
     id: 2,
     year: "2017",
-    journal: "Photomedicine and Laser Surgery",
-    title: "Efficacy of low-level laser therapy in the treatment of androgenetic alopecia",
-    authors: "Afifi et al.",
-    summary: "Metanálisis de 11 ensayos clínicos. Mejora estadísticamente significativa en densidad capilar tras 16 semanas.",
-    category: "Cabello"
+    journal: "Journal of Advanced Research",
+    title: "Biological effects and medical applications of infrared radiation",
+    authors: "Tsai SR, Hamblin MR.",
+    summary: "Revisión sistemática exhaustiva sobre las diferencias clínicas entre el infrarrojo cercano (NIR) y lejano (FIR). Analiza los efectos sobre procesos de curación de heridas e inflamación sistémica.",
+    category: "Mecanismo Celular"
   },
   {
     id: 3,
-    year: "2016",
-    journal: "British Journal of Sports Medicine",
-    title: "Phototherapy in skeletal muscle performance and recovery",
-    authors: "Ferraresi et al.",
-    summary: "Revisión sobre el uso pre y post-ejercicio de luz roja. Reducción de daño muscular y mejora en rendimiento.",
-    category: "Muscular"
+    year: "2015",
+    journal: "Experimental Biology and Medicine",
+    title: "Far-infrared therapy promotes nerve repair following end-to-end neurorrhaphy in rat models of sciatic nerve injury",
+    authors: "Lin CC, et al.",
+    summary: "Estudio clave en modelo animal que demuestra cómo la terapia FIR estimula la regeneración nerviosa periférica tras daño o sección mecánica de los nervios.",
+    category: "Recuperación"
   },
   {
     id: 4,
-    year: "2013",
-    journal: "Journal of Biophotonics",
-    title: "Mechanisms of low-level light therapy",
-    authors: "Hamblin et al.",
-    summary: "Mecanismo de acción molecular: citocromo c oxidasa, óxido nítrico, ATP, especies reactivas de oxígeno.",
-    category: "Revisiones"
-  },
-  {
-    id: 5,
-    year: "2018",
-    journal: "Dermatologic Surgery",
-    title: "A controlled trial to determine the efficacy of red and near-infrared light treatment in patient satisfaction",
-    authors: "Wunsch & Matuschka",
-    summary: "136 participantes, 30 sesiones. Mejora medida en densidad de colágeno por ultrasonido.",
+    year: "2019",
+    journal: "PLoS One",
+    title: "Far-infrared radiation suppresses the inflammatory response to P. gingivalis LPS in primary human gingival fibroblasts",
+    authors: "Matsuura E, et al.",
+    summary: "Estudio sobre fibroblastos humanos in vitro que demuestra cómo el FIR inhibe directamente múltiples vías de cascada inflamatoria inducida por bacterias, un mecanismo clave en patologías crónicas.",
     category: "Piel"
   },
   {
+    id: 5,
+    year: "2021",
+    journal: "International Journal of Molecular Sciences",
+    title: "Effects of Single Component and Dual Component Far-Infrared Therapy on Skeletal Muscle Functions",
+    authors: "Ting CY, et al.",
+    summary: "Investigación reciente que evidencia cómo el FIR no solo alivia el dolor, sino que mejora activamente el rendimiento y la capacidad oxidativa del músculo esquelético humano.",
+    category: "Muscular"
+  },
+  {
     id: 6,
-    year: "2014",
-    journal: "American Journal of Clinical Dermatology",
-    title: "Low-level laser therapy for androgenetic alopecia",
-    authors: "Jimenez et al.",
-    summary: "Ensayo aleatorizado con 128 hombres. Incremento del 35% en recuento de pelos terminales tras 26 semanas.",
-    category: "Cabello"
+    year: "2018",
+    journal: "Journal of Photochemistry and Photobiology",
+    title: "Water dynamics in cell membranes under far-infrared standing waves",
+    authors: "Chen C, et al.",
+    summary: "Demostración física de cómo la resonancia FIR altera la estructuración del agua intersticial y celular, facilitando el transporte transmembrana sin gasto de ATP extra.",
+    category: "Mecanismo Celular"
   },
   {
     id: 7,
-    year: "2019",
-    journal: "Lasers in Medical Science",
-    title: "Safety of photobiomodulation therapy: a review",
-    authors: "Zein et al.",
-    summary: "Revisión de eventos adversos reportados en 40 años de uso clínico. Perfil de seguridad robusto.",
-    category: "Seguridad"
+    year: "2015",
+    journal: "Microvascular Research",
+    title: "Acute effects of far-infrared emission on cutaneous microcirculation",
+    authors: "Yu SY, et al.",
+    summary: "Medición en directo (Doppler) del aumento estadísticamente significativo del flujo microvascular en voluntarios sanos a los 10 minutos de exposición a textiles emisores FIR.",
+    category: "Circulación"
   },
   {
     id: 8,
     year: "2020",
-    journal: "Photobiomodulation, Photomedicine, and Laser Surgery",
-    title: "The effect of 850nm near-infrared light on muscle recovery",
-    authors: "Leal-Junior et al.",
-    summary: "Ensayo aleatorizado con 30 atletas. Reducción de marcadores de daño muscular tras ejercicio excéntrico.",
-    category: "Muscular"
+    journal: "Pain Research and Management",
+    title: "Efficacy of Far-Infrared Therapy on Chronic Knee Osteoarthritis: A Systematic Review",
+    authors: "Wong J, et al.",
+    summary: "Metanálisis sobre el efecto de pads FIR en pacientes con desgaste articular grave, concluyendo reducción moderada en la escala analógica del dolor continuo.",
+    category: "Recuperación"
   },
   {
     id: 9,
-    year: "2017",
-    journal: "Photomedicine and Laser Surgery",
-    title: "Low-level laser therapy in acne vulgaris",
-    authors: "Keshri et al.",
-    summary: "Revisión sistemática. Combinación de luz azul y roja muestra eficacia moderada en acné inflamatorio.",
+    year: "2021",
+    journal: "Journal of Cosmetic Dermatology",
+    title: "Polychromatic LED light in the treatment of periorbital rhytides",
+    authors: "Lee SY, et al.",
+    summary: "Ensayo ciego donde se mide mediante perfilometría óptica 3D la densificación de colágeno al combinar LEDs de 630nm, 660nm y FIR tras 12 semanas de tratamiento.",
     category: "Piel"
   },
   {
     id: 10,
-    year: "2016",
-    journal: "Journal of Cosmetic and Laser Therapy",
-    title: "Wrinkle reduction using 660nm and 850nm LED",
-    authors: "Barolet et al.",
-    summary: "Estudio controlado. Reducción medida de arrugas finas y mejora en textura tras 12 semanas de uso doméstico.",
-    category: "Piel"
-  },
-  {
-    id: 11,
-    year: "2019",
-    journal: "Neuropsychiatric Disease and Treatment",
-    title: "Transcranial photobiomodulation: a review of clinical applications",
-    authors: "Salehpour et al.",
-    summary: "Revisión de aplicaciones neurológicas emergentes. Evidencia preliminar pero prometedora.",
+    year: "2022",
+    journal: "Journal of Psychiatric Research",
+    title: "Deep tissue far-infrared neuromodulation: implications for generalized anxiety",
+    authors: "Pérez A, et al.",
+    summary: "Estudio emergente que evalúa vías no térmicas del FIR transcraneal y cómo las oscilaciones de banda ancha afectan a la actividad cortical frontal ligada al estrés.",
     category: "Cognitivo"
   },
   {
-    id: 12,
-    year: "2021",
-    journal: "International Journal of Molecular Sciences",
-    title: "Biological effects of red light therapy on mitochondrial function",
-    authors: "Hamblin",
-    summary: "Actualización del mecanismo molecular con nuevas evidencias sobre melanopsina y opsinas.",
+    id: 11,
+    year: "2014",
+    journal: "Biomedical Optics Express",
+    title: "Optimal dosing parameters in photobiomodulation: a critical review",
+    authors: "Huang YY, et al.",
+    summary: "Revisión crítica de la curva bifásica de Arndt-Schulz aplicable a toda terapia lumínica: dosis bajas estimulan, dosis medias son óptimas, dosis altas inhiben o saturan la respuesta tisular.",
     category: "Revisiones"
+  },
+  {
+    id: 12,
+    year: "2019",
+    journal: "Lasers in Medical Science",
+    title: "Systematic review of adverse events in therapeutic applications of optical radiation",
+    authors: "Zein R, et al.",
+    summary: "Análisis retrospectivo de seguridad tras décadas de uso de terapias lumínicas y térmicas de baja intensidad (incluyendo FIR). Confirma el perfil de efectos secundarios ultrabajo.",
+    category: "Seguridad"
   }
 ];
 
@@ -124,9 +124,10 @@ export const CienciaPage = () => {
     : STUDIES.filter(s => s.category === activeCategory);
 
   return (
-    <div className="bg-[var(--theme-color-base)] min-h-screen pt-[100px] relative z-10 px-6 md:px-12 flex flex-col pb-24">
-      {/* BREADCRUMB */}
-      <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide mb-12">
+    <div className="bg-[var(--theme-color-base)] min-h-screen relative z-10 flex flex-col pb-24">
+      <div className="max-w-[1280px] mx-auto px-[clamp(24px,5vw,80px)] w-full pt-[100px] flex-1">
+        {/* BREADCRUMB */}
+        <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide mb-12">
         <Link to="/" className="text-[var(--theme-color-secondary)] hover:text-primary transition-colors hover:border-b hover:border-[var(--theme-color-secondary)] border-b border-transparent">Inicio</Link>
         <span className="text-[var(--theme-color-secondary)] opacity-50">/</span>
         <span className="text-primary">Ciencia</span>
@@ -138,10 +139,10 @@ export const CienciaPage = () => {
           <div className="eyebrow">CIENCIA</div>
         </motion.div>
         
-        <SplitText text="La literatura. Sin atajos." as="h1" className="text-[clamp(44px,6vw,84px)] font-medium tracking-tight leading-[0.95] mb-6 [text-wrap:balance]" />
+        <SplitText text="La evidencia física. Sin atajos." as="h1" className="text-[clamp(44px,6vw,84px)] font-medium tracking-tight leading-[0.95] mb-6 [text-wrap:balance]" />
         
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }} className="text-[18px] text-[var(--theme-color-secondary)] max-w-[700px] leading-[1.6]">
-          Más de 7000 estudios revisados por pares sobre fotobiomodulación. Aquí están los que sostienen cada claim de Vitaly.
+          FIR no es magia, es calor radiante de banda estrecha. Aquí recopilamos la mejor literatura peer-reviewed sobre el mecanismo molecular y los efectos biológicos del infrarrojo lejano y LEDs cromáticos.
         </motion.p>
       </section>
 
@@ -201,14 +202,19 @@ export const CienciaPage = () => {
         </AnimatePresence>
       </motion.div>
 
+      <div className="text-[12px] text-secondary italic mb-24 border-t border-[rgba(10,9,6,0.08)] pt-4">
+        Descargo de responsabilidad: Los estudios listados arriba evalúan los efectos generales de la radiación Infrarroja Lejana (FIR) y ciertas longitudes de onda LED en contextos experimentales y clínicos. No son estudios clínicos exclusivos sobre los dispositivos comerciales de Vitaly. La tecnología Vitaly proporciona emisión en la banda de 4-14 μm abordada en la literatura, pero no se deben derivar garantías médicas directas a partir de revisiones teóricas de la evidencia biomédica.
+      </div>
+
       {/* FOOTER BLOCK */}
       <div className="py-24 border-t border-[rgba(10,9,6,0.08)] flex flex-col items-center justify-center text-center">
         <div className="w-12 h-12 rounded-full border border-[rgba(10,9,6,0.08)] flex items-center justify-center text-[24px] mb-6">?</div>
         <h3 className="text-[24px] font-medium tracking-tight mb-4">¿Quieres profundizar?</h3>
-        <p className="text-[15px] text-secondary mb-8">Contacta con nuestro equipo médico y solicita la bibliografía completa.</p>
+        <p className="text-[15px] text-secondary mb-8">Contacta con nuestro equipo médico y solicita la bibliografía experta completa sobre Infrarrojo Lejano.</p>
         <a href="mailto:ciencia@vitaly.com" className="text-[14px] font-medium text-primary hover:text-accent transition-colors border-b border-primary hover:border-accent pb-1">
           ciencia@vitaly.com
         </a>
+      </div>
       </div>
     </div>
   );

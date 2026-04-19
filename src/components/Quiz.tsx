@@ -238,27 +238,28 @@ export const Quiz = ({ isOpen, onClose }: QuizProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[200] bg-[#F5F3ED] flex flex-col"
+          className="fixed inset-0 z-[200] bg-[#FAF8F2] flex flex-col"
           ref={modalRef}
+          style={{ background: 'var(--theme-color-base)' }}
         >
           {/* HEADER */}
-          <header className="h-[72px] flex items-center justify-between px-6 border-b border-[rgba(10,9,6,0.08)] flex-shrink-0 relative">
-            <div className="text-[13px] sm:text-[14px] font-medium tracking-[0.2em] relative z-10 w-auto whitespace-nowrap">VITALY · TEST</div>
+          <header className="h-[72px] flex items-center justify-between px-6 border-b border-[rgba(10,9,6,0.08)] flex-shrink-0 relative bg-[var(--theme-color-base)]">
+            <div className="text-[13px] font-medium tracking-[0.2em] relative z-10 w-auto whitespace-nowrap">VITALY · TEST</div>
             
-            <div className="absolute left-1/2 -translate-x-1/2 flex gap-1 items-center z-10">
+            <div className="absolute left-1/2 -translate-x-1/2 flex flex-row gap-1 sm:gap-2 items-center z-10">
               {[0, 1, 2, 3].map(i => (
-                <div key={i} className="h-[2px] bg-[rgba(10,9,6,0.12)] relative overflow-hidden flex-shrink-0 w-[60px]">
+                <div key={i} className="h-[3px] bg-[rgba(10,9,6,0.1)] relative overflow-hidden flex-shrink-0 w-[20px] sm:w-[40px] md:w-[60px] rounded-full">
                   <motion.div 
                     initial={{ width: 0 }}
-                    animate={{ width: (step > i || step === 4) || (step === i && showResumePrompt === false) ? '100%' : '0%' }}
+                    animate={{ width: (step > i || step === 4) ? '100%' : (step === i && showResumePrompt === false) ? '50%' : '0%' }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="absolute inset-0 bg-[var(--theme-color-accent)]"
+                    className="absolute inset-0 bg-[#FF4D2E]"
                   />
                 </div>
               ))}
             </div>
 
-            <button onClick={onClose} className="w-[32px] h-[32px] rounded-full border border-[rgba(10,9,6,0.15)] flex items-center justify-center text-[16px] hover:border-[var(--theme-color-primary)] transition-colors focus:outline-none relative z-10">
+            <button onClick={onClose} className="w-[32px] h-[32px] rounded-full border border-[rgba(10,9,6,0.15)] flex items-center justify-center text-[16px] hover:border-[var(--theme-color-primary)] transition-colors focus:outline-none relative z-10 bg-white">
               ×
             </button>
           </header>

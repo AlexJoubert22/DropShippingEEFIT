@@ -6,9 +6,20 @@ import { SplitText, Orb, MagneticButton } from '../components/Shared';
 
 export const ComparatorPage = () => {
   const tableRows = [
-    { label: 'PRECIO', getValue: (p: any) => `€${p.price}` },
+    { label: 'PRECIO', getValue: (p: any) => p },
     { label: 'Categoría', getValue: (p: any) => p.category },
-    { label: 'Longitudes de onda', getValue: (p: any) => p.specs.wavelengths.join(' + ') },
+    { label: 'Tecnología', getValue: (p: any) => p.specs.wavelengths },
+    { label: 'IRRADIANCIA', getValue: (p: any) => {
+      if (p.id === 'vitaly-face') return '35 mW/cm²';
+      if (p.id === 'vitaly-cap') return '42 mW/cm²';
+      if (p.id === 'vitaly-halo') return '50 mW/cm²';
+      if (p.id === 'vitaly-step') return '120 mW/cm²';
+      if (p.id === 'vitaly-core') return '180 mW/cm²';
+      if (p.id === 'vitaly-lite') return '140 mW/cm²';
+      if (p.id === 'vitaly-brush') return '30 mW/cm²';
+      if (p.id === 'vitaly-neck') return '45 mW/cm²';
+      return '100 mW/cm²';
+    }},
     { label: 'Nº de diodos', getValue: (p: any) => p.specs.diodes },
     { label: 'Duración sesión', getValue: (p: any) => `${p.specs.sessionMinutes} min` },
     { label: 'Frecuencia recomendada', getValue: (p: any) => p.recommendedFrequency },
@@ -85,9 +96,22 @@ export const ComparatorPage = () => {
                     </th>
                     {products.map((p) => (
                       <td key={p.id} className="p-4 border-t border-[rgba(10,9,6,0.08)] text-[13px] text-[#6B6A66] text-center w-[130px]">
-                        <span className={row.label === 'PRECIO' ? 'text-[var(--theme-color-accent)] font-medium text-[18px]' : ''}>
-                          {row.getValue(p)}
-                        </span>
+                        {row.label === 'PRECIO' ? (
+                          <div className="flex items-center justify-center gap-2">
+                            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: p.orbColors[0] }} />
+                            <span className="text-[var(--theme-color-accent)] font-medium text-[18px]">€{p.price}</span>
+                          </div>
+                        ) : row.label === 'Tecnología' ? (
+                          <div className="flex flex-col gap-1.5 items-center">
+                            {(row.getValue(p) as string[]).map((tech, i) => (
+                              <span key={i} className="text-[10px] px-2 py-1 rounded-sm bg-[#FAF8F2] border border-[rgba(10,9,6,0.08)] text-[#0A0906] font-medium whitespace-nowrap">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                        ) : (
+                          <span>{row.getValue(p)}</span>
+                        )}
                       </td>
                     ))}
                   </tr>

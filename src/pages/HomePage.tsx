@@ -21,12 +21,12 @@ export const HomePage = () => {
           >
             Light Therapy × 2026
           </motion.div>
-          <SplitText text="Tu cuerpo. A la velocidad de la luz." as="h1" className="text-[clamp(56px,6vw,84px)] font-medium tracking-[-0.04em] leading-[0.95] text-wrap-balance max-w-[1000px] justify-center mb-[24px]" />
+          <SplitText text="Tu cuerpo. A la velocidad de la luz." as="h1" className="text-[clamp(44px,6vw,84px)] font-medium tracking-tight leading-[0.95] [text-wrap:balance] max-w-[1000px] justify-center mb-[24px]" />
           <motion.p 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 1 }}
             className="text-[18px] text-[var(--theme-color-secondary)] max-w-[540px] leading-[1.6] mb-[32px]"
           >
-            Ocho dispositivos de fotobiomodulación clínica. Una marca. Resultados medibles desde la primera semana.
+            Ocho dispositivos basados en evidencia física y calor radiante. Una marca. Resultados medibles desde la primera semana.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.8 }}
@@ -58,9 +58,9 @@ export const HomePage = () => {
       {/* 3. MARQUEE INFINITO */}
       <div className="h-[60px] border-y border-[var(--theme-color-border)] flex items-center overflow-hidden bg-base relative z-10">
         <div className="whitespace-nowrap flex text-[13px] tracking-wide text-[var(--theme-color-secondary)] relative w-[200%]">
-          <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ ease: "linear", duration: 25, repeat: Infinity }} className="flex">
-            <span className="px-[20px]">660nm + 850nm certificado · Prueba 60 días · Envío 24h España peninsular · 2 años de garantía · Diseñado en Valencia · Fabricado en Europa · Dosimetría real · </span>
-            <span className="px-[20px]">660nm + 850nm certificado · Prueba 60 días · Envío 24h España peninsular · 2 años de garantía · Diseñado en Valencia · Fabricado en Europa · Dosimetría real · </span>
+          <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ ease: "linear", duration: 30, repeat: Infinity }} className="flex">
+            <span className="px-[20px]">FIR + LEDs cromáticos · Prueba 60 días · Envío 24h España peninsular · 2 años de garantía · Diseñado en Valencia · Fabricado en Europa · Dosimetría real · </span>
+            <span className="px-[20px]">FIR + LEDs cromáticos · Prueba 60 días · Envío 24h España peninsular · 2 años de garantía · Diseñado en Valencia · Fabricado en Europa · Dosimetría real · </span>
           </motion.div>
         </div>
       </div>
@@ -70,14 +70,14 @@ export const HomePage = () => {
         <div className="w-full md:w-1/2 p-8 md:p-20 flex flex-col justify-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }}>
             <motion.div variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="eyebrow mb-6">POR QUÉ VITALY</motion.div>
-            <motion.h2 variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="text-h2 mb-8">La biología es la nueva tecnología.</motion.h2>
-            <motion.p variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="text-[17px] leading-relaxed max-w-[440px] text-[var(--theme-color-secondary)]">No inventamos la fotobiomodulación — la llevamos a tu mesilla de noche. Luz roja 660nm e infrarroja 850nm en formatos que puedes usar mientras te cepillas los dientes. Ciencia silenciosa, diaria, medible.</motion.p>
+            <motion.h2 variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="text-[clamp(44px,6vw,80px)] font-medium leading-[0.95] tracking-tight mb-8">La biología es la nueva tecnología.</motion.h2>
+            <motion.p variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="text-[17px] leading-relaxed max-w-[440px] text-[var(--theme-color-secondary)]">No inventamos la terapia de infrarrojo lejano — la llevamos a tu mesilla de noche. FIR + LEDs cromáticos en formatos que puedes usar mientras te cepillas los dientes. Ciencia silenciosa, diaria, medible.</motion.p>
           </motion.div>
         </div>
         <div className="w-full md:w-1/2 p-8 md:p-20 flex flex-col justify-center gap-12 border-t md:border-t-0 md:border-l border-[var(--theme-color-border)]">
           <div className="border-t border-[var(--theme-color-border)] pt-4">
-            <div className="text-[56px] font-medium text-[#0A0906] leading-none mb-2"><NumberTicker value={660} suffix="nm" /></div>
-            <div className="text-[13px] text-[var(--theme-color-secondary)]">longitud de onda roja certificada</div>
+            <div className="text-[56px] font-medium text-[#0A0906] leading-none mb-2"><NumberTicker value={4} />-<NumberTicker value={14} /></div>
+            <div className="text-[13px] text-[var(--theme-color-secondary)]">micrómetros (FIR) y LEDs cromáticos</div>
           </div>
           <div className="border-t border-[var(--theme-color-border)] pt-4">
             <div className="text-[56px] font-medium text-[#0A0906] leading-none mb-2"><NumberTicker value={9} suffix=" min" /></div>
@@ -85,16 +85,29 @@ export const HomePage = () => {
           </div>
           <div className="border-t border-[var(--theme-color-border)] pt-4">
             <div className="text-[56px] font-medium text-[#0A0906] leading-none mb-2"><NumberTicker value={98} suffix="%" /></div>
-            <div className="text-[13px] text-[var(--theme-color-secondary)]">absorción mitocondrial medida</div>
+            <div className="text-[13px] text-[var(--theme-color-secondary)]">absorción celular medida</div>
           </div>
         </div>
+      </section>
+
+      {/* BLOQUE DE RESPIRACIÓN (MOMENTO HERO GIGANTE) */}
+      <section className="h-[100vh] bg-[#0A0906] flex flex-col items-center justify-center text-center px-4 relative z-10 w-full">
+        <motion.div 
+          initial={{ opacity: 0, y: 10 }} 
+          whileInView={{ opacity: 1, y: 0 }} 
+          viewport={{ once: true, amount: 0.5 }} 
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center"
+        >
+          <h2 className="text-[clamp(56px,6vw,72px)] text-[#F6F4EF] font-medium tracking-tight mb-6">Lo que tu cuerpo ya emite, a mayor escala.</h2>
+          <div className="text-[11px] text-[#F6F4EF] opacity-60 uppercase tracking-widest font-medium">4-14 MICRAS. RESONANCIA HUMANA.</div>
+        </motion.div>
       </section>
 
       {/* 5. GRID DE PRODUCTOS */}
       <section id="dispositivos" className="pt-[120px] pb-24 px-4 md:px-12 bg-base z-10 relative scroll-mt-[72px]">
         <div className="mb-16">
-          <div className="eyebrow mb-6">CATÁLOGO 2026</div>
-          <SplitText text="Ocho aplicaciones. Un principio físico." as="h2" className="text-h2" />
+          <SplitText text="Ocho aplicaciones. Un principio físico." as="h2" className="text-[clamp(44px,6vw,80px)] font-medium leading-[0.95] tracking-tight" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[16px] mb-16">
@@ -172,35 +185,35 @@ export const HomePage = () => {
 
       {/* 6. TECNOLOGÍA */}
       <section className="min-h-screen flex flex-col items-center justify-center px-4 py-24 text-center bg-[var(--theme-color-base)] z-10 relative scroll-mt-[72px]">
-        <SplitText text="La luz que tu mitocondria entiende." as="h2" className="text-h2 justify-center mb-6 max-w-[800px]" />
-        <p className="text-[16px] text-[#6B6A66] max-w-[520px] mb-20 leading-relaxed">
-          La fotobiomodulación es un fenómeno físico, no marketing. El citocromo c oxidasa absorbe longitudes de onda específicas y libera ATP. Es literalmente energía.
+        <SplitText text="Infrarrojo lejano. La longitud de onda del cuerpo humano." as="h2" className="text-[clamp(44px,6vw,80px)] font-medium leading-[0.95] tracking-tight justify-center mb-6 max-w-[800px]" />
+        <p className="text-[16px] text-[#6B6A66] max-w-[540px] mb-20 leading-relaxed text-balance">
+          El cuerpo humano emite y absorbe radiación FIR en el rango 4-14 micras. La misma banda en la que trabajan nuestros dispositivos. No es magia: es resonancia física.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 w-full max-w-[1000px] text-left md:text-center pt-8 border-t border-[rgba(10,9,6,0.08)]">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <div className="eyebrow mb-6">01</div>
             <div className="flex flex-col items-start md:items-center mb-6">
-              <div className="text-[120px] font-medium text-[var(--theme-color-accent)] leading-none tracking-tighter"><NumberTicker value={660} /></div>
-              <div className="text-[14px] text-[var(--theme-color-secondary)] mt-2 font-mono">nm</div>
+              <div className="text-[90px] lg:text-[120px] font-medium text-[var(--theme-color-accent)] leading-none tracking-tighter"><NumberTicker value={4} />-<NumberTicker value={14} /></div>
+              <div className="text-[14px] text-[var(--theme-color-secondary)] mt-2 font-mono">μm</div>
             </div>
-            <p className="text-[14px] leading-relaxed text-[#6B6A66]">Rojo visible. Penetra dermis, activa fibroblastos, sintetiza colágeno.</p>
+            <p className="text-[14px] leading-relaxed text-[#6B6A66]">Banda de resonancia con el cuerpo humano. Absorción selectiva por moléculas de agua celular.</p>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.1 }}>
             <div className="eyebrow mb-6">02</div>
             <div className="flex flex-col items-start md:items-center mb-6">
-              <div className="text-[120px] font-medium text-[var(--theme-color-accent)] leading-none tracking-tighter"><NumberTicker value={850} /></div>
-              <div className="text-[14px] text-[#6B6A66] mt-2 font-mono">nm</div>
+              <div className="text-[90px] lg:text-[120px] font-medium text-[var(--theme-color-accent)] leading-none tracking-tighter"><NumberTicker value={40} suffix="+" /></div>
+              <div className="text-[14px] text-[#6B6A66] mt-2 font-mono">factor</div>
             </div>
-            <p className="text-[14px] leading-relaxed text-[#6B6A66]">Infrarrojo cercano. Alcanza músculo y articulación. Recuperación profunda.</p>
+            <p className="text-[14px] leading-relaxed text-[#6B6A66]">Factor de impacto acumulado de la literatura peer-reviewed sobre FIR terapéutico.</p>
           </motion.div>
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.2 }}>
             <div className="eyebrow mb-6">03</div>
             <div className="flex flex-col items-start md:items-center mb-6">
-              <div className="text-[120px] font-medium text-[#FF4D2E] leading-none tracking-tighter"><NumberTicker value={9} /></div>
+              <div className="text-[90px] lg:text-[120px] font-medium text-[#FF4D2E] leading-none tracking-tighter"><NumberTicker value={9} /></div>
               <div className="text-[14px] text-[var(--theme-color-secondary)] mt-2 font-mono">min</div>
             </div>
-            <p className="text-[14px] leading-relaxed text-[#6B6A66]">Sesión diaria. La dosis que tu cuerpo absorbe sin saturarse.</p>
+            <p className="text-[14px] leading-relaxed text-[#6B6A66]">Sesión estándar recomendada. Dosis diaria sin saturar respuesta celular.</p>
           </motion.div>
         </div>
       </section>
@@ -276,7 +289,6 @@ export const HomePage = () => {
 
       {/* 9. TESTIMONIAL + PRENSA */}
       <section className="py-32 px-4 bg-[var(--theme-color-base)] flex flex-col items-center justify-center text-center z-10 relative">
-        <div className="eyebrow mb-12">MENCIONADOS EN</div>
         <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-[12px] md:text-[14px] tracking-[0.3em] text-[#6B6A66] mb-24 font-mono">
           <span>VOGUE</span><span className="hidden md:inline">·</span><span>WIRED</span><span className="hidden md:inline">·</span><span>MEN'S HEALTH</span><span className="hidden md:inline">·</span><span>MONOCLE</span>
         </div>
@@ -295,8 +307,7 @@ export const HomePage = () => {
         <div className="absolute inset-0 bg-[#F5F3ED]/30 backdrop-blur-[2px]" />
         
         <div className="relative z-10 flex flex-col items-center pointer-events-none">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="eyebrow mb-8">EMPIEZA HOY</motion.div>
-          <SplitText text="Menos promesas. Más fotones." as="h2" className="text-[48px] md:text-[80px] lg:text-[100px] font-medium tracking-tight mb-12 max-w-[900px] justify-center leading-none text-primary" />
+          <SplitText text="Menos promesas. Más tecnología FIR." as="h2" className="text-[48px] md:text-[80px] lg:text-[100px] font-medium tracking-tight mb-12 max-w-[900px] justify-center leading-none text-primary" />
           
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="pointer-events-auto">
             <MagneticButton variant="solid" className="mb-6 px-10 py-5 text-[15px]" onClick={() => { document.getElementById('dispositivos')?.scrollIntoView({ behavior: 'smooth' }) }}>

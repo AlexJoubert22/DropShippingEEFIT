@@ -81,7 +81,7 @@ export const CartDrawer = () => {
               </div>
               <Link 
                 to="/checkout"
-                onClick={() => setIsOpen(false)}
+                onClick={() => setIsDrawerOpen(false)}
                 className={`w-full block text-center bg-[#FF4D2E] text-[#FFFFFF] py-[16px] rounded-full text-[14px] font-medium transition-colors ${items.length === 0 ? 'opacity-50 pointer-events-none' : 'hover:bg-[#E63D20]'}`}
               >
                 Finalizar compra

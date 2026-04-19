@@ -83,11 +83,9 @@ export const DiarioPage = () => {
         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
         className="w-full flex flex-col md:flex-row border border-[rgba(10,9,6,0.08)] rounded-[24px] overflow-hidden bg-white hover:border-[rgba(10,9,6,0.15)] transition-colors mb-12 group cursor-pointer"
       >
-        <div className="relative overflow-hidden w-full md:w-1/2 aspect-square md:aspect-auto md:h-[440px] bg-[#FAF8F2] flex items-center justify-center">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative w-[130%] aspect-square flex items-center justify-center -translate-y-[10%] blur-[50px] saturate-[1.2] group-hover:scale-105 transition-transform duration-700 ease-out">
-              <Orb colors={['#FF6B4A', '#FFB4A8', '#FFE8D6']} size="100%" />
-            </div>
+        <div className="relative overflow-hidden w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-auto md:min-h-[440px] bg-[#FAF8F2] flex items-center justify-center p-8">
+          <div className="w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] relative flex items-center justify-center blur-[40px] saturate-[1.2] group-hover:scale-110 transition-transform duration-700 ease-out z-0">
+            <Orb colors={['#FF6B4A', '#FFB4A8', '#FFE8D6']} size="100%" />
           </div>
         </div>
         
@@ -120,11 +118,11 @@ export const DiarioPage = () => {
             key={article.id}
             className="group h-[360px] flex flex-col border border-[rgba(10,9,6,0.08)] rounded-[20px] overflow-hidden bg-white hover:-translate-y-1 hover:border-[rgba(10,9,6,0.15)] hover:shadow-lg transition-all duration-400 cursor-pointer"
           >
-            <div className="h-[55%] w-full bg-[#FAF8F2] relative overflow-hidden flex items-center justify-center rounded-t-[20px]">
-              <div className="scale-[1.5] w-full h-full flex items-center justify-center opacity-70 group-hover:opacity-100 group-hover:scale-[1.6] transition-all duration-700 ease-out">
-                <Orb colors={article.colors} size="150%" />
+            <div className="h-[55%] w-full bg-[#FAF8F2] relative overflow-hidden flex items-center justify-center rounded-t-[20px] p-6">
+              <div className="w-[60%] aspect-square flex items-center justify-center blur-[30px] opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out absolute">
+                <Orb colors={article.colors} size="100%" />
               </div>
-              <div className="absolute inset-0 backdrop-blur-[50px] bg-white/20" />
+              <div className="absolute inset-0 bg-white/20" />
             </div>
             
             <div className="h-[45%] w-full p-[20px] flex flex-col bg-white z-10 border-t border-[rgba(10,9,6,0.04)]">
