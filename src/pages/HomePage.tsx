@@ -36,9 +36,11 @@ export const HomePage = () => {
               <MagneticButton variant="solid" onClick={() => { document.getElementById('dispositivos')?.scrollIntoView({ behavior: 'smooth' }) }}>
                 Ver dispositivos
               </MagneticButton>
-              <MagneticButton variant="ghost" onClick={() => { document.getElementById('tecnologia')?.scrollIntoView({ behavior: 'smooth' }) }}>
-                Cómo funciona
-              </MagneticButton>
+              <Link to="/tecnologia">
+                <MagneticButton variant="ghost" onClick={() => {}}>
+                  Cómo funciona
+                </MagneticButton>
+              </Link>
             </div>
             <button onClick={() => setIsQuizOpen(true)} className="text-[13px] text-secondary hover:text-primary transition-colors hover:border-b hover:border-primary border-b border-transparent pb-0.5 mt-2">
               ¿No sabes cuál? Hacer el test (2 min) →
@@ -169,7 +171,7 @@ export const HomePage = () => {
       </section>
 
       {/* 6. TECNOLOGÍA */}
-      <section id="tecnologia" className="min-h-screen flex flex-col items-center justify-center px-4 py-24 text-center bg-[var(--theme-color-base)] z-10 relative scroll-mt-[72px]">
+      <section className="min-h-screen flex flex-col items-center justify-center px-4 py-24 text-center bg-[var(--theme-color-base)] z-10 relative scroll-mt-[72px]">
         <SplitText text="La luz que tu mitocondria entiende." as="h2" className="text-h2 justify-center mb-6 max-w-[800px]" />
         <p className="text-[16px] text-[#6B6A66] max-w-[520px] mb-20 leading-relaxed">
           La fotobiomodulación es un fenómeno físico, no marketing. El citocromo c oxidasa absorbe longitudes de onda específicas y libera ATP. Es literalmente energía.
@@ -204,7 +206,7 @@ export const HomePage = () => {
       </section>
 
       {/* 7. ONDA SVG + EVIDENCIA */}
-      <section id="ciencia" className="min-h-[80vh] flex flex-col md:flex-row border-y border-[var(--theme-color-border)] bg-[var(--theme-color-base)] z-10 relative scroll-mt-[72px]">
+      <section className="min-h-[80vh] flex flex-col md:flex-row border-y border-[var(--theme-color-border)] bg-[var(--theme-color-base)] z-10 relative scroll-mt-[72px]">
         <div className="w-full md:w-1/2 flex items-center justify-center p-12 overflow-hidden border-b md:border-b-0 md:border-r border-[var(--theme-color-border)] relative">
           <svg width="100%" height="200" viewBox="0 0 800 200" className="opacity-80">
             <motion.path d="M0 100 Q 100 0, 200 100 T 400 100 T 600 100 T 800 100" fill="none" stroke="#FF4D2E" strokeWidth="2" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 1.5, ease: "easeInOut" }} />
@@ -217,7 +219,11 @@ export const HomePage = () => {
           <div className="flex flex-col gap-10">
             <div><div className="text-[56px] font-medium tracking-tighter leading-none mb-2"><NumberTicker value={340} suffix="+" /></div><div className="text-[15px] text-[#6B6A66]">estudios clínicos revisados</div></div>
             <div><div className="text-[56px] font-medium tracking-tighter leading-none mb-2"><NumberTicker value={27} /></div><div className="text-[15px] text-[var(--theme-color-secondary)]">centros de investigación referenciados</div></div>
-            <div><div className="text-[56px] font-medium tracking-tighter leading-none mb-2"><NumberTicker value={100} suffix="%" /></div><div className="text-[15px] text-[#6B6A66]">fabricación europea certificada</div></div>
+            <div>
+              <Link to="/ciencia" className="text-[14px] font-medium text-primary hover:text-accent transition-colors border-b border-primary hover:border-accent pb-1 inline-block mt-8">
+                Leer la ciencia detrás de Vitaly →
+              </Link>
+            </div>
           </div>
         </div>
       </section>

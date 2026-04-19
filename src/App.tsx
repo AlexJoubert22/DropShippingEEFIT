@@ -12,6 +12,9 @@ import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
 import { ComparatorPage } from './pages/ComparatorPage';
 import { FaqPage } from './pages/FaqPage';
+import { TecnologiaPage } from './pages/TecnologiaPage';
+import { CienciaPage } from './pages/CienciaPage';
+import { DiarioPage } from './pages/DiarioPage';
 
 // Scroll restoration for nested routes or link clicks
 const ScrollToTop = () => {
@@ -65,6 +68,9 @@ export default function App() {
           <Route path="/producto/:slug" element={<ProductPage />} />
           <Route path="/comparador" element={<ComparatorPage />} />
           <Route path="/faq" element={<FaqPage />} />
+          <Route path="/tecnologia" element={<TecnologiaPage />} />
+          <Route path="/ciencia" element={<CienciaPage />} />
+          <Route path="/diario" element={<DiarioPage />} />
           <Route path="*" element={<div className="min-h-screen flex items-center justify-center pt-20"><h1 className="text-2xl">404 - Página no encontrada</h1></div>} />
         </Routes>
         <Footer />

@@ -243,7 +243,7 @@ export const Quiz = ({ isOpen, onClose }: QuizProps) => {
         >
           {/* HEADER */}
           <header className="h-[72px] flex items-center justify-between px-6 border-b border-[rgba(10,9,6,0.08)] flex-shrink-0 relative">
-            <div className="text-[14px] font-medium tracking-[0.2em] relative z-10 w-[80px]">VITALY · TEST</div>
+            <div className="text-[13px] sm:text-[14px] font-medium tracking-[0.2em] relative z-10 w-auto whitespace-nowrap">VITALY · TEST</div>
             
             <div className="absolute left-1/2 -translate-x-1/2 flex gap-1 items-center z-10">
               {[0, 1, 2, 3].map(i => (
