@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { Orb } from './Shared';
 
@@ -78,12 +79,13 @@ export const CartDrawer = () => {
                 </div>
                 <div className="text-[24px] font-medium leading-none">€{totalPrice}</div>
               </div>
-              <button 
-                className="w-full bg-[#FF4D2E] text-[#FFFFFF] py-[16px] rounded-full text-[14px] font-medium hover:bg-[#E63D20] transition-colors disabled:opacity-50"
-                disabled={items.length === 0}
+              <Link 
+                to="/checkout"
+                onClick={() => setIsOpen(false)}
+                className={`w-full block text-center bg-[#FF4D2E] text-[#FFFFFF] py-[16px] rounded-full text-[14px] font-medium transition-colors ${items.length === 0 ? 'opacity-50 pointer-events-none' : 'hover:bg-[#E63D20]'}`}
               >
                 Finalizar compra
-              </button>
+              </Link>
             </div>
           </motion.div>
         </>

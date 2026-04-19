@@ -15,6 +15,13 @@ import { FaqPage } from './pages/FaqPage';
 import { TecnologiaPage } from './pages/TecnologiaPage';
 import { CienciaPage } from './pages/CienciaPage';
 import { DiarioPage } from './pages/DiarioPage';
+import { CookieBanner } from './components/CookieBanner';
+import { AvisoLegalPage } from './pages/AvisoLegalPage';
+import { PrivacidadPage } from './pages/PrivacidadPage';
+import { CookiesPage } from './pages/CookiesPage';
+import { TerminosPage } from './pages/TerminosPage';
+import { CheckoutPage } from './pages/CheckoutPage';
+import { CheckoutSuccessPage } from './pages/CheckoutSuccessPage';
 
 // Scroll restoration for nested routes or link clicks
 const ScrollToTop = () => {
@@ -71,9 +78,16 @@ export default function App() {
           <Route path="/tecnologia" element={<TecnologiaPage />} />
           <Route path="/ciencia" element={<CienciaPage />} />
           <Route path="/diario" element={<DiarioPage />} />
+          <Route path="/legal/aviso-legal" element={<AvisoLegalPage />} />
+          <Route path="/legal/privacidad" element={<PrivacidadPage />} />
+          <Route path="/legal/cookies" element={<CookiesPage />} />
+          <Route path="/legal/terminos" element={<TerminosPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route path="/checkout/exito" element={<CheckoutSuccessPage />} />
           <Route path="*" element={<div className="min-h-screen flex items-center justify-center pt-20"><h1 className="text-2xl">404 - Página no encontrada</h1></div>} />
         </Routes>
         <Footer />
+        <CookieBanner />
       </Router>
     </CartProvider>
   );

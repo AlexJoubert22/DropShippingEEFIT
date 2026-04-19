@@ -56,8 +56,9 @@ const ARTICLES = [
 
 export const DiarioPage = () => {
   return (
-    <div className="bg-[var(--theme-color-base)] min-h-screen pt-[100px] relative z-10 px-6 md:px-12 flex flex-col pb-24">
-      {/* BREADCRUMB */}
+    <div className="bg-[var(--theme-color-base)] min-h-screen relative z-10 flex flex-col pb-24">
+      <div className="max-w-[1280px] mx-auto px-[clamp(24px,5vw,80px)] w-full pt-[100px] flex-1">
+        {/* BREADCRUMB */}
       <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide mb-12">
         <Link to="/" className="text-[var(--theme-color-secondary)] hover:text-primary transition-colors hover:border-b hover:border-[var(--theme-color-secondary)] border-b border-transparent">Inicio</Link>
         <span className="text-[var(--theme-color-secondary)] opacity-50">/</span>
@@ -82,11 +83,12 @@ export const DiarioPage = () => {
         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
         className="w-full flex flex-col md:flex-row border border-[rgba(10,9,6,0.08)] rounded-[24px] overflow-hidden bg-white hover:border-[rgba(10,9,6,0.15)] transition-colors mb-12 group cursor-pointer"
       >
-        <div className="w-full md:w-1/2 h-[300px] md:h-[400px] relative bg-[#FAF8F2] overflow-hidden flex items-center justify-center">
-          <div className="scale-[2] md:scale-[2.5] pointer-events-none opacity-80 group-hover:opacity-100 group-hover:scale-[2.6] transition-all duration-700 ease-out">
-            <Orb colors={["#FF4D2E", "#FF7B66", "#E63D20"]} size="300px" />
+        <div className="relative overflow-hidden w-full md:w-1/2 aspect-square md:aspect-auto md:h-[440px] bg-[#FAF8F2] flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="relative w-[130%] aspect-square flex items-center justify-center -translate-y-[10%] blur-[50px] saturate-[1.2] group-hover:scale-105 transition-transform duration-700 ease-out">
+              <Orb colors={['#FF6B4A', '#FFB4A8', '#FFE8D6']} size="100%" />
+            </div>
           </div>
-          <div className="absolute inset-0 backdrop-blur-[60px]" />
         </div>
         
         <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center z-10 bg-white">
@@ -116,16 +118,16 @@ export const DiarioPage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
             key={article.id}
-            className="group h-[340px] flex flex-col border border-[rgba(10,9,6,0.08)] rounded-[20px] overflow-hidden bg-white hover:-translate-y-1 hover:border-[rgba(10,9,6,0.15)] hover:shadow-lg transition-all duration-400 cursor-pointer"
+            className="group h-[360px] flex flex-col border border-[rgba(10,9,6,0.08)] rounded-[20px] overflow-hidden bg-white hover:-translate-y-1 hover:border-[rgba(10,9,6,0.15)] hover:shadow-lg transition-all duration-400 cursor-pointer"
           >
-            <div className="h-[60%] w-full bg-[#FAF8F2] relative overflow-hidden flex items-center justify-center">
+            <div className="h-[55%] w-full bg-[#FAF8F2] relative overflow-hidden flex items-center justify-center rounded-t-[20px]">
               <div className="scale-[1.5] w-full h-full flex items-center justify-center opacity-70 group-hover:opacity-100 group-hover:scale-[1.6] transition-all duration-700 ease-out">
                 <Orb colors={article.colors} size="150%" />
               </div>
               <div className="absolute inset-0 backdrop-blur-[50px] bg-white/20" />
             </div>
             
-            <div className="h-[40%] w-full p-6 flex flex-col bg-white z-10 border-t border-[rgba(10,9,6,0.04)]">
+            <div className="h-[45%] w-full p-[20px] flex flex-col bg-white z-10 border-t border-[rgba(10,9,6,0.04)]">
               <div className="text-[10px] font-medium tracking-widest uppercase text-secondary mb-3 flex items-center gap-2">
                 <span className="text-primary">{article.category}</span>
                 <span className="opacity-40">•</span>
@@ -162,6 +164,7 @@ export const DiarioPage = () => {
         <div className="text-[11px] text-secondary opacity-60">
           Al suscribirte aceptas nuestra política de privacidad.
         </div>
+      </div>
       </div>
     </div>
   );

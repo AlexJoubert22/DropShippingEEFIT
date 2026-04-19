@@ -32,46 +32,47 @@ export const TecnologiaPage = () => {
   }, []);
 
   return (
-    <div className="bg-[var(--theme-color-base)] min-h-screen pt-[100px] relative z-10 px-6 md:px-12">
-      {/* BREADCRUMB */}
-      <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide mb-12">
-        <Link to="/" className="text-[var(--theme-color-secondary)] hover:text-primary transition-colors hover:border-b hover:border-[var(--theme-color-secondary)] border-b border-transparent">Inicio</Link>
-        <span className="text-[var(--theme-color-secondary)] opacity-50">/</span>
-        <span className="text-primary">Tecnología</span>
-      </div>
-
-      {/* HERO */}
-      <section className="h-[60vh] min-h-[400px] flex flex-col justify-center max-w-[900px] relative">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-4 mb-6">
-          <div className="eyebrow">TECNOLOGÍA</div>
-          <div className="text-[11px] text-[var(--theme-color-secondary)] px-2 py-1 bg-[rgba(10,9,6,0.05)] rounded-full">8 min de lectura</div>
-        </motion.div>
-        
-        <SplitText text="La luz que tu mitocondria entiende." as="h1" className="text-[clamp(44px,6vw,84px)] font-medium tracking-tight leading-[0.95] mb-6 [text-wrap:balance]" />
-        
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }} className="text-[18px] text-[var(--theme-color-secondary)] max-w-[640px] leading-[1.6]">
-          Un resumen honesto de la fotobiomodulación: qué es, cómo funciona, qué evidencia tiene y dónde están sus límites.
-        </motion.p>
-      </section>
-
-      {/* MAIN CONTENT WITH SIDEBAR */}
-      <div className="flex flex-col md:flex-row gap-16 md:gap-24 relative pb-[120px]">
-        {/* SIDEBAR */}
-        <div className="w-full md:w-[240px] md:sticky md:top-[120px] self-start hidden md:flex flex-col gap-4">
-          {sections.map((sec) => (
-            <button 
-              key={sec.id} 
-              onClick={() => document.getElementById(sec.id)?.scrollIntoView({ behavior: 'smooth' })}
-              className={`text-left text-[13px] font-medium transition-colors py-1 pl-4 border-l-2 ${activeSection === sec.id ? 'text-primary border-[var(--theme-color-accent)]' : 'text-secondary border-transparent hover:text-primary'}`}
-            >
-              <span className="opacity-50 mr-2 font-mono text-[11px]">{sec.num}</span> {sec.label}
-            </button>
-          ))}
+    <div className="bg-[var(--theme-color-base)] min-h-screen relative z-10 flex flex-col">
+      <div className="max-w-[1280px] mx-auto px-[clamp(24px,5vw,80px)] w-full pt-[100px] flex-1">
+        {/* BREADCRUMB */}
+        <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide mb-12">
+          <Link to="/" className="text-[var(--theme-color-secondary)] hover:text-primary transition-colors hover:border-b hover:border-[var(--theme-color-secondary)] border-b border-transparent">Inicio</Link>
+          <span className="text-[var(--theme-color-secondary)] opacity-50">/</span>
+          <span className="text-primary">Tecnología</span>
         </div>
 
-        {/* CONTENT */}
-        <div className="flex-1 flex flex-col gap-24 max-w-[720px]">
-          {/* SEC 1 */}
+        {/* HERO */}
+        <section className="h-[60vh] min-h-[400px] flex flex-col justify-center max-w-[900px] relative">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="flex items-center gap-4 mb-6">
+            <div className="eyebrow">TECNOLOGÍA</div>
+            <div className="text-[11px] text-[var(--theme-color-secondary)] px-2 py-1 bg-[rgba(10,9,6,0.05)] rounded-full">8 min de lectura</div>
+          </motion.div>
+          
+          <SplitText text="La luz que tu mitocondria entiende." as="h1" className="text-[clamp(44px,6vw,84px)] font-medium tracking-tight leading-[0.95] mb-6 [text-wrap:balance]" />
+          
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 0.8 }} className="text-[18px] text-[var(--theme-color-secondary)] max-w-[640px] leading-[1.6]">
+            Un resumen honesto de la fotobiomodulación: qué es, cómo funciona, qué evidencia tiene y dónde están sus límites.
+          </motion.p>
+        </section>
+
+        {/* MAIN CONTENT WITH SIDEBAR */}
+        <div className="flex flex-col md:flex-row gap-16 md:gap-24 relative pb-[120px]">
+          {/* SIDEBAR */}
+          <div className="w-full md:w-[240px] md:sticky md:top-[120px] self-start hidden md:flex flex-col gap-4">
+            {sections.map((sec) => (
+              <button 
+                key={sec.id} 
+                onClick={() => document.getElementById(sec.id)?.scrollIntoView({ behavior: 'smooth' })}
+                className={`text-left text-[13px] font-medium transition-colors py-1 pl-4 border-l-2 ${activeSection === sec.id ? 'text-primary border-[var(--theme-color-accent)]' : 'text-secondary border-transparent hover:text-primary'}`}
+              >
+                <span className="opacity-50 mr-2 font-mono text-[11px]">{sec.num}</span> {sec.label}
+              </button>
+            ))}
+          </div>
+
+          {/* CONTENT */}
+          <div className="flex-1 flex flex-col gap-24 max-w-[720px]">
+            {/* SEC 1 */}
           <section id="seccion-01" className="content-section">
             <div className="eyebrow mb-4">01 · El Origen</div>
             <h2 className="text-[32px] md:text-[40px] font-medium tracking-tight mb-8">Cuatro décadas después, la luz sigue siendo medicina.</h2>
@@ -217,18 +218,19 @@ export const TecnologiaPage = () => {
         </div>
       </div>
       
-      {/* FINAL CTA */}
-      <section className="py-24 border-t border-[rgba(10,9,6,0.08)] flex flex-col items-center justify-center text-center gap-8">
-        <h3 className="text-[32px] font-medium tracking-tight">Pasa a la práctica.</h3>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <MagneticButton variant="ghost" onClick={() => {}}>
-            <Link to="/#dispositivos">Ver los dispositivos →</Link>
-          </MagneticButton>
-          <MagneticButton variant="ghost" onClick={() => {}}>
-            <button>Empezar el test →</button>
-          </MagneticButton>
-        </div>
-      </section>
+        {/* FINAL CTA */}
+        <section className="py-24 border-t border-[rgba(10,9,6,0.08)] flex flex-col items-center justify-center text-center gap-8">
+          <h3 className="text-[32px] font-medium tracking-tight">Pasa a la práctica.</h3>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <MagneticButton variant="ghost" onClick={() => {}}>
+              <Link to="/#dispositivos">Ver los dispositivos →</Link>
+            </MagneticButton>
+            <MagneticButton variant="ghost" onClick={() => {}}>
+              <button>Empezar el test →</button>
+            </MagneticButton>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

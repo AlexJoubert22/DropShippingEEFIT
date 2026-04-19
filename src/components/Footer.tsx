@@ -42,6 +42,14 @@ export const Footer = () => {
         </div>
 
         <div className="flex flex-col gap-4 text-[13px]">
+          <span className="font-medium mb-2">Legal</span>
+          <Link to="/legal/aviso-legal" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Aviso legal</Link>
+          <Link to="/legal/privacidad" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Privacidad</Link>
+          <Link to="/legal/cookies" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Cookies</Link>
+          <Link to="/legal/terminos" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Términos</Link>
+        </div>
+
+        <div className="flex flex-col gap-4 text-[13px]">
           <span className="font-medium mb-2">Marca</span>
           <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Manifiesto</a>
           <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Historia</a>
