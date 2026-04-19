@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link, useNavigate } from 'react-router-dom';
 import { products, Product } from '../data/products';
@@ -229,7 +230,7 @@ export const Quiz = ({ isOpen, onClose }: QuizProps) => {
     return `Match basado en: [${p1} · ${p2} · ${p3} · ${p4}]`;
   };
 
-  return (
+  const quizContent = (
     <AnimatePresence>
       {isOpen && (
         <motion.div
@@ -237,27 +238,27 @@ export const Quiz = ({ isOpen, onClose }: QuizProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[100] bg-[var(--theme-color-base)]/98 backdrop-blur-[20px] flex flex-col"
+          className="fixed inset-0 z-[200] bg-[#F5F3ED] flex flex-col"
           ref={modalRef}
         >
           {/* HEADER */}
-          <header className="h-[72px] flex items-center justify-between px-6 border-b border-[rgba(10,9,6,0.08)] flex-shrink-0">
-            <div className="text-[14px] font-medium tracking-[0.2em]">VITALY · TEST</div>
+          <header className="h-[72px] flex items-center justify-between px-6 border-b border-[rgba(10,9,6,0.08)] flex-shrink-0 relative">
+            <div className="text-[14px] font-medium tracking-[0.2em] relative z-10 w-[80px]">VITALY · TEST</div>
             
-            <div className="hidden md:flex gap-1 items-center">
+            <div className="absolute left-1/2 -translate-x-1/2 flex gap-1 items-center z-10">
               {[0, 1, 2, 3].map(i => (
-                <motion.div key={i} className="h-[2px] rounded-full bg-[var(--theme-color-border)] relative overflow-hidden" style={{ width: 60 }}>
+                <div key={i} className="h-[2px] bg-[rgba(10,9,6,0.12)] relative overflow-hidden flex-shrink-0 w-[60px]">
                   <motion.div 
                     initial={{ width: 0 }}
-                    animate={{ width: step > i || (step === i && showResumePrompt === false) ? '100%' : '0%' }}
+                    animate={{ width: (step > i || step === 4) || (step === i && showResumePrompt === false) ? '100%' : '0%' }}
                     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className={cn("absolute inset-0", step > i ? "bg-[var(--theme-color-primary)]" : "bg-[var(--theme-color-accent)]")}
+                    className="absolute inset-0 bg-[var(--theme-color-accent)]"
                   />
-                </motion.div>
+                </div>
               ))}
             </div>
 
-            <button onClick={onClose} className="w-[32px] h-[32px] rounded-full border border-[rgba(10,9,6,0.15)] flex items-center justify-center text-[16px] hover:border-[var(--theme-color-primary)] transition-colors focus:outline-none">
+            <button onClick={onClose} className="w-[32px] h-[32px] rounded-full border border-[rgba(10,9,6,0.15)] flex items-center justify-center text-[16px] hover:border-[var(--theme-color-primary)] transition-colors focus:outline-none relative z-10">
               ×
             </button>
           </header>
@@ -339,9 +340,9 @@ export const Quiz = ({ isOpen, onClose }: QuizProps) => {
                           <div key={p.id} className={cn("relative rounded-[20px] border border-[var(--theme-color-border)] bg-[#FAF8F2] overflow-hidden p-[32px] flex flex-col h-[500px] w-full", recommendations.length === 1 && "max-w-[400px]")}>
                             <motion.div 
                               initial={{ scale: 0 }} animate={{ scale: [0, 1.1, 1] }} transition={{ duration: 0.8, delay: i * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
-                              className={cn("absolute top-[-10%] flex items-start justify-center pointer-events-none scale-[1.6]", recommendations.length === 1 ? "left-1/2 -translate-x-1/2" : "left-1/2 -translate-x-1/2")}
+                              className="w-[200px] h-[200px] mx-auto mb-[32px] flex items-center justify-center pointer-events-none"
                             >
-                              <Orb colors={p.orbColors} size="280px" />
+                              <Orb colors={p.orbColors} size="100%" />
                             </motion.div>
                             
                             <div className="mt-auto relative z-10 flex flex-col">
@@ -350,20 +351,20 @@ export const Quiz = ({ isOpen, onClose }: QuizProps) => {
                               <div className="text-[24px] font-medium text-[var(--theme-color-accent)] mb-8">€{p.price}</div>
                               <div className="flex flex-col gap-3">
                                 <button
+                                  onClick={() => { onClose(); navigate(`/producto/${p.slug}`); }}
+                                  className="w-full rounded-full border border-transparent bg-[#FF4D2E] text-white py-3 text-[14px] font-medium hover:bg-[#E63D20] transition-colors"
+                                >
+                                  Ver ficha →
+                                </button>
+                                <button
                                   onClick={() => {
                                     addItem({ ...p, quantity: 1 });
                                     onClose();
                                     setIsDrawerOpen(true);
                                   }}
-                                  className="w-full rounded-full border border-transparent bg-[#FF4D2E] text-white py-3 text-[14px] font-medium hover:bg-[#E63D20] transition-colors"
+                                  className="w-full rounded-full border border-[rgba(10,9,6,0.15)] text-[var(--theme-color-primary)] py-3 text-[14px] font-medium hover:border-[var(--theme-color-primary)] transition-colors bg-transparent"
                                 >
                                   Añadir al carrito
-                                </button>
-                                <button
-                                  onClick={() => { onClose(); navigate(`/producto/${p.slug}`); }}
-                                  className="w-full rounded-full border border-[rgba(10,9,6,0.15)] text-primary py-3 text-[14px] font-medium hover:border-primary transition-colors"
-                                >
-                                  Ver ficha →
                                 </button>
                               </div>
                             </div>
@@ -412,4 +413,7 @@ export const Quiz = ({ isOpen, onClose }: QuizProps) => {
       )}
     </AnimatePresence>
   );
+
+  if (typeof document === 'undefined') return null;
+  return createPortal(quizContent, document.body);
 };

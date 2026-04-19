@@ -40,20 +40,14 @@ export const Nav = () => {
       </div>
 
       <div className="flex items-center gap-[24px] text-[13px]">
-        <button 
+        <motion.button 
           onClick={() => setIsDrawerOpen(true)}
-          className="text-secondary hover:text-primary transition-colors cursor-pointer tracking-wider flex items-center"
+          animate={bounce ? { scale: [1, 1.05, 1], color: ['var(--theme-color-accent)', 'var(--theme-color-accent)', 'var(--theme-color-secondary)'] } : { scale: 1, color: 'var(--theme-color-secondary)' }}
+          transition={{ duration: 0.6, ease: [0.68, -0.55, 0.27, 1.55] }}
+          className="hover:text-primary transition-colors cursor-pointer tracking-wider flex items-center font-medium"
         >
-          <span>Carrito (</span>
-          <motion.span
-            animate={bounce ? { scale: [1, 1.3, 1], color: ['var(--theme-color-accent)', 'var(--theme-color-accent)', 'currentColor'] } : { scale: 1, color: 'currentColor' }}
-            transition={{ duration: 0.6, ease: [0.68, -0.55, 0.27, 1.55] }}
-            className="inline-block font-medium px-0 mx-0"
-          >
-            {totalItems}
-          </motion.span>
-          <span>)</span>
-        </button>
+          {`Carrito (${totalItems})`}
+        </motion.button>
         <button className="rounded-full bg-[#FF4D2E] text-[#FFFFFF] px-[18px] py-[8px] text-[12px] font-medium transition-colors hover:bg-[#E63D20] tracking-wide hidden sm:block">
           Acceder
         </button>
