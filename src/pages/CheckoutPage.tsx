@@ -46,7 +46,7 @@ export const CheckoutPage = () => {
         </div>
         <h1 className="text-[32px] font-medium tracking-tight mb-4">Tu carrito está vacío</h1>
         <p className="text-[15px] text-secondary mb-8 text-center max-w-[400px]">
-          Parece que aún no has añadido ningún dispositivo a tu carrito. Explora nuestra gama de productos de fotobiomodulación.
+          Parece que aún no has añadido ningún dispositivo a tu carrito. Explora nuestra gama de productos de terapia de infrarrojo lejano (FIR).
         </p>
         <Link to="/#dispositivos" className="px-8 py-4 bg-[var(--theme-color-accent)] text-white rounded-full text-[14px] font-medium hover:bg-[#E63D20] transition-colors">
           Ver dispositivos →

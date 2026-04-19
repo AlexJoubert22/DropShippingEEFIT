@@ -84,7 +84,7 @@ const STUDIES = [
     journal: "Journal of Cosmetic Dermatology",
     title: "Polychromatic LED light in the treatment of periorbital rhytides",
     authors: "Lee SY, et al.",
-    summary: "Ensayo ciego donde se mide mediante perfilometría óptica 3D la densificación de colágeno al combinar LEDs de 630nm, 660nm y FIR tras 12 semanas de tratamiento.",
+    summary: "Ensayo ciego donde se mide mediante perfilometría óptica 3D la densificación de colágeno al combinar secuencias de LEDs cromáticos y espectro de Infrarrojo Lejano (FIR) tras 12 semanas de tratamiento.",
     category: "Piel"
   },
   {
@@ -100,7 +100,7 @@ const STUDIES = [
     id: 11,
     year: "2014",
     journal: "Biomedical Optics Express",
-    title: "Optimal dosing parameters in photobiomodulation: a critical review",
+    title: "Optimal dosing parameters in Far-Infrared and LED therapies: a critical review",
     authors: "Huang YY, et al.",
     summary: "Revisión crítica de la curva bifásica de Arndt-Schulz aplicable a toda terapia lumínica: dosis bajas estimulan, dosis medias son óptimas, dosis altas inhiben o saturan la respuesta tisular.",
     category: "Revisiones"

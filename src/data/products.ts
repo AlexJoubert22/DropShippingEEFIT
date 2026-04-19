@@ -283,7 +283,7 @@ export const products: Product[] = [
     },
     benefits: [
       { title: 'Optimiza la textura capilar', description: 'El paso regular oxigena el cuero cabelludo, ayudando a que el sebo natural recubra el pelo y dejándolo brillante sin productos químicos.' },
-      { title: 'Cero minutos extra a tu rutina', description: 'Conviértelo en tu peine habitual y estarás recibiendo fotobiomodulación todos los días sin perder un segundo extra.' },
+      { title: 'Cero minutos extra a tu rutina', description: 'Conviértelo en tu peine habitual y estarás recibiendo los beneficios del infrarrojo lejano todos los días sin perder un segundo extra.' },
       { title: 'Microvibraciones relajantes', description: 'Opcionalmente activa su oscilación de alta frecuencia para desatar nudos tensionales en la aponeurosis craneal (estrés acumulado).' }
     ],
     useCases: ['rutina de belleza diaria', 'estrés capilar'],

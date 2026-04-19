@@ -21,7 +21,7 @@ export const HomePage = () => {
           >
             Light Therapy × 2026
           </motion.div>
-          <SplitText text="Tu cuerpo. A la velocidad de la luz." as="h1" className="text-[clamp(44px,6vw,84px)] font-medium tracking-tight leading-[0.95] [text-wrap:balance] max-w-[1000px] justify-center mb-[24px]" />
+          <SplitText text="El calor que tu cuerpo reconoce." as="h1" className="text-[clamp(44px,6vw,84px)] font-medium tracking-tight leading-[0.95] [text-wrap:balance] max-w-[1000px] justify-center mb-[24px]" />
           <motion.p 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 1 }}
             className="text-[18px] text-[var(--theme-color-secondary)] max-w-[540px] leading-[1.6] mb-[32px]"

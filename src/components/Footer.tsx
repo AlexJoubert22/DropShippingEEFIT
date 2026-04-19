@@ -29,7 +29,7 @@ export const Footer = () => {
         
         <div className="flex flex-col gap-4 text-[13px]">
           <span className="font-medium mb-2">Tecnología</span>
-          <Link to="/tecnologia" className="text-secondary hover:text-[#0A0906] transition-colors">Fotobiomodulación</Link>
+          <Link to="/tecnologia" className="text-secondary hover:text-[#0A0906] transition-colors">Infrarrojo Lejano (FIR)</Link>
           <Link to="/ciencia" className="text-secondary hover:text-primary transition-colors">Ciencia médica</Link>
           <a href="#" className="text-secondary hover:text-primary transition-colors">Certificaciones</a>
         </div>

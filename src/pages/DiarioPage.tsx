@@ -25,12 +25,12 @@ const ARTICLES = [
     title: "Por qué no prometemos curar la alopecia",
     category: "Ética",
     readTime: "6 min",
-    summary: "Lo que la fotobiomodulación puede hacer por tu pelo, y lo que nunca te vamos a decir que hace.",
+    summary: "Lo que la terapia FIR puede hacer por tu pelo, y lo que nunca te vamos a decir que hace.",
     colors: ["#B84DFF", "#9900FF", "#7A00CC"] // purple
   },
   {
     id: 4,
-    title: "Fotobiomodulación en deportistas: ¿antes, durante o después?",
+    title: "Terapia FIR en deportistas: ¿antes, durante o después?",
     category: "Ciencia",
     readTime: "9 min",
     summary: "Timing óptimo según tipo de esfuerzo, basado en la literatura actual.",
