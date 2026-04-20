@@ -24,21 +24,21 @@ export const Footer = () => {
           <Link to="/producto/vitaly-face" className="text-[#6B6A66] hover:text-[var(--theme-color-primary)] transition-colors">Vitaly Face</Link>
           <Link to="/producto/vitaly-cap" className="text-[#6B6A66] hover:text-[#0A0906] transition-colors">Vitaly Cap</Link>
           <Link to="/producto/vitaly-core" className="text-secondary hover:text-primary transition-colors">Vitaly Core</Link>
-          <Link to="/" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Ver todos</Link>
+          <Link to="/productos" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Ver todos</Link>
         </div>
         
         <div className="flex flex-col gap-4 text-[13px]">
           <span className="font-medium mb-2">Tecnología</span>
           <Link to="/tecnologia" className="text-secondary hover:text-[#0A0906] transition-colors">Infrarrojo Lejano (FIR)</Link>
           <Link to="/ciencia" className="text-secondary hover:text-primary transition-colors">Ciencia médica</Link>
-          <a href="#" className="text-secondary hover:text-primary transition-colors">Certificaciones</a>
+          <a href="#" className="text-secondary opacity-50 cursor-not-allowed transition-colors" title="Coming soon">Certificaciones</a>
         </div>
         
         <div className="flex flex-col gap-4 text-[13px]">
           <span className="font-medium mb-2">Empresa</span>
-          <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Nosotros</a>
-          <a href="#" className="text-secondary hover:text-primary transition-colors">Prensa</a>
-          <a href="#" className="text-secondary hover:text-primary transition-colors">Carreras</a>
+          <a href="#" className="text-secondary opacity-50 cursor-not-allowed transition-colors" title="Coming soon">Nosotros</a>
+          <a href="#" className="text-secondary opacity-50 cursor-not-allowed transition-colors" title="Coming soon">Prensa</a>
+          <a href="#" className="text-secondary opacity-50 cursor-not-allowed transition-colors" title="Coming soon">Carreras</a>
         </div>
 
         <div className="flex flex-col gap-4 text-[13px]">
@@ -51,10 +51,10 @@ export const Footer = () => {
 
         <div className="flex flex-col gap-4 text-[13px]">
           <span className="font-medium mb-2">Marca</span>
-          <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Manifiesto</a>
-          <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Historia</a>
-          <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Diseño</a>
-          <a href="#" className="text-secondary hover:text-[var(--theme-color-primary)] transition-colors">Sostenibilidad</a>
+          <a href="#" className="text-secondary opacity-50 cursor-not-allowed transition-colors" title="Coming soon">Manifiesto</a>
+          <a href="#" className="text-secondary opacity-50 cursor-not-allowed transition-colors" title="Coming soon">Historia</a>
+          <a href="#" className="text-secondary opacity-50 cursor-not-allowed transition-colors" title="Coming soon">Diseño</a>
+          <a href="#" className="text-secondary opacity-50 cursor-not-allowed transition-colors" title="Coming soon">Sostenibilidad</a>
         </div>
         
         <div className="flex flex-col gap-4 text-[13px]">

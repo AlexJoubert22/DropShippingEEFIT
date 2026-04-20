@@ -26,7 +26,7 @@ export const HomePage = () => {
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 1 }}
             className="text-[18px] text-[var(--theme-color-secondary)] max-w-[540px] leading-[1.6] mb-[32px]"
           >
-            Distribuidor oficial de eefit en Europa. Ocho dispositivos de terapia FIR respaldados por más de veinte años de investigación publicada. Fabricados en Asia, garantizados en España.
+            Distribuidor oficial de eefit en Europa. Ocho dispositivos de terapia FIR con veinte años de investigación publicada. Llegan a tu casa desde Valencia.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.8 }}
@@ -99,8 +99,9 @@ export const HomePage = () => {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center"
         >
-          <h2 className="text-[clamp(56px,6vw,72px)] text-[#F6F4EF] font-medium tracking-tight mb-6">Lo que tu cuerpo ya emite, a mayor escala.</h2>
-          <div className="text-[11px] text-[#F6F4EF] opacity-60 uppercase tracking-widest font-medium">4-14 MICRAS. RESONANCIA HUMANA.</div>
+          <div className="text-[11px] text-[#F6F4EF] opacity-60 uppercase tracking-widest font-medium mb-6">4-14 MICRAS. RESONANCIA HUMANA.</div>
+          <h2 className="text-[clamp(56px,6vw,72px)] text-[#F6F4EF] font-medium tracking-tight mb-4">Lo que tu cuerpo ya emite, a mayor escala.</h2>
+          <div className="text-[13px] text-[#F5F3ED] opacity-60 italic">— Principio físico de la tecnología eefit</div>
         </motion.div>
       </section>
 
@@ -291,21 +292,53 @@ export const HomePage = () => {
       </section>
 
       {/* 8. DIFERENCIADORES */}
-      <section className="py-32 px-4 md:px-12 bg-base z-10 relative">
+      <section className="py-[120px] px-6 md:px-12 bg-[#F5F3ED] z-10 relative flex flex-col items-center">
         <h2 className="text-[32px] md:text-[48px] font-medium text-center mb-16 tracking-tight">Otros lo prometen. Vitaly lo mide.</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-[rgba(10,9,6,0.08)] w-full">
-          {[
-            "Dosimetría real por sesión, no estimada",
-            "App nativa con histórico y métricas",
-            "Longitudes certificadas por laboratorio independiente",
-            "Garantía 24 meses, devolución 60 días"
-          ].map((text, i) => (
-            <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }} className="p-8 border-b md:border-b-0 md:border-r border-[var(--theme-color-border)] last:border-r-0 lg:border-b-0">
-              <div className="eyebrow mb-6">0{i + 1}</div>
-              <p className="text-[15px] leading-relaxed max-w-[240px] text-[var(--theme-color-primary)]">{text}</p>
-            </motion.div>
-          ))}
+        
+        <div className="w-full max-w-[900px] bg-white rounded-[24px] p-[32px] md:p-[48px] shadow-[0_8px_32px_rgba(10,9,6,0.04)] box-border flex flex-col md:flex-row mb-12">
+          {/* LO COMÚN */}
+          <div className="flex-1 flex flex-col pt-2 pb-8 md:pb-2 pr-0 md:pr-12 md:border-r border-b md:border-b-0 border-[var(--theme-color-border)]">
+            <div className="eyebrow text-[#6B6A66] mb-8">LO COMÚN</div>
+            <ul className="flex flex-col gap-6">
+              {[
+                "Brilla mucho. Sin longitudes de onda publicadas.",
+                "Promete 'juventud'. Sin timing de resultados.",
+                "Una web sin ciencia. Solo testimonios.",
+                "Garantía confusa. Devolver es una odisea."
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-4 text-[#6B6A66] text-[15px] opacity-70 italic">
+                  <span className="text-[#FF4D2E] font-medium mt-0.5">✗</span>
+                  <span className="leading-relaxed">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* VITALY x EEFIT */}
+          <div className="flex-1 flex flex-col pt-8 md:pt-2 pl-0 md:pl-12">
+            <div className="eyebrow text-[#FF4D2E] mb-8">VITALY × EEFIT</div>
+            <ul className="flex flex-col gap-6">
+              {[
+                "630, 590, 460nm + FIR 4-20μm. Documentado.",
+                "Resultados semana a semana. Escritos en la ficha.",
+                "5 papers peer-reviewed. Puedes leerlos.",
+                "60 días para devolver. Cero excusas."
+              ].map((text, i) => (
+                <li key={i} className="flex items-start gap-4 text-primary text-[15px] font-medium">
+                  <span className="text-[#FF4D2E] font-medium mt-0.5">✓</span>
+                  <span className="leading-relaxed">{text}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
+        
+        <Link 
+          to="/ciencia" 
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[var(--theme-color-border)] text-[14px] font-medium hover:border-primary hover:text-primary transition-colors text-secondary bg-transparent"
+        >
+          Ver la ciencia →
+        </Link>
       </section>
 
       {/* 8.5 TEASER FAQ */}
@@ -338,7 +371,7 @@ export const HomePage = () => {
 
       {/* 8.7 RESEARCH PARTNERS */}
       <section className="py-[100px] border-y border-[var(--theme-color-border)] bg-[#F5F3ED] overflow-hidden relative z-10 flex flex-col items-center">
-        <div className="eyebrow mb-8 text-center text-primary">RESEARCH PARTNERS</div>
+        <div className="eyebrow mb-8 text-center text-primary">INSTITUCIONES QUE HAN PUBLICADO CON EEFIT · REFERENCIAS REALES</div>
         <h2 className="text-[32px] md:text-[40px] font-medium tracking-tight mb-12 text-center max-w-[600px] leading-tight">
           La tecnología oficial de las principales instituciones académicas asiáticas.
         </h2>
@@ -353,22 +386,23 @@ export const HomePage = () => {
             className="flex gap-6 items-center whitespace-nowrap absolute"
             animate={{ x: ["0%", "-50%"] }}
             transition={{
-              duration: 25,
+              duration: 40,
               ease: "linear",
               repeat: Infinity,
             }}
+            whileHover={{ animationPlayState: "paused" }}
             style={{ x: "0%" }}
           >
             {/* We duplicate the array 2 times to ensure seamless infinite scrolling */}
             {[...Array(2)].map((_, i) => (
               <React.Fragment key={i}>
-                <PartnerCard acronym="CUHK" name="Chinese University Hong Kong" type="Medical Faculty" />
-                <PartnerCard acronym="MUST" name="Macau University S&T" type="Medical Faculty" />
-                <PartnerCard acronym="NBL" name="Dr. Neher's Biophysics Lab" type="Biophysics Research" />
-                <PartnerCard acronym="SKL" name="State Key Laboratory" type="Quality Research" />
-                <PartnerCard acronym="HKIM" name="HK Institute of Medicine" type="Clinical Trials" />
-                <PartnerCard acronym="SCM" name="School of Chinese Medicine" type="TCM Research" />
-                <PartnerCard acronym="YTR" name="Yubo Tech R&D Center" type="Engineering" />
+                <PartnerCard acronym="CUHK" est="EST. 1963" name="Chinese University of Hong Kong" type="Medical Faculty" />
+                <PartnerCard acronym="MUST" est="EST. 2000" name="Macau University of Science and Technology" type="Medical Faculty" />
+                <PartnerCard acronym="SCM" est="EST. 1998" name="School of Chinese Medicine" type="TCM Research" />
+                <PartnerCard acronym="NEHER" est="RESEARCH" name="Dr. Neher's Biophysics Laboratory" type="Biophysics Research" />
+                <PartnerCard acronym="SKLQRCM" est="MACAO" name="State Key Laboratory for Chinese Medicine" type="Quality Research" />
+                <PartnerCard acronym="HKIM" est="EST. 2000" name="Hong Kong Institute of Integrative Medicine" type="Clinical Trials" />
+                <PartnerCard acronym="YUBO" est="HONG KONG" name="Yubo Technology R&D" type="Engineering" />
               </React.Fragment>
             ))}
           </motion.div>
@@ -409,12 +443,15 @@ export const HomePage = () => {
   );
 };
 
-const PartnerCard = ({ acronym, name, type }: { acronym: string, name: string, type: string }) => (
-  <div className="flex flex-col items-center justify-center w-[200px] h-full shrink-0 group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-500 cursor-default">
-    <div className="w-[56px] h-[56px] rounded-full bg-white border border-[var(--theme-color-border)] flex items-center justify-center mb-3 shadow-[0_4px_12px_rgba(10,9,6,0.03)] text-[14px] font-medium tracking-wider">
-      {acronym}
+const PartnerCard = ({ acronym, est, name, type }: { acronym: string, est: string, name: string, type: string }) => (
+  <div className="flex items-center gap-5 w-[360px] h-[140px] bg-white border border-[rgba(10,9,6,0.08)] rounded-[20px] p-[24px] shrink-0 group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-500 cursor-default">
+    <div className="w-[88px] h-[88px] shrink-0 rounded-full border-[1.5px] border-[#0A0906] bg-[#F5F3ED] flex flex-col items-center justify-center">
+      <div className="text-[26px] font-['Instrument_Serif'] italic leading-none text-[#0A0906] tracking-tight">{acronym}</div>
+      <div className="text-[9px] uppercase tracking-[0.2em] text-[#0A0906] mt-1.5">{est}</div>
     </div>
-    <div className="text-[13px] font-medium mb-1 text-center truncate w-full px-2">{name}</div>
-    <div className="text-[11px] text-[var(--theme-color-secondary)] uppercase tracking-wider text-center">{type}</div>
+    <div className="flex flex-col flex-1 overflow-hidden">
+      <div className="text-[13px] font-medium leading-[1.4] text-wrap-balance text-primary mb-1.5 whitespace-normal">{name}</div>
+      <div className="text-[11px] text-[var(--theme-color-secondary)] uppercase tracking-[0.12em]">{type}</div>
+    </div>
   </div>
 );

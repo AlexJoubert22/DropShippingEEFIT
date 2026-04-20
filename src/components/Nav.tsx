@@ -6,8 +6,8 @@ import { cn } from './Shared';
 
 export const Nav = () => {
   const { scrollYProgress } = useScroll();
-  const navBg = useTransform(scrollYProgress, [0, 0.05], ["rgba(245, 243, 237, 0)", "rgba(245, 243, 237, 0.8)"]);
-  const navBlur = useTransform(scrollYProgress, [0, 0.05], ["blur(0px)", "blur(12px)"]);
+  const navBg = useTransform(scrollYProgress, [0, 0.05], ["rgba(245, 243, 237, 0)", "rgba(245, 243, 237, 0.92)"]);
+  const navBlur = useTransform(scrollYProgress, [0, 0.05], ["blur(0px)", "blur(20px)"]);
 
   const { items, setIsDrawerOpen, setIsQuizOpen } = useCart();
   const [bounce, setBounce] = useState(false);
@@ -51,24 +51,44 @@ export const Nav = () => {
         </div>
         
         <div className="hidden md:flex items-center gap-[32px] text-[13px] text-secondary">
-          <Link to="/#dispositivos" className="hover:text-primary transition-colors">Dispositivos</Link>
+          <Link to="/productos" className="hover:text-primary transition-colors">Dispositivos</Link>
           <Link to="/comparador" className="hover:text-primary transition-colors">Comparar</Link>
           <Link to="/tecnologia" className="hover:text-primary transition-colors">Tecnología</Link>
-          <button onClick={() => setIsQuizOpen(true)} className="hover:text-primary transition-colors cursor-pointer">Test</button>
           <Link to="/faq" className="hover:text-primary transition-colors">FAQ</Link>
           <Link to="/ciencia" className="hover:text-primary transition-colors">Ciencia</Link>
           <Link to="/diario" className="hover:text-primary transition-colors">Diario</Link>
         </div>
 
         <div className="flex items-center gap-[24px] text-[13px]">
+          <div className="hidden sm:flex items-center gap-3">
+            <button 
+              onClick={() => setIsQuizOpen(true)}
+              className="flex items-center gap-[6px] h-[36px] px-[14px] rounded-full border border-[var(--theme-color-border)] text-secondary hover:text-primary hover:border-primary transition-colors"
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+              </svg>
+              <span>Test</span>
+            </button>
+          </div>
+          
           <motion.button 
             onClick={() => setIsDrawerOpen(true)}
-            animate={bounce ? { scale: [1, 1.05, 1], color: ['var(--theme-color-accent)', 'var(--theme-color-accent)', 'var(--theme-color-secondary)'] } : { scale: 1, color: 'var(--theme-color-secondary)' }}
-            transition={{ duration: 0.6, ease: [0.68, -0.55, 0.27, 1.55] }}
-            className="hover:text-primary transition-colors cursor-pointer tracking-wider flex items-center font-medium"
+            animate={bounce ? { scale: [1, 1.15, 1], y: [0, -2, 0] } : { scale: 1, y: 0 }}
+            transition={{ duration: 0.4, ease: [0.68, -0.55, 0.27, 1.55] }}
+            className="relative hover:text-[var(--theme-color-accent)] transition-colors cursor-pointer flex items-center justify-center p-1 group text-primary"
+            title="Ver carrito"
           >
-            {`Carrito (${totalItems})`}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:stroke-[var(--theme-color-accent)] transition-colors">
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            {totalItems > 0 && (
+              <span className="absolute -top-[4px] -right-[4px] w-[18px] h-[18px] rounded-full bg-[var(--theme-color-accent)] text-white text-[11px] font-medium flex items-center justify-center pointer-events-none border-[1.5px] border-[#F5F3ED]">
+                {totalItems}
+              </span>
+            )}
           </motion.button>
+          
           <Link to="/productos" className="rounded-full bg-[#FF4D2E] text-[#FFFFFF] px-[18px] py-[8px] text-[12px] font-medium transition-colors hover:bg-[#E63D20] tracking-wide hidden sm:block">
             Comprar
           </Link>
@@ -97,15 +117,23 @@ export const Nav = () => {
                 <button onClick={() => setMobileMenuOpen(false)} className="text-[15px] font-medium">✕ Cerrar</button>
               </div>
               <div className="flex flex-col p-6 gap-6 text-[18px] font-medium mt-4">
-                <Link to="/#dispositivos" onClick={() => setMobileMenuOpen(false)}>Dispositivos</Link>
+                <Link to="/productos" onClick={() => setMobileMenuOpen(false)}>Dispositivos</Link>
                 <Link to="/comparador" onClick={() => setMobileMenuOpen(false)}>Comparar</Link>
                 <Link to="/tecnologia" onClick={() => setMobileMenuOpen(false)}>Tecnología</Link>
-                <button onClick={() => { setIsQuizOpen(true); setMobileMenuOpen(false); }} className="text-left">Test</button>
                 <Link to="/faq" onClick={() => setMobileMenuOpen(false)}>FAQ</Link>
                 <Link to="/ciencia" onClick={() => setMobileMenuOpen(false)}>Ciencia</Link>
                 <Link to="/diario" onClick={() => setMobileMenuOpen(false)}>Diario</Link>
               </div>
-              <div className="mt-auto p-6 border-t border-[rgba(10,9,6,0.08)]">
+              <div className="mt-auto p-6 border-t border-[rgba(10,9,6,0.08)] flex flex-col gap-4">
+                <button 
+                  onClick={() => { setIsQuizOpen(true); setMobileMenuOpen(false); }}
+                  className="w-full flex rounded-full bg-transparent border border-[var(--theme-color-border)] text-primary py-4 text-[14px] font-medium transition-colors hover:border-primary tracking-wide justify-center gap-2 items-center"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/>
+                  </svg>
+                  Hacer el Test
+                </button>
                 <Link to="/productos" className="w-full flex rounded-full bg-[#FF4D2E] text-[#FFFFFF] py-4 text-[14px] font-medium transition-colors hover:bg-[#E63D20] tracking-wide justify-center">
                   Comprar
                 </Link>

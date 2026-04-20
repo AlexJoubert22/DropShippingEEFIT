@@ -95,27 +95,28 @@ export const DiarioPage = () => {
       {/* FEATURED */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
-        className="w-full flex flex-col md:flex-row border border-[rgba(10,9,6,0.08)] rounded-[24px] overflow-hidden bg-white hover:border-[rgba(10,9,6,0.15)] transition-colors mb-12 group cursor-pointer"
+        className="w-full flex flex-col md:flex-row border border-[rgba(10,9,6,0.08)] rounded-[24px] overflow-hidden bg-white mb-12 opacity-80 cursor-not-allowed group transition-colors"
+        title="Coming soon"
       >
-        <div className="relative overflow-hidden w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-auto md:min-h-[440px] bg-[#FAF8F2] flex items-center justify-center p-8">
-          <div className="w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] relative flex items-center justify-center blur-[40px] saturate-[1.2] group-hover:scale-110 transition-transform duration-700 ease-out z-0">
+        <div className="relative overflow-hidden w-full md:w-1/2 h-[300px] sm:h-[400px] md:h-auto md:min-h-[440px] bg-[#FAF8F2] flex items-center justify-center p-8 grayscale">
+          <div className="w-[200px] h-[200px] sm:w-[240px] sm:h-[240px] relative flex items-center justify-center blur-[40px] saturate-[1.2] opacity-50 z-0">
             <Orb colors={['#FF6B4A', '#FFB4A8', '#FFE8D6']} size="100%" />
           </div>
         </div>
         
         <div className="w-full md:w-1/2 p-8 md:p-16 flex flex-col justify-center z-10 bg-white">
-          <div className="text-[11px] font-medium tracking-widest uppercase text-[var(--theme-color-accent)] mb-6">
+          <div className="text-[11px] font-medium tracking-widest uppercase text-[var(--theme-color-secondary)] mb-6">
             GUÍA · 12 MIN
           </div>
-          <h2 className="text-[32px] md:text-[40px] font-medium tracking-tight leading-[1.1] mb-4 group-hover:text-[var(--theme-color-accent)] transition-colors">
+          <h2 className="text-[32px] md:text-[40px] font-medium tracking-tight leading-[1.1] mb-4 text-secondary">
             Qué esperar en tus primeras cuatro semanas con Vitaly Face
           </h2>
           <p className="text-[15px] text-secondary leading-relaxed mb-10 max-w-[400px]">
             Cronología honesta de qué notarás, cuándo, y qué no deberías esperar. Escrita para evitar abandonos por expectativas mal calibradas.
           </p>
           <div className="mt-auto md:mt-0">
-            <span className="text-[14px] font-medium text-primary border-b border-transparent group-hover:border-[var(--theme-color-accent)] group-hover:text-[var(--theme-color-accent)] transition-all pb-1 inline-flex items-center gap-1">
-              Leer el artículo <span className="translate-x-0 group-hover:translate-x-1 transition-transform">→</span>
+            <span className="text-[14px] font-medium text-secondary pb-1 inline-flex items-center gap-1 opacity-50">
+              Próximamente
             </span>
           </div>
         </div>
@@ -124,36 +125,38 @@ export const DiarioPage = () => {
       {/* GRID */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
         {ARTICLES.map((article, i) => (
-          <motion.div 
+          <motion.a 
+            href="#"
+            title="Coming soon"
+            onClick={(e) => e.preventDefault()}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
             key={article.id}
-            onClick={() => setSelectedArticle(article)}
-            className="group h-[360px] flex flex-col border border-[rgba(10,9,6,0.08)] rounded-[20px] overflow-hidden bg-white hover:-translate-y-1 hover:border-[rgba(10,9,6,0.15)] hover:shadow-lg transition-all duration-400 cursor-pointer"
+            className="group h-[360px] flex flex-col border border-[rgba(10,9,6,0.08)] rounded-[20px] overflow-hidden bg-white opacity-80 cursor-not-allowed transition-all duration-400"
           >
-            <div className="h-[55%] w-full bg-[#FAF8F2] relative overflow-hidden flex items-center justify-center rounded-t-[20px] p-6">
-              <div className="w-[60%] aspect-square flex items-center justify-center blur-[30px] opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700 ease-out absolute">
+            <div className="h-[55%] w-full bg-[#FAF8F2] relative overflow-hidden flex items-center justify-center rounded-t-[20px] p-6 grayscale">
+              <div className="w-[60%] aspect-square flex items-center justify-center blur-[30px] opacity-40 absolute">
                 <Orb colors={article.colors} size="100%" />
               </div>
-              <div className="absolute inset-0 bg-white/20" />
+              <div className="absolute inset-0 bg-white/40" />
             </div>
             
             <div className="h-[45%] w-full p-[20px] flex flex-col bg-white z-10 border-t border-[rgba(10,9,6,0.04)]">
               <div className="text-[10px] font-medium tracking-widest uppercase text-secondary mb-3 flex items-center gap-2">
-                <span className="text-primary">{article.category}</span>
-                <span className="opacity-40">•</span>
+                <span className="text-secondary">{article.category}</span>
+                <span className="opacity-30">•</span>
                 <span>{article.readTime}</span>
               </div>
-              <h3 className="text-[20px] font-medium tracking-tight mb-2 leading-[1.2] group-hover:text-primary line-clamp-2">
+              <h3 className="text-[20px] font-medium tracking-tight mb-2 leading-[1.2] text-secondary line-clamp-2">
                 {article.title}
               </h3>
-              <p className="text-[13px] text-secondary leading-relaxed line-clamp-2">
+              <p className="text-[13px] text-secondary leading-relaxed line-clamp-2 opacity-80">
                 {article.summary}
               </p>
             </div>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
 

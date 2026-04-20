@@ -156,60 +156,53 @@ export const ProductPage = () => {
               <span className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full border border-current opacity-50" /> Garantía {product.specs.warranty}</span>
             </div>
 
-            <a href="#" className="text-[13px] font-medium text-[var(--theme-color-primary)] hover:text-[#E63D20] transition-colors underline decoration-[rgba(10,9,6,0.2)] underline-offset-4">
-              ¿Cuál Vitaly es para ti? Haz el test →
-            </a>
+            {/* COMERCIAL & SPECS BLOCK */}
+            <div className="border-t border-[var(--theme-color-border)] mt-[40px] pt-[40px]">
+              <p className="text-[16px] leading-[1.7] max-w-[520px] text-primary mb-6">
+                {product.description}
+              </p>
+              
+              <div className="flex flex-wrap gap-3 mb-12">
+                <div className="bg-transparent border border-color rounded-full px-[14px] py-[6px] text-[12px] text-secondary">
+                  {product.specs.wavelengths.find(w => w.includes('FIR')) || 'FIR 4-20μm'}
+                </div>
+                <div className="bg-transparent border border-color rounded-full px-[14px] py-[6px] text-[12px] text-secondary">
+                  LED {product.specs.wavelengths.filter(w => !w.includes('FIR')).map(w => w.split(' ')[0]).join('/')}
+                </div>
+                <div className="bg-transparent border border-color rounded-full px-[14px] py-[6px] text-[12px] text-secondary">
+                  {product.specs.sessionMinutes} min sesión
+                </div>
+              </div>
+
+              {/* TECHNICAL ACCORDIONS */}
+              <div className="flex flex-col">
+                <Accordion title="Cómo funciona esta tecnología">
+                  {product.id === 'vitaly-face' 
+                    ? "La máscara emite tres longitudes de onda visibles simultáneamente. El rojo 630nm penetra 2-3mm en la dermis y activa los fibroblastos, células responsables de producir colágeno. El ámbar 590nm trabaja sobre la superficie, reduciendo inflamación y mejorando tono. El azul 460nm actúa sobre bacterias cutáneas y regulación sebácea. El FIR de fondo amplía el efecto con calor infrarrojo profundo que mejora microcirculación. La combinación es lo que diferencia los estudios peer-reviewed."
+                    : `La tecnología de ${product.name} emite ${product.specs.wavelengths.join(' y ')}. Esta combinación específica, sumada al FIR de fondo, permite tratar el problema desde el origen, mejorando la microcirculación y optimizando la actividad celular de forma no invasiva según indica la literatura clínica.`}
+                </Accordion>
+                <Accordion title="Qué esperar en las primeras 4 semanas">
+                  {product.id === 'vitaly-face'
+                    ? "Semana 1: sensación de calor suave y piel más hidratada al tacto. Semana 2: tono más uniforme, menos rojeces si las tenías. Semana 3-4: cambios visibles en textura, primeras arrugas finas menos marcadas, luminosidad mejorada. Los resultados acumulativos aparecen a partir de la semana 6-8 con uso diario. No notarás nada si solo la usas dos veces a la semana. La constancia es lo que la hace funcionar."
+                    : `Semana 1-2: notarás un efecto térmico agradable y mayor relajación local. Semana 3-4: empiezan los beneficios subyacentes, con mejoras en la respuesta del tejido y menor inflamación. Los resultados estructurales requieren uso diario durante al menos 8-12 semanas. La clave de la eficacia a largo plazo está en seguir la pauta indicada.`}
+                </Accordion>
+                <Accordion title="Especificaciones técnicas">
+                  {product.id === 'vitaly-face'
+                    ? `150 diodos LED. Longitudes de onda: 630nm (rojo), 590nm (ámbar), 460nm (azul), más FIR de fondo 4-20 micras. Irradiancia: 35 mW/cm². Batería interna 2000mAh, autonomía 2h, carga USB-C 4 horas. Peso 380g. Material exterior policarbonato con silicona flexible en bordes. Certificaciones CE, FDA Class II. Fabricado por eefit (Yubo Technology Limited, Hong Kong).`
+                    : `${product.specs.diodes} diodos LED de grado clínico. Longitudes de onda: ${product.specs.wavelengths.join(', ')}. Peso ${product.specs.weightGrams}g. Autonomía de ${product.specs.batteryMinutes || 120} min (según modelo). Certificaciones ${product.specs.certifications.join(', ')}. Fabricado por eefit (Yubo Technology Limited, Hong Kong).`}
+                </Accordion>
+                <Accordion title="Qué incluye la caja">
+                  {product.id === 'vitaly-face'
+                    ? "Máscara Vitaly Face. Mando controlador inalámbrico. 2 correas elásticas ajustables. 2 antifaces opacos para protección ocular. Cable USB-C (1,5m). Manual de uso en español e inglés. Tarjeta de garantía europea. Bolsa de transporte en algodón reciclado."
+                    : `Dispositivo ${product.name}. Accesorios de sujeción (si aplica). Cable de carga USB-C. Manual de uso detallado en español e inglés. Tarjeta de garantía con soporte local. Bolsa protectora para viaje.`}
+                </Accordion>
+                <Accordion title="Garantía y devoluciones">
+                  Garantía comercial Vitaly de 24 meses sobre la garantía legal española de 3 años. Cubre defectos de fabricación, fallos de LEDs y problemas eléctricos en uso normal. No cubre daños por caídas, inmersión, o uso fuera de manual. Devolución sin motivo hasta 60 días desde la recepción (ampliamos los 14 días legales). Gastos de devolución a cargo de Vitaly en España peninsular. Soporte en español por email en 24h laborables.
+                </Accordion>
+              </div>
+            </div>
           </motion.div>
         </div>
-      </section>
-
-      {/* B) ACORDEONES DE INFO */}
-      <section className="py-[120px] px-6 md:px-12 max-w-[900px] mx-auto">
-        <Accordion title="Especificaciones técnicas" defaultOpen={true}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12">
-            <div>
-              <div className="text-[12px] uppercase tracking-widest text-[var(--theme-color-secondary)] mb-1">Longitudes de onda</div>
-              <div className="text-[15px] text-primary">{product.specs.wavelengths.join(', ')}</div>
-            </div>
-            <div>
-              <div className="text-[12px] uppercase tracking-widest text-[var(--theme-color-secondary)] mb-1">Diodos</div>
-              <div className="text-[15px] text-primary">{product.specs.diodes} LEDs de grado clínico</div>
-            </div>
-            <div>
-              <div className="text-[12px] uppercase tracking-widest text-[var(--theme-color-secondary)] mb-1">Duración sesión</div>
-              <div className="text-[15px] text-primary">{product.specs.sessionMinutes} minutos</div>
-            </div>
-            <div>
-              <div className="text-[12px] uppercase tracking-widest text-[var(--theme-color-secondary)] mb-1">Peso</div>
-              <div className="text-[15px] text-primary">{product.specs.weightGrams}g</div>
-            </div>
-            {product.specs.batteryMinutes && (
-              <div>
-                <div className="text-[12px] uppercase tracking-widest text-[var(--theme-color-secondary)] mb-1">Autonomía</div>
-                <div className="text-[15px] text-primary">{product.specs.batteryMinutes} minutos</div>
-              </div>
-            )}
-            <div>
-              <div className="text-[12px] uppercase tracking-widest text-[var(--theme-color-secondary)] mb-1">Certificaciones</div>
-              <div className="text-[15px] text-primary">{product.specs.certifications.join(', ')}</div>
-            </div>
-          </div>
-        </Accordion>
-        <Accordion title="Cómo se usa">
-          <ol className="list-decimal list-outside ml-4 space-y-4">
-            <li>Limpia y seca la zona de tratamiento ({product.targetArea}). No apliques cosméticos que contengan bloqueadores solares.</li>
-            <li>Coloca el dispositivo y enciéndelo. Una sesión estándar dura {product.specs.sessionMinutes} minutos.</li>
-            <li>El dispositivo se apagará automáticamente (si dispone de timer) o puedes finalizar tras el aviso. Continúa con tu rutina habitual de cuidado o descanso.</li>
-          </ol>
-        </Accordion>
-        <Accordion title="Qué incluye la caja">
-          <ul className="space-y-4">
-            <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 bg-[#FF4D2E] rounded-full" /> Dispositivo {product.name}</li>
-            <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 bg-[#FF4D2E] rounded-full" /> Cargador y cable textil (USB-C)</li>
-            <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 bg-[#FF4D2E] rounded-full" /> Gafas protectoras de exposición</li>
-            <li className="flex items-center gap-4"><div className="w-1.5 h-1.5 bg-[#FF4D2E] rounded-full" /> Manual detallado de dosimetría y cuidados</li>
-          </ul>
-        </Accordion>
       </section>
 
       {/* C) BENEFICIOS EN GRID */}
