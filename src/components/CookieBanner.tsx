@@ -27,7 +27,7 @@ export const CookieBanner = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ opacity: 0, transition: { duration: 0.3 } }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-0 left-0 w-full bg-[var(--theme-color-primary)] text-[#F5F3ED] py-[20px] px-[40px] z-[500] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 overflow-hidden"
+          className="fixed bottom-0 left-0 w-full bg-[var(--theme-color-primary)] text-[#F5F3ED] py-[20px] px-[40px] z-[50] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 overflow-hidden"
         >
           <p className="text-[14px] leading-[1.6] max-w-[800px] text-balance font-medium opacity-90">
             Usamos cookies para que esta web funcione y para entender cómo la usas. Las cookies técnicas son imprescindibles. Las de análisis y marketing las activas tú. Más información en nuestra <Link to="/legal/cookies" className="underline hover:text-[var(--theme-color-accent)] transition-colors">política de cookies</Link>.

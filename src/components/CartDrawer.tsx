@@ -6,6 +6,7 @@ import { Orb } from './Shared';
 
 export const CartDrawer = () => {
   const { items, removeItem, updateQuantity, totalPrice, isDrawerOpen, setIsDrawerOpen } = useCart();
+  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <AnimatePresence>
@@ -15,18 +16,22 @@ export const CartDrawer = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             onClick={() => setIsDrawerOpen(false)}
-            className="fixed inset-0 bg-black/40 z-[100]"
+            className="fixed inset-0 bg-[rgba(10,9,6,0.5)] z-[85]"
           />
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed top-0 right-0 bottom-0 w-full max-w-[420px] bg-[var(--theme-color-base)] z-[101] shadow-2xl p-[32px] flex flex-col"
+            className="fixed top-0 right-0 bottom-0 w-full max-w-[420px] bg-[var(--theme-color-base)] z-[90] shadow-2xl p-[32px] flex flex-col"
           >
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-[20px] font-medium tracking-tight">Tu carrito</h2>
+              <h2 className="text-[20px] font-medium tracking-tight">
+                Tu carrito
+                {totalItems > 0 && <span className="text-[13px] text-secondary ml-2 font-normal">· {totalItems} {totalItems === 1 ? 'producto' : 'productos'}</span>}
+              </h2>
               <button onClick={() => setIsDrawerOpen(false)} className="text-[13px] text-secondary hover:text-primary transition-colors flex items-center gap-2">
                 Seguir comprando <span className="text-[16px] leading-none">✕</span>
               </button>

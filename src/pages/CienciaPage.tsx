@@ -64,7 +64,7 @@ export const CienciaPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.05 }}
                   onClick={() => setSelectedStudy(study)}
-                  className="bg-white border border-[rgba(10,9,6,0.08)] rounded-[20px] p-8 flex flex-col hover:border-[var(--theme-color-accent)] transition-colors cursor-pointer group"
+                  className="bg-white border border-[rgba(10,9,6,0.08)] rounded-[20px] p-8 flex flex-col hover:border-[var(--theme-color-accent)] hover:-translate-y-[2px] hover:shadow-[0_8px_24px_rgba(10,9,6,0.06)] transition-all duration-300 cursor-pointer group"
                 >
                   <div className="flex justify-between items-start mb-6">
                     <span 
@@ -80,9 +80,12 @@ export const CienciaPage = () => {
                   
                   <p className="text-[14px] text-secondary leading-relaxed flex-1">{study.summaryCard}</p>
                   
-                  <div className="mt-8 text-[13px] font-medium text-primary flex items-center gap-2 group-hover:text-[var(--theme-color-accent)] transition-colors">
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); setSelectedStudy(study); }}
+                    className="mt-8 text-[13px] font-medium text-primary flex items-center gap-2 group-hover:text-[var(--theme-color-accent)] transition-colors text-left"
+                  >
                     Leer el estudio completo <span className="text-lg">→</span>
-                  </div>
+                  </button>
                 </motion.div>
               ))}
             </div>
@@ -103,7 +106,7 @@ export const CienciaPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: idx * 0.05 }}
                   onClick={() => setSelectedStudy(study)}
-                  className="border border-[rgba(10,9,6,0.1)] rounded-[16px] p-6 flex flex-col hover:bg-white transition-colors cursor-pointer group"
+                  className="border border-[rgba(10,9,6,0.1)] rounded-[16px] p-6 flex flex-col hover:bg-white hover:border-[var(--theme-color-accent)] hover:-translate-y-[2px] hover:shadow-[0_4px_16px_rgba(10,9,6,0.04)] transition-all duration-300 cursor-pointer group"
                 >
                   <div className="flex justify-between items-start mb-4">
                     <span className="text-[10px] uppercase font-medium tracking-wider px-2 py-1 bg-[rgba(10,9,6,0.05)] text-secondary rounded-sm">
@@ -116,9 +119,12 @@ export const CienciaPage = () => {
                   
                   <p className="text-[13px] text-secondary leading-relaxed flex-1 line-clamp-3">{study.summaryCard}</p>
                   
-                  <div className="mt-6 text-[12px] font-medium text-secondary group-hover:text-primary transition-colors">
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); setSelectedStudy(study); }}
+                    className="mt-6 text-[12px] font-medium text-secondary group-hover:text-[var(--theme-color-accent)] transition-colors text-left flex items-center gap-1"
+                  >
                     Leer resumen <span className="">→</span>
-                  </div>
+                  </button>
                 </motion.div>
               ))}
             </div>
