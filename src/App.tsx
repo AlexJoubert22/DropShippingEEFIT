@@ -10,6 +10,7 @@ import { CartDrawer } from './components/CartDrawer';
 import { Quiz } from './components/Quiz';
 import { HomePage } from './pages/HomePage';
 import { ProductPage } from './pages/ProductPage';
+import { ProductosPage } from './pages/ProductosPage';
 import { ComparatorPage } from './pages/ComparatorPage';
 import { FaqPage } from './pages/FaqPage';
 import { TecnologiaPage } from './pages/TecnologiaPage';
@@ -72,6 +73,7 @@ export default function App() {
         <CartDrawer />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/productos" element={<ProductosPage />} />
           <Route path="/producto/:slug" element={<ProductPage />} />
           <Route path="/comparador" element={<ComparatorPage />} />
           <Route path="/faq" element={<FaqPage />} />

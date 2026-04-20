@@ -42,8 +42,8 @@ export const products: Product[] = [
     category: 'Rostro',
     name: 'Vitaly Face',
     originalName: 'eefit Energy Therapy Face Mask',
-    tagline: 'Máscara LED clínica. Colágeno diario.',
-    description: 'Máscara facial con LEDs de tres longitudes visibles (630nm rojo, 590nm ámbar, 460nm azul) y emisión FIR. Diez minutos al día. El rojo estimula colágeno en la dermis superficial. El ámbar mejora luminosidad y tono. El azul actúa sobre imperfecciones. El FIR añade efecto circulatorio profundo. No la vendemos como producto médico. La vendemos como cuidado diario con respaldo físico.',
+    tagline: 'Máscara LED. Diez minutos, rutina completa.',
+    description: 'La máscara facial oficial de eefit combina tres longitudes de onda visibles (630nm rojo, 590nm ámbar, 460nm azul) con emisión FIR de fondo. Cada color trabaja una capa distinta de la piel. Diez minutos al día. Sin cremas milagrosas, sin promesas vacías. La investigación publicada por el equipo de I+D de eefit hace el trabajo silencioso.',
     price: 349,
     currency: 'EUR',
     orbColors: ['#FF6B4A', '#FFB4A8', '#FFE8D6'],
@@ -58,9 +58,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      { title: 'Estimula colágeno celular', description: 'La luz penetra en la dermis y activa los fibroblastos. Reduce las arrugas finas y restaura el volumen facial.' },
-      { title: 'Reduce inflamación y rojeces', description: 'Calma la piel reactiva desde la primera sesión. Usa frecuencias probadas contra afecciones como la rosácea.' },
-      { title: 'Mejora textura visible', description: 'Cierra poros y mejora el brillo general. Consigues un efecto glow sano sin ácidos ni despigmentantes.' }
+      { title: 'Estimula colágeno en capas profundas', description: 'La luz roja de 630nm penetra en la dermis y activa los fibroblastos. En ocho semanas notas menos arrugas finas y piel más densa.' },
+      { title: 'Calma rojeces y piel reactiva', description: 'La luz ámbar de 590nm reduce inflamación superficial. Útil si tienes rosácea leve o tendencia a rojeces persistentes.' },
+      { title: 'Cierra poros y mejora tono', description: 'El azul 460nm actúa sobre la oleosidad y pequeñas imperfecciones. Piel más uniforme sin productos agresivos.' }
     ],
     useCases: ['antiedad', 'marcas', 'post-tratamiento'],
     targetArea: 'facial',
@@ -81,8 +81,8 @@ export const products: Product[] = [
     category: 'Cabello',
     name: 'Vitaly Cap',
     originalName: 'eefit Energy Smart Cap',
-    tagline: '120 diodos. Densidad visible en 12 semanas.',
-    description: 'La ciencia del FIR dentro de una gorra. Vitaly Cap utiliza FIR y luz roja a 660nm. Quince minutos al día. Esta combinación aumenta el riego sanguíneo directamente en el folículo. Prolonga la fase de crecimiento natural de tu pelo. Es tu aliado contra la caída estacional y pérdida de volumen.',
+    tagline: 'Gorra FIR. Pelo más fuerte. Sin fármacos.',
+    description: 'La gorra de eefit combina FIR con LEDs rojos de 660nm en un array circular de 120 diodos distribuidos sobre todo el cuero cabelludo. Sin minoxidil, sin finasterida. Quince minutos al día mientras desayunas. Los estudios muestran mejoras visibles entre las semanas 12 y 16 de uso constante.',
     price: 289,
     currency: 'EUR',
     orbColors: ['#8B7FFF', '#D4CFFF', '#F2EEFF'],
@@ -97,9 +97,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      { title: 'Aumenta el grosor folicular', description: 'El estímulo celular engrosa el tallo capilar. Notarás tu pelo visualmente más fuerte tras unas doce semanas.' },
-      { title: 'Frena la caída temporal', description: 'Cortocircuita el efluvio telógeno. Muy útil para recuperar densidad tres meses después de sufrir estrés fuerte o parto.' },
-      { title: 'Calma el cuero cabelludo', description: 'Baja la inflamación alrededor de cada folículo. Un microbioma folicular sano es imprescindible para crear pelo nuevo.' }
+      { title: 'Más densidad capilar visible', description: 'Los LEDs rojos activan los folículos en fase de crecimiento. La mayoría de usuarios nota cambios hacia la semana 12 con uso diario.' },
+      { title: 'Útil tras estrés o parto', description: 'Acelera la recuperación capilar en caídas por cambios hormonales o momentos de estrés fuerte. El FIR mejora el riego sanguíneo local.' },
+      { title: 'Reduce inflamación del cuero cabelludo', description: 'Un cuero cabelludo menos inflamado produce cabello más sano. El FIR calma el microambiente folicular de forma no agresiva.' }
     ],
     useCases: ['caída estacional', 'pérdida de volumen', 'post-parto'],
     targetArea: 'cuero cabelludo',
@@ -120,8 +120,8 @@ export const products: Product[] = [
     category: 'Cuero Cabelludo',
     name: 'Vitaly Halo',
     originalName: 'eefit Luminous Energy Helmet',
-    tagline: 'Casco médico. Alopecia androgénica.',
-    description: 'Batería pesada contra la caída capilar severa. Combina FIR, luz roja 660nm e infrarroja 850nm con 272 diodos de alta irradiancia. Ocho minutos al día. Diseñado específicamente para fases iniciales y medias de alopecia androgénica. Estimulación clínica sin necesidad de fármacos orales.',
+    tagline: 'Casco capilar clínico. Alopecia androgénica.',
+    description: 'El casco premium de eefit integra 272 LEDs de 660nm y 850nm para tratar la alopecia androgénica desde casa. Es el dispositivo más potente del catálogo: irradiancia de grado médico, certificación CE, diseñado para usos prolongados. Alternativa no hormonal a los tratamientos convencionales.',
     price: 599,
     currency: 'EUR',
     orbColors: ['#FFB347', '#FF8C42', '#FFE0B2'],
@@ -135,9 +135,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      { title: 'Alarga el ciclo anágeno', description: 'Mantiene los folículos pilosos produciendo cabello más meses de su ciclo natural. Evita su miniaturización clínica irremediable.' },
-      { title: 'Aporte de nutrientes +25%', description: 'Su altísima irradiancia bombea sangre fresca y nutrientes al folículo. Repara zonas mal vascularizadas en la coronilla.' },
-      { title: 'Alternativa libre de fármacos', description: 'Consigue estimulación celular real, de grado médico clínico. Ahorras los efectos secundarios hormonales de muchos tratamientos.' }
+      { title: 'Mantiene tus folículos activos más tiempo', description: 'La luz roja prolonga la fase de crecimiento del pelo y retrasa la miniaturización del folículo, uno de los marcadores de la alopecia androgénica.' },
+      { title: 'Riego sanguíneo mejorado en zonas críticas', description: 'La combinación de 660nm y 850nm llega a capas profundas del cuero cabelludo. Aumenta la llegada de oxígeno y nutrientes en zonas con poca vascularización.' },
+      { title: 'Alternativa sin efectos hormonales', description: 'Muchos usuarios buscan opciones sin los efectos secundarios de tratamientos orales. La fotoestimulación actúa localmente, sin interferir con tu sistema hormonal.' }
     ],
     useCases: ['alopecia androgénica', 'retroceso capilar', 'pérdida severa'],
     targetArea: 'cuero cabelludo',
@@ -158,8 +158,8 @@ export const products: Product[] = [
     category: 'Pies',
     name: 'Vitaly Step',
     originalName: 'eefit Energy Support Room Shoes',
-    tagline: 'Zapatillas FIR. Circulación en reposo.',
-    description: 'La recuperación silenciosa de atletas y teletrabajadores. Estas zapatillas integran placas térmicas FIR sólidas bajo tu planta. Veinte minutos de uso relajado en casa. Generan vaso-dilatación periférica rápida, drenaje linfático sin movimiento y eliminan retención en tren inferior. No son de andar. Son de descansar.',
+    tagline: 'Zapatillas FIR. Pies descansados. Todo el día.',
+    description: 'Las zapatillas interiores de eefit integran emisores cerámicos de infrarrojo lejano en la plantilla. Las llevas puestas mientras trabajas, lees o descansas. El calor profundo FIR mejora la circulación de los pies y reduce la sensación de cansancio. Veinte minutos al día transforman cómo terminas la jornada.',
     price: 149,
     currency: 'EUR',
     orbColors: ['#5EEAD4', '#A7F3D0', '#ECFDF5'],
@@ -174,9 +174,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      { title: 'Alivio miofascial agudo', description: 'Descomprime fascias castigadas por correr o estar de pie. El calor radiante depura metabolitos musculares generados al caminar.' },
-      { title: 'Piernas ligeras como plumas', description: 'Al potenciar el retorno venoso periférico, mitigas radicalmente la retención de líquido en tobillos y gemelos.' },
-      { title: 'Sistema parasimpático ON', description: 'El calor plantar térmico es el interruptor físico del sueño. Baja tus niveles de cortisol antes de domir.' }
+      { title: 'Adiós a pies cansados por la noche', description: 'El FIR aumenta el riego sanguíneo periférico en las extremidades inferiores. Notas menos pesadez después de ocho horas de pie.' },
+      { title: 'Calor profundo sin electricidad', description: 'La cerámica funcional absorbe el calor que ya emites y lo devuelve como radiación terapéutica. No necesitan enchufe, no se calientan de más.' },
+      { title: 'Ideal en invierno y en trabajos de pie', description: 'Particularmente útil si tienes tendencia a manos y pies fríos, o si pasas muchas horas en posturas estáticas.' }
     ],
     useCases: ['post-entreno', 'pie cansado', 'sedentarismo'],
     targetArea: 'plantar',
@@ -197,8 +197,8 @@ export const products: Product[] = [
     category: 'Núcleo',
     name: 'Vitaly Core',
     originalName: 'eefit Chi Vitaliser 2',
-    tagline: 'Vitalización celular. 9 min al día.',
-    description: 'El motor central del ecosistema. Un bloque macizo de diodos emisores de campo FIR de alta densidad. Nueve minutos al día bastan. Lo aplicas directamente en dolor articular sordo (cervicales, lumbares, rotuliano). Lo usas a media distancia cada mañana para reglar ritmos circadianos. Potencia pura.',
+    tagline: 'Panel de sobremesa. Nueve minutos. Cuerpo completo.',
+    description: 'El panel de sobremesa de eefit emite a cuatro longitudes de onda simultáneas (630, 660, 830, 850nm) a través de 200 LEDs de alta irradiancia. Es el dispositivo más versátil del catálogo: rostro, cuello, articulaciones, musculatura. Nueve minutos de sesión, calibrados para no pasarse de dosis.',
     price: 459,
     currency: 'EUR',
     orbColors: ['#FF6FD8', '#FFB8E6', '#FFE4F4'],
@@ -212,9 +212,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      { title: 'Sincroniza tus circadianos', description: 'Exposición ocular indirecta matutina (sin radiación UV). Le grita a tus células que arranquen su ciclo metabólico diario.' },
-      { title: 'Alivio de dolor ortopédico', description: 'Por saturación de 200 diodos, el FIR profundo desinflama las facetas vertebrales y articulaciones de carga grandes (rodilla, sacro).' },
-      { title: 'Regeneración post-entreno ATP', description: 'Recupera tus roturas de fibra post-gimnasio forzando una mayor producción enzimática de ATP directamente en esa región corporal.' }
+      { title: 'Sirve para casi todo', description: 'Trabaja arrugas faciales, dolor articular, recuperación muscular post-entreno, calidad de sueño. Un solo dispositivo, cuatro longitudes de onda, múltiples aplicaciones.' },
+      { title: 'Recuperación muscular más rápida', description: 'Estudios en deportistas muestran reducción del daño muscular y aceleración de recuperación entre uno y tres días cuando se aplica post-entreno.' },
+      { title: 'Nueve minutos, dosis calibrada', description: 'No es más tiempo, más efecto. La sesión de nueve minutos entrega exactamente la dosis óptima. Pasarse puede revertir el efecto.' }
     ],
     useCases: ['biohacking matutino', 'recuperación deportiva', 'sueño'],
     targetArea: 'cuerpo completo',
@@ -235,8 +235,8 @@ export const products: Product[] = [
     category: 'Portátil',
     name: 'Vitaly Lite',
     originalName: 'eefit Lite Premium',
-    tagline: 'LED de mano. Terapia puntual.',
-    description: 'Potencia FIR ultraconcentrada dentro de un puntero de aluminio quirúrgico. Lo llevas en el bolsillo. Lo aplicas un minuto exacto contra espinillas molestas, aftas bucales dolorosas o ese tendón inflamado por jugar padel. Tecnología de alto impacto puntual libre de baterías monstruosas.',
+    tagline: 'LED de mano. Terapia puntual. Donde la necesites.',
+    description: 'El dispositivo portátil de eefit concentra la tecnología FIR y LED rojo en un formato tamaño móvil que cabe en el cajón de la mesilla. Para aplicar sobre zonas concretas: una cicatriz, un dolor localizado, una mancha. Tres minutos por zona. Es el complemento perfecto al dispositivo principal del ecosistema.',
     price: 189,
     currency: 'EUR',
     orbColors: ['#4A9FFF', '#7DD3FC', '#DBEAFE'],
@@ -251,9 +251,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      { title: 'Línea de fuego milimétrica', description: 'Apuntas a la lesión concreta in vivo. El ratio vatios/cm2 aquí supera paneles grandes porque lo pegas literalmente contra tu piel.' },
-      { title: 'Reanimador dérmico S.O.S', description: 'Espinilla enorme o herpes visible antes de evento. Lo desinflama y cauteriza el proceso en tiempo récord.' },
-      { title: 'Diseño ultra transportable', description: 'Te lo llevas en bolso. Ideal para contracturas cervicales sobremeseras o síndrome túnel carpiano trabajando nómada.' }
+      { title: 'Terapia focalizada sobre un punto', description: 'Ideal para aplicar sobre zonas pequeñas donde necesitas estímulo concentrado: cicatrices, articulaciones menores, manchas.' },
+      { title: 'Fácil de llevar contigo', description: 'Tamaño bolsillo, batería 180 minutos, USB-C. Entra en la maleta del deporte, del trabajo, del viaje.' },
+      { title: 'Complemento del Vitaly Core', description: 'Muchos usuarios usan el Core para sesiones generales y el Lite para retoques puntuales. Los dos se entienden perfectamente.' }
     ],
     useCases: ['labios', 'frente', 'codo y muñeca', 'viajes'],
     targetArea: 'zonas focales',
@@ -274,8 +274,8 @@ export const products: Product[] = [
     category: 'Cabello',
     name: 'Vitaly Brush',
     originalName: 'eefit Energy Power Hair Brush',
-    tagline: 'Cepillo FIR. Cada pasada trata.',
-    description: 'Hemos combinado cinco años de I+D FIR con un gesto preexistente: pasarte el peine de toda la vida. Nódulos suaves de silicona integrados emiten campo FIR microvibracional cada vez que te cepillas el cabello. Cinco minutos diarios sin detener tu rutina actual mejora el riego capilar y sebo residual.',
+    tagline: 'Cepillo FIR. Rutina capilar potenciada.',
+    description: 'El cepillo de eefit incorpora cerámica emisora de infrarrojo lejano y liberación de iones negativos en las púas. No hace peinados milagrosos. Hace que una cosa que ya haces cada mañana sume beneficio capilar real. Cinco minutos de cepillado se convierten en cinco minutos de terapia pasiva.',
     price: 129,
     currency: 'EUR',
     orbColors: ['#FDB022', '#FEF3C7', '#FFFBEB'],
@@ -290,9 +290,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      { title: 'Domestica tu manto hídrico capilar', description: 'El haz Iónico/FIR cierra la cutícula del cabello oxidada. El roce natural lubrifica y elimina frizz molesto.' },
-      { title: 'Costo de oportunidad cero minutos', description: 'Peinarte por las mañanas ya formaba parte de tu horario. Ahora introduces prevención sin dedicarle extra rutinas raras.' },
-      { title: 'Vibrato de tensión intracraneal', description: 'Activa el motor háptico de masaje. Libera las fascias superficiales del cráneo saturadas por tensiones mandibulares nerviosas.' }
+      { title: 'Brillo y frizz controlado', description: 'Los iones negativos cierran la cutícula del pelo. Menos frizz, más brillo natural, sin productos térmicos agresivos.' },
+      { title: 'Rutina que ya tienes, ahora con más utilidad', description: 'Si ya te cepillas el pelo cada mañana, ahora sumas estímulo FIR al cuero cabelludo sin añadir un paso más a tu día.' },
+      { title: 'Masaje capilar mejorado', description: 'El diseño de las púas distribuye la presión y estimula la microcirculación del cuero cabelludo. Relajante y útil a la vez.' }
     ],
     useCases: ['rutina de belleza diaria', 'estrés capilar'],
     targetArea: 'cuero cabelludo',
@@ -313,8 +313,8 @@ export const products: Product[] = [
     category: 'Cervical',
     name: 'Vitaly Neck',
     originalName: 'eefit Energy Neck Comfort',
-    tagline: 'Collar infrarrojo. Tensión cervical.',
-    description: 'Sesenta diodos FIR inyectados sobre goma clínica flexible acunan tu cuello tensionado. Diez minutos cada tarde revierte el síndrome biomecánico del trabajador digital. El haz radiante afloja mecánicamente nudos fibróticos crónicos. Póntelo contestando emails e ignóralo conscientemente un rato.',
+    tagline: 'Collar FIR. Tensión cervical. Quince minutos.',
+    description: 'El collar anatómico de eefit aplica infrarrojo lejano directamente sobre la zona cervical, donde más tensión acumulas si trabajas con pantallas. Forma ergonómica en silicona médica, sesiones de quince minutos, resultado percibido inmediato. Es el producto con más reviews positivas del catálogo para quien tiene tensión crónica de cuello.',
     price: 179,
     currency: 'EUR',
     orbColors: ['#A78BFA', '#E9D5FF', '#F3EBFF'],
@@ -329,9 +329,9 @@ export const products: Product[] = [
       warranty: '24 meses'
     },
     benefits: [
-      { title: 'Erradica el cuello de texto', description: 'Invertimos el espasmo cervicodorsal provocado horas enteras bajando agachados la cabeza escrolleando un móvil diminuto.' },
-      { title: 'Calor profundo restaurador', description: 'Las ondas FIR causan una vaso-expansión calida silenciosa. Alimento biológico para recuperar fascículos en permanente contractura severa.' },
-      { title: 'Anatomía resiliente al doblez', description: 'Goma moldeable con "memory retain". Se abraza y ancla ergonómico a físicos gruesos musculados o cuellos extremadamente cisnes finos.' }
+      { title: 'Alivio rápido de tensión cervical', description: 'El FIR penetra en la musculatura profunda del cuello. Muchos usuarios reportan alivio desde la primera sesión.' },
+      { title: 'Forma ergonómica, no se mueve', description: 'Diseñado por fisioterapeutas, se ajusta a la curvatura cervical sin presionar carótida ni tráquea.' },
+      { title: 'Ideal si trabajas con pantalla', description: 'Diez horas al día de portátil generan tensión acumulada. Quince minutos al final del día reducen dolor cervical y dolores de cabeza tensionales.' }
     ],
     useCases: ['cuello de texto', 'estrés de oficina', 'tensión trapecios'],
     targetArea: 'cervicales y trapecio alto',

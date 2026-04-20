@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, ReactNode } from 'react';
 import { motion, useInView } from 'motion/react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import CountUp from 'react-countup';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -124,32 +125,21 @@ export const SplitText = ({ text, className = '', as: Component = 'div' }: { tex
 };
 
 export const NumberTicker = ({ value, suffix = '', className = '' }: { value: number | string, suffix?: string, className?: string }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.3 });
-  const [count, setCount] = useState(0);
   const target = typeof value === 'string' ? parseFloat(value) : value;
 
-  useEffect(() => {
-    if (!isInView) return;
-    let start = 0;
-    const duration = 2000;
-    const startTime = performance.now();
-    
-    const animate = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      const easeOut = 1 - Math.pow(1 - progress, 3);
-      if (progress < 1) {
-        setCount(Math.floor(easeOut * target));
-        requestAnimationFrame(animate);
-      } else {
-        setCount(target);
-      }
-    };
-    requestAnimationFrame(animate);
-  }, [isInView, target]);
-
-  return <span ref={ref} className={className}>{count}{suffix}</span>;
+  return (
+    <span className={className}>
+      <CountUp
+        start={0}
+        end={target}
+        duration={2.5}
+        enableScrollSpy={true}
+        scrollSpyOnce={true}
+        separator=","
+      />
+      {suffix}
+    </span>
+  );
 };
 
 export const CustomCursor = () => {

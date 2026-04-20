@@ -140,6 +140,12 @@ export const HomePage = () => {
             </Link>
           ))}
         </div>
+        
+        <div className="mt-12 flex justify-center">
+          <Link to="/productos">
+            <MagneticButton variant="ghost">Ver todos los productos →</MagneticButton>
+          </Link>
+        </div>
       </section>
 
       {/* 5.5 TEASER COMPARADOR */}
@@ -330,6 +336,45 @@ export const HomePage = () => {
         </div>
       </section>
 
+      {/* 8.7 RESEARCH PARTNERS */}
+      <section className="py-[100px] border-y border-[var(--theme-color-border)] bg-[#F5F3ED] overflow-hidden relative z-10 flex flex-col items-center">
+        <div className="eyebrow mb-8 text-center text-primary">RESEARCH PARTNERS</div>
+        <h2 className="text-[32px] md:text-[40px] font-medium tracking-tight mb-12 text-center max-w-[600px] leading-tight">
+          La tecnología oficial de las principales instituciones académicas asiáticas.
+        </h2>
+        
+        {/* Infinite Carousel */}
+        <div className="w-full relative h-[140px] flex items-center overflow-hidden group">
+          {/* Gradient Fades for Smooth Illusion */}
+          <div className="absolute top-0 bottom-0 left-0 w-[100px] bg-gradient-to-r from-[#F5F3ED] to-transparent z-10" />
+          <div className="absolute top-0 bottom-0 right-0 w-[100px] bg-gradient-to-l from-[#F5F3ED] to-transparent z-10" />
+          
+          <motion.div 
+            className="flex gap-6 items-center whitespace-nowrap absolute"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              duration: 25,
+              ease: "linear",
+              repeat: Infinity,
+            }}
+            style={{ x: "0%" }}
+          >
+            {/* We duplicate the array 2 times to ensure seamless infinite scrolling */}
+            {[...Array(2)].map((_, i) => (
+              <React.Fragment key={i}>
+                <PartnerCard acronym="CUHK" name="Chinese University Hong Kong" type="Medical Faculty" />
+                <PartnerCard acronym="MUST" name="Macau University S&T" type="Medical Faculty" />
+                <PartnerCard acronym="NBL" name="Dr. Neher's Biophysics Lab" type="Biophysics Research" />
+                <PartnerCard acronym="SKL" name="State Key Laboratory" type="Quality Research" />
+                <PartnerCard acronym="HKIM" name="HK Institute of Medicine" type="Clinical Trials" />
+                <PartnerCard acronym="SCM" name="School of Chinese Medicine" type="TCM Research" />
+                <PartnerCard acronym="YTR" name="Yubo Tech R&D Center" type="Engineering" />
+              </React.Fragment>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
       {/* 9. TESTIMONIAL + PRENSA */}
       <section className="py-32 px-4 bg-[var(--theme-color-base)] flex flex-col items-center justify-center text-center z-10 relative">
         <div className="flex flex-wrap justify-center gap-8 md:gap-16 text-[12px] md:text-[14px] tracking-[0.3em] text-[#6B6A66] mb-24 font-mono">
@@ -363,3 +408,13 @@ export const HomePage = () => {
     </div>
   );
 };
+
+const PartnerCard = ({ acronym, name, type }: { acronym: string, name: string, type: string }) => (
+  <div className="flex flex-col items-center justify-center w-[200px] h-full shrink-0 group-hover:opacity-50 hover:!opacity-100 transition-opacity duration-500 cursor-default">
+    <div className="w-[56px] h-[56px] rounded-full bg-white border border-[var(--theme-color-border)] flex items-center justify-center mb-3 shadow-[0_4px_12px_rgba(10,9,6,0.03)] text-[14px] font-medium tracking-wider">
+      {acronym}
+    </div>
+    <div className="text-[13px] font-medium mb-1 text-center truncate w-full px-2">{name}</div>
+    <div className="text-[11px] text-[var(--theme-color-secondary)] uppercase tracking-wider text-center">{type}</div>
+  </div>
+);

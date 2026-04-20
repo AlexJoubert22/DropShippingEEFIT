@@ -69,9 +69,9 @@ export const Nav = () => {
           >
             {`Carrito (${totalItems})`}
           </motion.button>
-          <button className="rounded-full bg-[#FF4D2E] text-[#FFFFFF] px-[18px] py-[8px] text-[12px] font-medium transition-colors hover:bg-[#E63D20] tracking-wide hidden sm:block">
-            Acceder
-          </button>
+          <Link to="/productos" className="rounded-full bg-[#FF4D2E] text-[#FFFFFF] px-[18px] py-[8px] text-[12px] font-medium transition-colors hover:bg-[#E63D20] tracking-wide hidden sm:block">
+            Comprar
+          </Link>
         </div>
       </motion.nav>
 
@@ -106,9 +106,9 @@ export const Nav = () => {
                 <Link to="/diario" onClick={() => setMobileMenuOpen(false)}>Diario</Link>
               </div>
               <div className="mt-auto p-6 border-t border-[rgba(10,9,6,0.08)]">
-                <button className="w-full rounded-full bg-[#FF4D2E] text-[#FFFFFF] py-4 text-[14px] font-medium transition-colors hover:bg-[#E63D20] tracking-wide">
-                  Acceder
-                </button>
+                <Link to="/productos" className="w-full flex rounded-full bg-[#FF4D2E] text-[#FFFFFF] py-4 text-[14px] font-medium transition-colors hover:bg-[#E63D20] tracking-wide justify-center">
+                  Comprar
+                </Link>
               </div>
             </motion.div>
           </div>
