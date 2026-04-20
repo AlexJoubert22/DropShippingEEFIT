@@ -238,12 +238,22 @@ export const Quiz = ({ isOpen, onClose }: QuizProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[200] bg-[#FAF8F2] flex flex-col"
+          className="fixed inset-0 z-[200] flex flex-col overflow-hidden bg-[#F5F3ED]"
           ref={modalRef}
-          style={{ background: 'var(--theme-color-base)' }}
         >
+          {/* ORB FONDO GIGANTE CAMBIANTE */}
+          <div className="absolute -bottom-[200px] -right-[200px] w-[800px] h-[800px] pointer-events-none opacity-50 transition-all duration-500 ease-in-out" style={{ filter: 'blur(120px) saturate(0.8)' }}>
+            <Orb colors={
+              step === 0 ? ['#FF6B4A', '#FFB4A8', '#FFE8D6'] : 
+              step === 1 ? ['#5EEAD4', '#A7F3D0', '#ECFDF5'] : 
+              step === 2 ? ['#FDB022', '#FEF3C7', '#FFFBEB'] : 
+              step === 3 ? ['#A78BFA', '#E9D5FF', '#F3EBFF'] : 
+              recommendations.length > 0 ? recommendations[0].orbColors : ['#FF6B4A', '#FFB4A8', '#FFE8D6']
+            } size="100%" />
+          </div>
+
           {/* HEADER */}
-          <header className="h-[72px] flex items-center justify-between px-6 border-b border-[rgba(10,9,6,0.08)] flex-shrink-0 relative bg-[var(--theme-color-base)]">
+          <header className="h-[72px] flex items-center justify-between px-6 border-b border-[rgba(10,9,6,0.08)] flex-shrink-0 relative z-10">
             <div className="text-[13px] font-medium tracking-[0.2em] relative z-10 w-auto whitespace-nowrap">VITALY · TEST</div>
             
             <div className="absolute left-1/2 -translate-x-1/2 flex flex-row gap-1 sm:gap-2 items-center z-10">
@@ -355,7 +365,7 @@ export const Quiz = ({ isOpen, onClose }: QuizProps) => {
                                   onClick={() => { onClose(); navigate(`/producto/${p.slug}`); }}
                                   className="w-full rounded-full border border-transparent bg-[#FF4D2E] text-white py-3 text-[14px] font-medium hover:bg-[#E63D20] transition-colors"
                                 >
-                                  Ver ficha →
+                                  Ver detalles →
                                 </button>
                                 <button
                                   onClick={() => {

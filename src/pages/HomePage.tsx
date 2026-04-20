@@ -19,14 +19,14 @@ export const HomePage = () => {
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             className="eyebrow mb-[24px] tracking-[0.14em]"
           >
-            Light Therapy × 2026
+            DISTRIBUIDOR OFICIAL eefit · 2026
           </motion.div>
           <SplitText text="El calor que tu cuerpo reconoce." as="h1" className="text-[clamp(44px,6vw,84px)] font-medium tracking-tight leading-[0.95] [text-wrap:balance] max-w-[1000px] justify-center mb-[24px]" />
           <motion.p 
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6, duration: 1 }}
             className="text-[18px] text-[var(--theme-color-secondary)] max-w-[540px] leading-[1.6] mb-[32px]"
           >
-            Ocho dispositivos basados en evidencia física y calor radiante. Una marca. Resultados medibles desde la primera semana.
+            Distribuidor oficial de eefit en Europa. Ocho dispositivos de terapia FIR respaldados por más de veinte años de investigación publicada. Fabricados en Asia, garantizados en España.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.8 }}
@@ -38,7 +38,7 @@ export const HomePage = () => {
               </MagneticButton>
               <Link to="/tecnologia">
                 <MagneticButton variant="ghost" onClick={() => {}}>
-                  Cómo funciona
+                  Ver la ciencia
                 </MagneticButton>
               </Link>
             </div>
@@ -58,9 +58,9 @@ export const HomePage = () => {
       {/* 3. MARQUEE INFINITO */}
       <div className="h-[60px] border-y border-[var(--theme-color-border)] flex items-center overflow-hidden bg-base relative z-10">
         <div className="whitespace-nowrap flex text-[13px] tracking-wide text-[var(--theme-color-secondary)] relative w-[200%]">
-          <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ ease: "linear", duration: 30, repeat: Infinity }} className="flex">
-            <span className="px-[20px]">FIR + LEDs cromáticos · Prueba 60 días · Envío 24h España peninsular · 2 años de garantía · Diseñado en Valencia · Fabricado en Europa · Dosimetría real · </span>
-            <span className="px-[20px]">FIR + LEDs cromáticos · Prueba 60 días · Envío 24h España peninsular · 2 años de garantía · Diseñado en Valencia · Fabricado en Europa · Dosimetría real · </span>
+          <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ ease: "linear", duration: 40, repeat: Infinity }} className="flex">
+            <span className="px-[20px]">Distribuidor oficial eefit en Europa · Envío 24h desde Valencia · Garantía 24 meses · Prueba 60 días · Soporte en español · Productos originales · Tecnología FIR publicada en peer-review · Distribuidor oficial eefit · </span>
+            <span className="px-[20px]">Distribuidor oficial eefit en Europa · Envío 24h desde Valencia · Garantía 24 meses · Prueba 60 días · Soporte en español · Productos originales · Tecnología FIR publicada en peer-review · Distribuidor oficial eefit · </span>
           </motion.div>
         </div>
       </div>
@@ -127,7 +127,8 @@ export const HomePage = () => {
                 
                 <div className="relative z-10 flex flex-col transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-2">
                   <div className="eyebrow text-[11px] uppercase tracking-[0.14em] mb-2">{prod.number} · {prod.category}</div>
-                  <h3 className="text-[24px] font-medium tracking-tight mb-2 text-primary">{prod.name}</h3>
+                  <h3 className="text-[24px] font-medium tracking-tight mb-0.5 text-primary">{prod.name}</h3>
+                  <div className="text-[11px] uppercase tracking-[0.1em] text-[var(--theme-color-secondary)] mb-2">BY EEFIT</div>
                   <p className="text-[14px] text-[var(--theme-color-secondary)] mb-4 line-clamp-2">{prod.description}</p>
                   <div className="text-[18px] font-medium text-[var(--theme-color-accent)]">€{prod.price}</div>
                 </div>
@@ -180,6 +181,48 @@ export const HomePage = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* 5.5 NUESTRA ALIANZA (EEFIT) */}
+      <section className="min-h-screen flex flex-col md:flex-row border-y border-[var(--theme-color-border)] z-10 relative">
+        <div className="w-full md:w-1/2 p-8 md:p-20 flex flex-col justify-center bg-[var(--theme-color-base)]">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <div className="eyebrow mb-8">ALIANZA</div>
+            <h2 className="text-[36px] md:text-[48px] font-medium tracking-tight mb-8 leading-[1.05] max-w-[500px]">
+              Los productos originales de eefit. La primera vez en Europa.
+            </h2>
+            <p className="text-[17px] leading-[1.6] text-[var(--theme-color-secondary)] max-w-[480px] mb-12">
+              Vitaly es el distribuidor oficial en Europa de eefit, la compañía asiática pionera en tecnología de infrarrojo lejano (FIR). Fundada hace más de dos décadas, eefit colabora con la Universidad China de Hong Kong y la Universidad de Ciencia y Tecnología de Macao en investigación peer-reviewed publicada en revistas como Pharmacological Research y NeuroMolecular Medicine. Tú compras la tecnología original. Nosotros aseguramos la llegada, el soporte y la garantía europea.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <span className="text-[11px] font-medium tracking-wider uppercase border border-[rgba(10,9,6,0.1)] px-3 py-1.5 rounded-full text-primary">Producto 100% original eefit</span>
+              <span className="text-[11px] font-medium tracking-wider uppercase border border-[rgba(10,9,6,0.1)] px-3 py-1.5 rounded-full text-primary">Distribución exclusiva Europa</span>
+              <span className="text-[11px] font-medium tracking-wider uppercase border border-[rgba(10,9,6,0.1)] px-3 py-1.5 rounded-full text-primary">Garantía y soporte en España</span>
+            </div>
+          </motion.div>
+        </div>
+        <div className="w-full md:w-1/2 bg-[#0A0906] p-8 md:p-20 flex flex-col justify-center items-center text-center text-[#FAF8F2]">
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="w-full max-w-[400px]">
+            <div className="eyebrow !text-[#FAF8F2] opacity-60 mb-16">eefit en cifras</div>
+            <div className="flex flex-col gap-16">
+              <div>
+                <div className="text-[64px] font-medium leading-none text-[#FF4D2E] mb-2"><NumberTicker value={20} suffix="+" /></div>
+                <div className="text-[15px] opacity-80">años de investigación FIR</div>
+              </div>
+              <div>
+                <div className="text-[64px] font-medium leading-none text-[#FF4D2E] mb-2"><NumberTicker value={5} /></div>
+                <div className="text-[15px] opacity-80">papers publicados peer-reviewed<br/>2020-2025</div>
+              </div>
+              <div>
+                <div className="text-[64px] font-medium leading-none text-[#FF4D2E] mb-2"><NumberTicker value={2} /></div>
+                <div className="text-[15px] opacity-80">universidades asociadas en<br/>Hong Kong y Macao</div>
+              </div>
+            </div>
+            <div className="mt-20 text-[11px] opacity-40 font-mono">
+              Fuente: eefit.com/scientific-research-papers
+            </div>
+          </motion.div>
         </div>
       </section>
 

@@ -85,6 +85,10 @@ export const TecnologiaPage = () => {
                 <div className="text-[var(--theme-color-accent)] text-[24px]">✦</div>
                 <p className="text-primary font-medium text-[16px] leading-[1.6]">No es calor radiante convencional. No es láser. No es luz visible. Es resonancia molecular en la misma banda que emite tu propio cuerpo.</p>
               </div>
+
+              <p className="mt-4">
+                Los dispositivos Vitaly son fabricados por eefit (Yubo Technology Limited, Hong Kong), compañía pionera con más de veinte años de desarrollo en tecnología FIR. Su laboratorio colabora con la Escuela de Medicina China de la Universidad China de Hong Kong y con el Dr. Neher's Biophysics Laboratory de la Universidad de Ciencia y Tecnología de Macao. Los papers que encontrarás en la sección de Ciencia están firmados por su equipo de I+D liderado por el Prof. Nick Wang.
+              </p>
             </div>
           </section>
 

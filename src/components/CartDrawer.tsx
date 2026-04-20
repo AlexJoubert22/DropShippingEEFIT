@@ -36,6 +36,7 @@ export const CartDrawer = () => {
               {items.length === 0 ? (
                 <div className="h-full flex flex-col items-center justify-center text-[var(--theme-color-secondary)]">
                   <p>Tu carrito está vacío.</p>
+                  <p className="mt-2 text-[13px] opacity-80">La terapia de infrarrojo lejano te espera.</p>
                 </div>
               ) : (
                 <div className="flex flex-col gap-6">

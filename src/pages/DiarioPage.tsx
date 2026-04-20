@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { SplitText, Orb } from '../components/Shared';
 
@@ -55,8 +55,22 @@ const ARTICLES = [
 ];
 
 export const DiarioPage = () => {
+  const [selectedArticle, setSelectedArticle] = useState<any>(null);
+
+  useEffect(() => {
+    if (selectedArticle) {
+      document.body.style.overflow = 'hidden';
+      const handleEsc = (e: KeyboardEvent) => e.key === 'Escape' && setSelectedArticle(null);
+      window.addEventListener('keydown', handleEsc);
+      return () => {
+        document.body.style.overflow = 'auto';
+        window.removeEventListener('keydown', handleEsc);
+      };
+    }
+  }, [selectedArticle]);
+
   return (
-    <div className="bg-[var(--theme-color-base)] min-h-screen relative z-10 flex flex-col pb-24">
+    <div className="bg-[var(--theme-color-base)] min-h-screen relative z-10 flex flex-col pb-24 border-t border-[rgba(10,9,6,0.08)]">
       <div className="max-w-[1280px] mx-auto px-[clamp(24px,5vw,80px)] w-full pt-[100px] flex-1">
         {/* BREADCRUMB */}
       <div className="flex items-center gap-2 text-[12px] font-medium tracking-wide mb-12">
@@ -116,6 +130,7 @@ export const DiarioPage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
             key={article.id}
+            onClick={() => setSelectedArticle(article)}
             className="group h-[360px] flex flex-col border border-[rgba(10,9,6,0.08)] rounded-[20px] overflow-hidden bg-white hover:-translate-y-1 hover:border-[rgba(10,9,6,0.15)] hover:shadow-lg transition-all duration-400 cursor-pointer"
           >
             <div className="h-[55%] w-full bg-[#FAF8F2] relative overflow-hidden flex items-center justify-center rounded-t-[20px] p-6">
@@ -164,6 +179,58 @@ export const DiarioPage = () => {
         </div>
       </div>
       </div>
+
+      <AnimatePresence>
+        {selectedArticle && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6">
+            <motion.div 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 0.4 }} 
+              exit={{ opacity: 0 }}
+              className="absolute inset-0 bg-[#0A0906]"
+              onClick={() => setSelectedArticle(null)}
+            />
+            
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+              className="relative bg-[#F5F3ED] w-full max-w-[720px] max-h-[85vh] rounded-[24px] shadow-2xl flex flex-col overflow-hidden"
+            >
+              <div className="absolute -bottom-[400px] -right-[400px] w-[800px] h-[800px] pointer-events-none opacity-20" style={{ filter: 'blur(120px) saturate(0.8)' }}>
+                 <Orb colors={selectedArticle.colors} size="100%" />
+              </div>
+
+              <div className="sticky top-0 bg-[#F5F3ED]/90 backdrop-blur-md px-6 py-4 flex items-center justify-between border-b border-[rgba(10,9,6,0.08)] z-20">
+                <div className="flex gap-4 items-center">
+                  <span className="text-[10px] font-medium uppercase tracking-[0.1em] px-2 py-1 bg-[#E5E1D8] text-secondary rounded-sm">
+                    {selectedArticle.category}
+                  </span>
+                  <span className="text-[13px] font-medium text-secondary">{selectedArticle.readTime}</span>
+                </div>
+                <button onClick={() => setSelectedArticle(null)} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[rgba(10,9,6,0.05)] transition-colors text-xl">
+                  ×
+                </button>
+              </div>
+
+              <div className="p-6 md:p-10 flex flex-col gap-8 flex-1 overflow-y-auto z-10">
+                <h1 className="text-[32px] md:text-[40px] font-medium leading-[1.05] tracking-tight">{selectedArticle.title}</h1>
+                <p className="text-[18px] text-secondary leading-relaxed">
+                  {selectedArticle.summary}
+                </p>
+                
+                <div className="bg-white border border-[rgba(10,9,6,0.08)] p-12 rounded-[16px] text-center flex flex-col items-center justify-center my-8 text-secondary">
+                  <p className="mb-4 text-[15px]">El contenido completo de este artículo está en desarrollo.</p>
+                  <button onClick={() => setSelectedArticle(null)} className="text-[13px] font-medium underline underline-offset-4 hover:text-primary">
+                    Volver al diario
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

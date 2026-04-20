@@ -118,7 +118,8 @@ export const ProductPage = () => {
 
           <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.1 }}>
             <div className="eyebrow text-[11px] uppercase tracking-[0.14em] mb-4">{product.number} · {product.category}</div>
-            <h1 className="text-[56px] font-medium tracking-tight mb-4 leading-[0.95] text-wrap-balance">{product.name}</h1>
+            <h1 className="text-[56px] font-medium tracking-tight mb-2 leading-[0.95] text-wrap-balance">{product.name}</h1>
+            <div className="text-[13px] text-[var(--theme-color-secondary)] italic mb-6">Producto oficial · {(product as any).originalName}</div>
             <p className="text-[18px] text-[var(--theme-color-secondary)] mb-8 line-clamp-2 leading-relaxed">{product.tagline}</p>
             
             <div className="flex items-baseline gap-4 mb-10">
@@ -136,9 +137,9 @@ export const ProductPage = () => {
               
               <button 
                 onClick={handleAddToCart}
-                className="flex-1 bg-[#FF4D2E] text-[#FFFFFF] rounded-full h-[56px] text-[15px] font-medium hover:bg-[#E63D20] transition-colors flex items-center justify-center tracking-wide"
+                className="flex-1 bg-[#FF4D2E] text-[#FFFFFF] rounded-full h-[56px] text-[15px] font-medium hover:bg-[#E63D20] transition-colors flex items-center justify-center tracking-wide cursor-pointer"
               >
-                Añadir al carrito · €{product.price * quantity}
+                Añadir · €{product.price * quantity}
               </button>
             </div>
             
